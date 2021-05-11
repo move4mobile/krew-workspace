@@ -30,6 +30,7 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
+    "@nrwl/angular": "^12.2.0",
     "@nrwl/cli": "12.2.0",
     "@nrwl/tao": "12.2.0",
     "@nrwl/workspace": "12.2.0",
