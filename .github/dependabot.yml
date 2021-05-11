@@ -7,7 +7,7 @@ updates:
       # Check the npm registry for updates at 4am UTC
       interval: 'daily'
       time: '04:00'
-    open-pull-requests-limit: 20
+    open-pull-requests-limit: 13
     target-branch: 'main'
     labels:
       - 'dependencies'
