@@ -36,7 +36,7 @@
       "projectType": "application",
       "root": "apps/myapp",
       "sourceRoot": "apps/myapp/src",
-      "prefix": "myorg",
+      "prefix": "krew",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -101,10 +101,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/myapp/src/**/*.ts",
-              "apps/myapp/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/myapp/src/**/*.ts", "apps/myapp/src/**/*.html"]
           }
         },
         "test": {
