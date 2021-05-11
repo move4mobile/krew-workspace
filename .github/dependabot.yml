@@ -13,11 +13,11 @@ updates:
       - 'dependencies'
     ignore:
       - dependency-name: '@nrwl/*'
-        # For @nrwl packages, ignore all new major version > 11
+        # For @nrwl packages, ignore all new major version > 12
         versions: ['>12.x']
 
       - dependency-name: '@angular/*'
-        # For @angular packages, ignore all new major version > 11
+        # For @angular packages, ignore all new major version > 12
         versions: ['>12.x']
 
       # For cypress, ignore all updates. Do manually instead.
