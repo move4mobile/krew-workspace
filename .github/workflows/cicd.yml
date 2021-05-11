@@ -36,7 +36,7 @@ jobs:
           CI: true
 
       - name: Build artifact
-        run: npm run build
+        run: npm run build default-ui
 
       - name: Archive artifact
         uses: actions/upload-artifact@v2
