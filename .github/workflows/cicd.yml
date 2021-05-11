@@ -17,17 +17,17 @@ jobs:
           fetch-depth: '0'
           persist-credentials: false
 
-      - name: Use Node.js 12
+      - name: Use Node.js 16
         uses: actions/setup-node@v2-beta
         with:
-          node-version: 12
+          node-version: 16
 
       - name: Check cache
         uses: actions/cache@v2
         id: node-cache # use this to check for `cache-hit` (`steps.node-cache.outputs.cache-hit != 'true'`)
         with:
           path: '**/node_modules'
-          key: ubuntu-latest-node-modules-12-${{ hashFiles('**/package-lock.json') }}
+          key: ubuntu-latest-node-modules-16-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install node modules
         if: steps.node-cache.outputs.cache-hit != 'true'
