@@ -46,10 +46,20 @@
             "main": "apps/myapp/src/main.ts",
             "polyfills": "apps/myapp/src/polyfills.ts",
             "tsConfig": "apps/myapp/tsconfig.app.json",
-            "aot": true,
-            "assets": ["apps/myapp/src/favicon.ico", "apps/myapp/src/assets"],
-            "styles": ["apps/myapp/src/styles.scss"],
-            "scripts": []
+            "assets": [
+              "apps/myapp/src/favicon.ico",
+              "apps/myapp/src/assets"
+            ],
+            "styles": [
+              "apps/myapp/src/styles.scss"
+            ],
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -101,12 +111,17 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/myapp/src/**/*.ts", "apps/myapp/src/**/*.html"]
+            "lintFilePatterns": [
+              "apps/myapp/src/**/*.ts",
+              "apps/myapp/src/**/*.html"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/myapp"],
+          "outputs": [
+            "coverage/apps/myapp"
+          ],
           "options": {
             "jestConfig": "apps/myapp/jest.config.js",
             "passWithNoTests": true
@@ -135,7 +150,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/myapp-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/myapp-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
