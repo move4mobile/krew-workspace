@@ -45,15 +45,15 @@ jobs:
           path: dist
 
   CreatePreviewSvelteApp:
-    name: Generate Preview URL (krew-ui-svelte)
+    name: Preview URL - Svelte app
     if: "github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'app: krew-ui-svelte')"
     needs: [Build]
     runs-on: ubuntu-latest
-    env:
-      app_id: ${{github.event.number}}-svelte
     environment:
       name: Preview Channels
       url: https://example.com
+    env:
+      app_id: svelte-PR${{github.event.number}}
     steps:
       # - name: Dump GitHub context
       #   env:
@@ -81,12 +81,14 @@ jobs:
           channelId: ${{ env.app_id }}
 
   CreatePreviewAngularApp:
-    name: Generate Preview URL (krew-ui-angular)
+    name: Preview URL - Angular app
     if: "github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'app: krew-ui-angular')"
     needs: [Build]
     runs-on: ubuntu-latest
     environment:
       name: Preview Channels
+    env:
+      app_id: angular-PR${{github.event.number}}
     steps:
       - name: nop
         run: echo create preview url for angular app
