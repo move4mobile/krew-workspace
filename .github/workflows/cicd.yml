@@ -78,18 +78,18 @@ jobs:
       - name: Debug Info
         run: ls -al
 
-      # - name: Check cache
-      #   uses: actions/cache@v2
-      #   id: node-cache
-      #   with:
-      #     path: '**/node_modules'
-      #     key: ubuntu-latest-node-modules-12-${{ hashFiles('**/package-lock.json') }}
+      - name: Check cache
+        uses: actions/cache@v2
+        id: node-cache
+        with:
+          path: '**/node_modules'
+          key: ubuntu-latest-node-modules-12-${{ hashFiles('**/package-lock.json') }}
 
-      # - name: Install node modules
-      #   if: steps.node-cache.outputs.cache-hit != 'true'
-      #   run: npm ci
-      #   env:
-      #     CI: true
+      - name: Install node modules
+        if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          CI: true
 
       # - name: Prepare artifacts folder
       #   working-directory: ${{ github.workspace }}
