@@ -44,9 +44,9 @@ jobs:
           name: artifacts
           path: dist
 
-  CreatePreview:
+  CreatePreviewSvelteApp:
     name: Generate Preview URL (krew-ui-svelte)
-    if: "github.event_name == 'pull_request' AND contains(github.event.pull_request.labels.*.name, 'app: krew-ui-svelte')"
+    if: "github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'app: krew-ui-svelte')"
     needs: [Build]
     runs-on: ubuntu-latest
     environment:
@@ -72,6 +72,17 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
           projectId: m4m-krew-dev
           # channelId: develop.myapp
+
+  CreatePreviewAngularApp:
+    name: Generate Preview URL (krew-ui-angular)
+    if: "github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'app: krew-ui-angular')"
+    needs: [Build]
+    runs-on: ubuntu-latest
+    environment:
+      name: Preview Channels
+    steps:
+      - name: nop
+        run: echo create preview url for angular app
 
   CreateRelease:
     name: Create Release
