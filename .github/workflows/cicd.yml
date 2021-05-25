@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Preview Channels
-      url: ${{ action-hosting-deploy_svelte.outputs.details_url }}
+      url: ${{ steps.action-hosting-deploy_svelte.outputs.details_url }}
     env:
       app_id: svelte-PR${{github.event.number}}
     steps:
