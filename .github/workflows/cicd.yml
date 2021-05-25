@@ -7,6 +7,11 @@ on:
     branches: [develop, main]
   workflow_dispatch:
 jobs:
+  #################################################################################
+  # Environment: -
+  # Build (& Lint)
+  #################################################################################
+
   Build:
     runs-on: ubuntu-latest
 
@@ -43,6 +48,11 @@ jobs:
         with:
           name: artifacts
           path: dist
+
+  #################################################################################
+  # Environment: Preview Channels
+  # Preview URL
+  #################################################################################
 
   CreatePreviewSvelteApp:
     name: Preview URL - Svelte app
@@ -87,6 +97,11 @@ jobs:
       - name: nop
         run: echo create preview url for angular app
 
+  #################################################################################
+  # Environment: Production
+  # Releasing
+  #################################################################################
+
   CreateRelease:
     name: Create Release
     if: "github.event.ref == 'refs/heads/main' && ! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
@@ -126,6 +141,11 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+  #################################################################################
+  # Environment: Other
+  # Example jobs
+  #################################################################################
 
   PostBuild:
     name: Post-Build job
