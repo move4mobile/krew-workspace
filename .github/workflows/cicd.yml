@@ -24,7 +24,7 @@ jobs:
 
       - name: Check cache
         uses: actions/cache@v2
-        id: node-cache # use this to check for `cache-hit` (`steps.node-cache.outputs.cache-hit != 'true'`)
+        id: node-cache
         with:
           path: '**/node_modules'
           key: ubuntu-latest-node-modules-14-${{ hashFiles('**/package-lock.json') }}
@@ -43,6 +43,44 @@ jobs:
         with:
           name: artifacts
           path: dist
+
+  CreateRelease:
+    name: Create Release
+    if: "github.event.ref == 'refs/heads/main' && ! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
+    needs: [Build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+          persist-credentials: false
+
+      - uses: actions/download-artifact@master
+        with:
+          name: artifacts
+          path: dist
+
+      - name: Check cache
+        uses: actions/cache@v2
+        id: node-cache
+        with:
+          path: '**/node_modules'
+          key: ubuntu-latest-node-modules-12-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install node modules
+        if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          CI: true
+
+      - name: Build & Save Artifacts
+        run: |
+          echo "Future goal: store artifacts"
+
+      - name: Semantic release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
   PostBuild:
     name: Post-Build job
