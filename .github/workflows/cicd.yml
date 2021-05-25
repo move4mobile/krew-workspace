@@ -61,7 +61,7 @@ jobs:
 
   CreateRelease:
     name: Create Release
-    # if: "github.event.ref == 'refs/heads/main' && ! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
+    if: "github.event.ref == 'refs/heads/main' && ! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     needs: [Build]
     runs-on: ubuntu-latest
     steps:
@@ -74,9 +74,6 @@ jobs:
         with:
           name: artifacts
           path: dist
-
-      - name: Debug Info
-        run: ls -al
 
       - name: Check cache
         uses: actions/cache@v2
@@ -91,13 +88,9 @@ jobs:
         env:
           CI: true
 
-      # - name: Prepare artifacts folder
-      #   working-directory: ${{ github.workspace }}
-      #   run: mkdir artifacts
-
-      # - name: Build artifact
-      #   run: |
-      #     zip -r ./artifacts/site ./dist/*
+      - name: Build & Save Artifacts
+        run: |
+          echo "Future goal: store artifacts"
 
       - name: Semantic release
         run: npx semantic-release --dry-run
