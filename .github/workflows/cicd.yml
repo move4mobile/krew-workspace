@@ -51,17 +51,10 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Preview Channels
-      url: https://example.com
+      url: ${{ action-hosting-deploy_svelte.outputs.details_url }}
     env:
       app_id: svelte-PR${{github.event.number}}
     steps:
-      # - name: Dump GitHub context
-      #   env:
-      #     GITHUB_CONTEXT: ${{ toJson(github) }}
-      #   run: |
-      #     echo "$GITHUB_CONTEXT"
-      #     echo ${{ github.event.pull_request.title }}
-
       - uses: actions/checkout@v2
 
       - uses: actions/download-artifact@master
@@ -74,6 +67,7 @@ jobs:
           cp -f apps/myapp/server/firebase.json ./
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        id: action-hosting-deploy_svelte
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
