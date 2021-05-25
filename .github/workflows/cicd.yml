@@ -52,15 +52,19 @@ jobs:
     environment:
       name: Preview Channels
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+          echo ${{ github.event.pull_request.title }}
+
       - uses: actions/checkout@v2
 
       - uses: actions/download-artifact@master
         with:
           name: artifacts
           path: dist
-
-      # - name: Build frontend
-      #   run: npm run build -- myapp
 
       - name: Prepare deploy
         run: |
