@@ -49,15 +49,17 @@ jobs:
     if: "github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'app: krew-ui-svelte')"
     needs: [Build]
     runs-on: ubuntu-latest
+    env:
+      app_id: ${{github.event.number}}
     environment:
       name: Preview Channels
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
-          echo ${{ github.event.pull_request.title }}
+      # - name: Dump GitHub context
+      #   env:
+      #     GITHUB_CONTEXT: ${{ toJson(github) }}
+      #   run: |
+      #     echo "$GITHUB_CONTEXT"
+      #     echo ${{ github.event.pull_request.title }}
 
       - uses: actions/checkout@v2
 
@@ -75,7 +77,7 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
           projectId: m4m-krew-dev
-          # channelId: develop.myapp
+          channelId: ${{ env.app_id }}
 
   CreatePreviewAngularApp:
     name: Generate Preview URL (krew-ui-angular)
