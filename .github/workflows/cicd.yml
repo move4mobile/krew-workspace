@@ -53,6 +53,7 @@ jobs:
       app_id: ${{github.event.number}}-svelte
     environment:
       name: Preview Channels
+      url: https://example.com
     steps:
       # - name: Dump GitHub context
       #   env:
