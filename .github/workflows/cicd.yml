@@ -65,7 +65,7 @@ jobs:
       - name: Prepare deploy
         run: |
           cp -f apps/myapp/server/firebase.json ./
-          ls -l
+          # ls -l
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
