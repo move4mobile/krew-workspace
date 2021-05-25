@@ -44,6 +44,35 @@ jobs:
           name: artifacts
           path: dist
 
+  CreatePreview:
+    name: Generate Preview URL
+    if: github.event_name == 'pull_request'
+    needs: [Build]
+    runs-on: ubuntu-latest
+    environment:
+      name: Preview Channels
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@master
+        with:
+          name: artifacts
+          path: dist
+
+      # - name: Build frontend
+      #   run: npm run build -- myapp
+
+      - name: Prepare deploy
+        run: |
+          cp -f apps/myapp/server/firebase.json ./
+          ls -l
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          projectId: m4m-headz-up
+
   CreateRelease:
     name: Create Release
     if: "github.event.ref == 'refs/heads/main' && ! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
