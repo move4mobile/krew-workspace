@@ -54,11 +54,11 @@ jobs:
 
       - name: Build App (krew-ui-svelte)
         if: "contains(github.event.pull_request.labels.*.name, 'app: krew-ui-svelte')"
-        run: npm run build --myapp # to be replaced later, with actual app name
+        run: npm run build -- myapp --configuration=production # to be replaced later, with actual app name
 
       - name: Build App (krew-ui-angular)
         if: "contains(github.event.pull_request.labels.*.name, 'app: krew-ui-angular')"
-        run: npm run build --myapp # to be replaced later, with actual app name
+        run: npm run build --myapp --configuration=production # to be replaced later, with actual app name
 
       - name: Archive artifact
         uses: actions/upload-artifact@v2
