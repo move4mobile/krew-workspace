@@ -45,8 +45,8 @@ jobs:
           path: dist
 
   CreatePreview:
-    name: Generate Preview URL
-    if: github.event_name == 'pull_request'
+    name: Generate Preview URL (krew-ui-svelte)
+    if: "github.event_name == 'pull_request' AND contains(github.event.pull_request.labels.*.name, 'app: krew-ui-svelte')"
     needs: [Build]
     runs-on: ubuntu-latest
     environment:
