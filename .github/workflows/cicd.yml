@@ -41,7 +41,7 @@ jobs:
           CI: true
 
       - name: Lint + Build affected apps
-        uses: mansagroup/nrwl-nx-action@v2
+        uses: mansagroup/nrwl-nx-action@v2.0.3
         with:
           targets: lint,build
           affected: 'true'
