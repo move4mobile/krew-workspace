@@ -78,7 +78,7 @@ jobs:
           echo "Future goal: store artifacts"
 
       - name: Semantic release
-        run: npx semantic-release --dry-run
+        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
