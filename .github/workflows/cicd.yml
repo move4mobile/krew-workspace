@@ -71,7 +71,7 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
           projectId: m4m-krew-dev
-          channelId: develop.myapp
+          # channelId: develop.myapp
 
   CreateRelease:
     name: Create Release
