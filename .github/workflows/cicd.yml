@@ -71,7 +71,8 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-          projectId: m4m-headz-up
+          projectId: m4m-krew-dev
+          channelId: live
 
   CreateRelease:
     name: Create Release
