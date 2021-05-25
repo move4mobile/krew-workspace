@@ -175,6 +175,7 @@
         "serve": {
           "builder": "@nxext/svelte:build",
           "options": {
+            "port": 4400,
             "outputPath": "dist/apps/krew-ui-svelte",
             "entryFile": "apps/krew-ui-svelte/src/main.ts",
             "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
