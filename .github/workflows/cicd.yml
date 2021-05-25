@@ -9,7 +9,7 @@ on:
 jobs:
   #################################################################################
   # Environment: -
-  # Build (& Lint)
+  # Build & Lint
   #################################################################################
 
   Build:
@@ -48,9 +48,6 @@ jobs:
 
       - name: Build affected apps
         run: npm run affected:build --if-present -- --parallel --maxParallel=5
-
-      - name: Build artifact
-        run: npm run build # to be replaces with 'affected'?
 
       - name: Build App (krew-ui-svelte)
         if: "contains(github.event.pull_request.labels.*.name, 'app: krew-ui-svelte')"
