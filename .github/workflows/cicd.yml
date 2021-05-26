@@ -107,7 +107,7 @@ jobs:
       name: Preview Channels
       url: ${{ steps.action-hosting-deploy-angular.outputs.details_url }}
     env:
-      app_id: svelte-PR${{github.event.number}}
+      app_id: angular-PR${{github.event.number}}
     steps:
       - uses: actions/checkout@v2
 
