@@ -205,6 +205,92 @@
           }
         }
       }
+    },
+    "krew-ui-angular": {
+      "projectType": "application",
+      "root": "apps/krew-ui-angular",
+      "sourceRoot": "apps/krew-ui-angular/src",
+      "prefix": "krew",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/krew-ui-angular",
+            "index": "apps/krew-ui-angular/src/index.html",
+            "main": "apps/krew-ui-angular/src/main.ts",
+            "polyfills": "apps/krew-ui-angular/src/polyfills.ts",
+            "tsConfig": "apps/krew-ui-angular/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["apps/krew-ui-angular/src/favicon.ico", "apps/krew-ui-angular/src/assets"],
+            "styles": ["apps/krew-ui-angular/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/krew-ui-angular/src/environments/environment.ts",
+                  "with": "apps/krew-ui-angular/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "krew-ui-angular:build:production"
+            },
+            "development": {
+              "browserTarget": "krew-ui-angular:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "krew-ui-angular:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/krew-ui-angular/src/**/*.ts", "apps/krew-ui-angular/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/krew-ui-angular"],
+          "options": {
+            "jestConfig": "apps/krew-ui-angular/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

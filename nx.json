@@ -32,6 +32,9 @@
     },
     "krew-ui-svelte": {
       "tags": []
+    },
+    "krew-ui-angular": {
+      "tags": []
     }
   }
 }
