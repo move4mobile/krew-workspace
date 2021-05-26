@@ -40,7 +40,7 @@ jobs:
         env:
           CI: true
 
-      - name: Lint + Build affected apps
+      - name: Lint + Build affected apps # TODO: target 'lint' not yet supported by Svelte app
         uses: mansagroup/nrwl-nx-action@v2.0.3
         with:
           targets: build
@@ -192,4 +192,4 @@ jobs:
           path: dist
 
       - name: nop
-        run: echo "no operation (nop..)"
+        run: echo "no operation (nop)"
