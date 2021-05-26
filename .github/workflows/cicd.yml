@@ -43,7 +43,7 @@ jobs:
       - name: Lint + Build affected apps
         uses: mansagroup/nrwl-nx-action@v2.0.3
         with:
-          targets: lint,build
+          targets: build
           affected: 'true'
 
       - name: Build affected apps
