@@ -1,6 +1,7 @@
 {
   "editor.formatOnSave": true,
   "conventionalCommits.scopes": [
-    "krew-ui-angular"
+    "krew-ui-angular",
+    "krew-angular-lib"
   ]
 }

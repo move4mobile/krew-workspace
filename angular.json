@@ -25,7 +25,8 @@
     "@nrwl/angular:library": {
       "style": "scss",
       "linter": "eslint",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "strict": true
     },
     "@nrwl/angular:component": {
       "style": "scss"
@@ -288,6 +289,31 @@
           "options": {
             "jestConfig": "apps/krew-ui-angular/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "krew-angular-feature-shell": {
+      "projectType": "library",
+      "root": "libs/krew-angular/feature-shell",
+      "sourceRoot": "libs/krew-angular/feature-shell/src",
+      "prefix": "krew",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/krew-angular/feature-shell"],
+          "options": {
+            "jestConfig": "libs/krew-angular/feature-shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/krew-angular/feature-shell/src/**/*.ts",
+              "libs/krew-angular/feature-shell/src/**/*.html"
+            ]
           }
         }
       }
