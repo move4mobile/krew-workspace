@@ -192,4 +192,4 @@ jobs:
           path: dist
 
       - name: nop
-        run: echo "no operation (nop)"
+        run: echo "no operation (nop..)"
