@@ -9,7 +9,7 @@ on:
 jobs:
   #################################################################################
   # Environment: -
-  # Build (& Lint)
+  # Build & Lint
   #################################################################################
 
   Build:
@@ -40,18 +40,24 @@ jobs:
         env:
           CI: true
 
-      - name: Build artifact
-        run: npm run build # to be replaces with 'affected'?
+      - name: Lint + Build affected apps # TODO: target 'lint' not yet supported by Svelte app
+        uses: mansagroup/nrwl-nx-action@v2.0.3
+        with:
+          targets: build
+          affected: 'true'
 
-      - name: Build App (krew-ui-svelte)
+      - name: Build affected apps
+        run: npm run affected:build --if-present -- --parallel --maxParallel=5
+
+      - name: Build app (krew-ui-svelte)
         if: "contains(github.event.pull_request.labels.*.name, 'app: krew-ui-svelte')"
-        run: npm run build --myapp # to be replaced later, with actual app name
+        run: npm run build -- myapp --configuration=production # to be replaced later, with actual app name
 
-      - name: Build App (krew-ui-angular)
+      - name: Build app (krew-ui-angular)
         if: "contains(github.event.pull_request.labels.*.name, 'app: krew-ui-angular')"
-        run: npm run build --myapp # to be replaced later, with actual app name
+        run: npm run build --krew-ui-angular --configuration=production # to be replaced later, with actual app name
 
-      - name: Archive artifact
+      - name: Archive artifacts
         uses: actions/upload-artifact@v2
         with:
           name: artifacts
@@ -82,7 +88,7 @@ jobs:
 
       - name: Prepare deploy
         run: |
-          cp -f apps/myapp/server/firebase.json ./
+          cp -f apps/krew-ui-svelte/server/firebase.json ./
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         id: action-hosting-deploy-svelte
@@ -99,12 +105,28 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Preview Channels
+      url: ${{ steps.action-hosting-deploy-angular.outputs.details_url }}
     env:
       app_id: angular-PR${{github.event.number}}
     steps:
-      - name: nop
-        run: echo create preview url for angular app
+      - uses: actions/checkout@v2
 
+      - uses: actions/download-artifact@master
+        with:
+          name: artifacts
+          path: dist
+
+      - name: Prepare deploy
+        run: |
+          cp -f apps/myapp/server/firebase.json ./
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        id: action-hosting-deploy-angular
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          projectId: m4m-krew-dev
+          channelId: ${{ env.app_id }}
   #################################################################################
   # Environment: Production
   # Releasing
