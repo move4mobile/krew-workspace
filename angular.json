@@ -163,6 +163,11 @@
                 "glob": "/*",
                 "input": "apps/krew-ui-svelte/public/**",
                 "output": "./"
+              },
+              {
+                "glob": "*.png",
+                "input": "libs/shared/assets/src/lib",
+                "output": "assets"
               }
             ]
           },
@@ -202,6 +207,19 @@
           "options": {
             "command": "svelte-check",
             "cwd": "apps/krew-ui-svelte"
+          }
+        }
+      }
+    },
+    "shared-assets": {
+      "root": "libs/shared/assets",
+      "sourceRoot": "libs/shared/assets/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/assets/**/*.ts"]
           }
         }
       }

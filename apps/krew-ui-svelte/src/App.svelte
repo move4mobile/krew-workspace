@@ -6,6 +6,10 @@
 <main>
   <h1>Welcome to {name}!</h1>
   <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+
+  <div>
+    <img src="assets/example-logo.png" alt="favicon" />
+  </div>
 </main>
 
 <style lang="scss">

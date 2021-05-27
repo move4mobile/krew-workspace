@@ -31,6 +31,10 @@
       "implicitDependencies": ["myapp"]
     },
     "krew-ui-svelte": {
+      "tags": [],
+      "implicitDependencies": ["shared-assets"]
+    },
+    "shared-assets": {
       "tags": []
     }
   }
