@@ -51,11 +51,11 @@ jobs:
 
       - name: Build app (krew-ui-svelte)
         if: "contains(github.event.pull_request.labels.*.name, 'app: krew-ui-svelte')"
-        run: npm run build -- myapp --configuration=production # to be replaced later, with actual app name
+        run: npm run build -- krew-ui-svelte --configuration=production
 
       - name: Build app (krew-ui-angular)
         if: "contains(github.event.pull_request.labels.*.name, 'app: krew-ui-angular')"
-        run: npm run build --krew-ui-angular --configuration=production # to be replaced later, with actual app name
+        run: npm run build -- krew-ui-angular --configuration=production
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
@@ -118,7 +118,7 @@ jobs:
 
       - name: Prepare deploy
         run: |
-          cp -f apps/myapp/server/firebase.json ./
+          cp -f apps/krew-ui-angular/server/firebase.json ./
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         id: action-hosting-deploy-angular
