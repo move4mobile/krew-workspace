@@ -165,7 +165,7 @@
                 "output": "./"
               },
               {
-                "glob": "*.png",
+                "glob": "**/*",
                 "input": "libs/shared/assets/src/lib",
                 "output": "assets"
               }
