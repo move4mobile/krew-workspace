@@ -38,6 +38,9 @@
     },
     "krew-angular-feature-shell": {
       "tags": ["scope:angular", "type:feature"]
+    },
+    "krew-ui-react": {
+      "tags": []
     }
   }
 }
