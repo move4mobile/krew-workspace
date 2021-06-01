@@ -17,7 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
+        # app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
+        app: ['krew-ui-react']
     env:
       APP_ID: ${{ matrix.app }}
     steps:
@@ -66,7 +67,7 @@ jobs:
         app: ['krew-ui-react']
     env:
       APP_ID: ${{ matrix.app }}
-      PREVIEW_ID: svelte-PR${{github.event.number}}
+      PREVIEW_ID: ${{ matrix.app }}-PR${{github.event.number}}
     environment:
       name: Preview Channels
       url: ${{ steps.action-hosting-deploy.outputs.details_url }}
@@ -76,7 +77,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: artifacts
-          path: dist/apps
+          path: dist
 
       - name: Display structure of downloaded files
         run: ls -R
