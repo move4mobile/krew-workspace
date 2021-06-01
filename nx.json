@@ -35,13 +35,15 @@
       "implicitDependencies": ["shared-assets"]
     },
     "krew-ui-angular": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["shared-assets"]
     },
     "krew-angular-feature-shell": {
       "tags": ["scope:angular", "type:feature"]
     },
     "krew-ui-react": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["shared-assets"]
     },
     "shared-assets": {
       "tags": ["scope:shared", "type:assets"]

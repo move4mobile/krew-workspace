@@ -241,7 +241,15 @@
             "polyfills": "apps/krew-ui-angular/src/polyfills.ts",
             "tsConfig": "apps/krew-ui-angular/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["apps/krew-ui-angular/src/favicon.ico", "apps/krew-ui-angular/src/assets"],
+            "assets": [
+              "apps/krew-ui-angular/src/favicon.ico", 
+              "apps/krew-ui-angular/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/shared/assets/src/assets",
+                "output": "assets"
+              }
+            ],
             "styles": ["apps/krew-ui-angular/src/styles.scss"],
             "scripts": []
           },
@@ -351,7 +359,15 @@
             "main": "apps/krew-ui-react/src/main.tsx",
             "polyfills": "apps/krew-ui-react/src/polyfills.ts",
             "tsConfig": "apps/krew-ui-react/tsconfig.app.json",
-            "assets": ["apps/krew-ui-react/src/favicon.ico", "apps/krew-ui-react/src/assets"],
+            "assets": [
+              "apps/krew-ui-react/src/favicon.ico", 
+              "apps/krew-ui-react/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/shared/assets/src/assets",
+                "output": "assets"
+              }
+            ],
             "styles": ["apps/krew-ui-react/src/styles.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
