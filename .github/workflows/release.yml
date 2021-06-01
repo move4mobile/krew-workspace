@@ -1,4 +1,4 @@
-name: Default Workflow
+name: Default Release Workflow
 
 on:
   push:
@@ -102,7 +102,7 @@ jobs:
   CreateRelease:
     name: Create Release
     if: "github.event.ref == 'refs/heads/main' && ! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
-    needs: [Build]
+    needs: [BuildArtifacts]
     runs-on: ubuntu-latest
     environment:
       name: Production
