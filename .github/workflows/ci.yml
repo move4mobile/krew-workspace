@@ -7,7 +7,6 @@ jobs:
   Build:
     name: Build job
     runs-on: ubuntu-latest
-    if: 1 == 2 # Disable for now
 
     steps:
       - name: Checkout code
