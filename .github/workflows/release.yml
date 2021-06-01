@@ -47,6 +47,10 @@ jobs:
       - name: Build app ${{ env.APP_ID }}
         run: npm run build --${{ env.APP_ID }} --configuration=production
 
+      - name: Display structure of dist folder
+        run: ls -R
+        working-directory: dist
+
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
         with:
