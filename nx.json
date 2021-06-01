@@ -23,13 +23,6 @@
     }
   },
   "projects": {
-    "myapp": {
-      "tags": []
-    },
-    "myapp-e2e": {
-      "tags": [],
-      "implicitDependencies": ["myapp"]
-    },
     "krew-ui-svelte": {
       "tags": []
     },
