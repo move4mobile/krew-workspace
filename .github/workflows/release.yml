@@ -45,7 +45,7 @@ jobs:
         run: npm ci
 
       - name: Build app ${{ env.APP_ID }}
-        run: npm run build --${{ env.APP_ID }} --configuration=production
+        run: npm run build -- --${{ env.APP_ID }} --configuration=production
 
       - name: Display structure of dist folder
         run: ls -R
