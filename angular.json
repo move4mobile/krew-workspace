@@ -181,7 +181,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "libs/shared/assets/src/lib",
+                "input": "libs/shared/assets/src/assets",
                 "output": "assets"
               }
             ]
@@ -409,17 +409,7 @@
       }
     },
     "shared-assets": {
-      "root": "libs/shared/assets",
-      "sourceRoot": "libs/shared/assets/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/shared/assets/**/*.ts"]
-          }
-        }
-      }
+      "architect": {}
     }
   }
 }

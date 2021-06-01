@@ -34,9 +34,6 @@
       "tags": [],
       "implicitDependencies": ["shared-assets"]
     },
-    "shared-assets": {
-      "tags": []
-    },
     "krew-ui-angular": {
       "tags": []
     },
@@ -45,6 +42,9 @@
     },
     "krew-ui-react": {
       "tags": []
+    },
+    "shared-assets": {
+      "tags": ["scope:shared","type:assets"]
     }
   }
 }
