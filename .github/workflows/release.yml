@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        app: ['krew-ui-react']
+        app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
     env:
       APP_ID: ${{ matrix.app }}
       PREVIEW_ID: ${{ matrix.app }}-PR-${{github.event.number}}
@@ -105,7 +105,7 @@ jobs:
 
   CreateRelease:
     name: Create Release
-    # if: "github.event.ref == 'refs/heads/main' && ! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
+    if: "github.event.ref == 'refs/heads/main' && ! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     needs: [BuildArtifacts]
     runs-on: ubuntu-latest
     environment:
@@ -140,7 +140,7 @@ jobs:
           CI: true
 
       - name: Semantic release
-        run: npx semantic-release --dry-run
+        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
