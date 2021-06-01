@@ -131,6 +131,36 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
           projectId: m4m-krew-dev
           channelId: ${{ env.app_id }}
+
+  CreatePreviewReactApp:
+    name: Preview URL - React app
+    if: "github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'app: krew-ui-react')"
+    needs: [Build]
+    runs-on: ubuntu-latest
+    environment:
+      name: Preview Channels
+      url: ${{ steps.action-hosting-deploy-react.outputs.details_url }}
+    env:
+      app_id: react-PR${{github.event.number}}
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@master
+        with:
+          name: artifacts
+          path: dist
+
+      - name: Prepare deploy
+        run: |
+          cp -f apps/krew-ui-react/server/firebase.json ./
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        id: action-hosting-deploy-react
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          projectId: m4m-krew-dev
+          channelId: ${{ env.app_id }}
   #################################################################################
   # Environment: Production
   # Releasing
