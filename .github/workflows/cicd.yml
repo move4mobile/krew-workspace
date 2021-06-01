@@ -171,6 +171,7 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          HUSKY_SKIP_HOOKS: 1
 
   #################################################################################
   # Environment: Other
