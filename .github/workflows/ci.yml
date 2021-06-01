@@ -5,7 +5,7 @@ on:
 jobs:
 
   Build:
-    name: Build Affected Apps job
+    name: Build job
     runs-on: ubuntu-latest
 
     steps:
@@ -38,6 +38,3 @@ jobs:
         with:
           targets: build
           affected: 'true'
-
-      - name: Build affected apps
-        run: npm run affected:build --if-present -- --parallel --maxParallel=5
