@@ -81,7 +81,7 @@
     "@semantic-release/release-notes-generator": "^9.0.2",
     "@testing-library/react": "11.2.6",
     "@testing-library/svelte": "^3.0.3",
-    "@tsconfig/svelte": "^1.0.10",
+    "@tsconfig/svelte": "^2.0.0",
     "@types/jest": "26.0.23",
     "@types/node": "15.6.1",
     "@types/react": "17.0.3",
