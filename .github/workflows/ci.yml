@@ -1,13 +1,11 @@
 name: Default CI Workflow
 
 on:
-  push:
-    branches: [develop, main]
   pull_request:
-    branches: [develop, main]
 jobs:
 
   Build:
+    name: Build Affected Apps job
     runs-on: ubuntu-latest
 
     steps:
