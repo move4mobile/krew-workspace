@@ -116,7 +116,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: artifacts
-          path: dist
+          path: artifacts
 
       - name: Check cache
         uses: actions/cache@v2
@@ -130,10 +130,6 @@ jobs:
         run: npm ci
         env:
           CI: true
-
-      - name: Build & Save Artifacts
-        run: |
-          echo "Future goal: store artifacts"
 
       - name: Semantic release
         run: npx semantic-release
