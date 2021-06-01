@@ -62,7 +62,7 @@ jobs:
   #################################################################################
 
   CreatePreview:
-    name: Preview URL
+    name: Deploy Preview URL
     needs: [BuildArtifacts]
     runs-on: ubuntu-latest
     strategy:
@@ -104,7 +104,7 @@ jobs:
   #################################################################################
 
   CreateRelease:
-    name: Create Release
+    name: Release to GitHub
     if: "github.event.ref == 'refs/heads/main' && ! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     needs: [BuildArtifacts]
     runs-on: ubuntu-latest
