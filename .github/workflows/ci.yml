@@ -1,0 +1,45 @@
+name: Default CI Workflow
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+    branches: [develop, main]
+jobs:
+
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+          persist-credentials: false
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 14
+
+      - name: Check cache
+        uses: actions/cache@v2
+        id: node-cache
+        with:
+          path: '**/node_modules'
+          key: ubuntu-latest-node-modules-14-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install node modules
+        if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          CI: true
+
+      - name: Build affected apps
+        uses: mansagroup/nrwl-nx-action@v2.0.3
+        with:
+          targets: build
+          affected: 'true'
+
+      - name: Build affected apps
+        run: npm run affected:build --if-present -- --parallel --maxParallel=5
