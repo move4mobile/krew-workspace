@@ -32,6 +32,12 @@
     },
     "krew-ui-svelte": {
       "tags": []
+    },
+    "krew-ui-angular": {
+      "tags": []
+    },
+    "krew-angular-feature-shell": {
+      "tags": ["scope:angular", "type:feature"]
     }
   }
 }
