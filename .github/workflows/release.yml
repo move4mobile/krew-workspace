@@ -76,21 +76,26 @@ jobs:
       url: ${{ steps.action-hosting-deploy.outputs.details_url }}
     steps:
       - uses: actions/checkout@v2
+        if: "contains(github.event.pull_request.labels.*.name, 'app: ${{ matrix.app }}')"
 
       - uses: actions/download-artifact@master
+        if: "contains(github.event.pull_request.labels.*.name, 'app: ${{ matrix.app }}')"
         with:
           name: artifacts
           path: dist/apps
 
       - name: Display structure of downloaded files
+        if: "contains(github.event.pull_request.labels.*.name, 'app: ${{ matrix.app }}')"
         run: ls -R
         working-directory: dist
 
       - name: Prepare deploy
+        if: "contains(github.event.pull_request.labels.*.name, 'app: ${{ matrix.app }}')"
         run: |
           cp -f apps/${{ env.APP_ID }}/server/firebase.json ./
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        if: "contains(github.event.pull_request.labels.*.name, 'app: ${{ matrix.app }}')"
         id: action-hosting-deploy
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
