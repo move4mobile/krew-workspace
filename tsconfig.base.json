@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@krew/krew-angular/feature-shell": ["libs/krew-angular/feature-shell/src/index.ts"],
-      "@krew/shared/assets": ["libs/shared/assets/src/index.ts"]
+      "@krew/krew-angular/feature-shell": ["libs/krew-angular/feature-shell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
