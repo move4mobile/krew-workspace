@@ -57,6 +57,10 @@ jobs:
         if: "contains(github.event.pull_request.labels.*.name, 'app: krew-ui-angular')"
         run: npm run build -- krew-ui-angular --configuration=production
 
+      - name: Build app (krew-ui-react)
+        if: "contains(github.event.pull_request.labels.*.name, 'app: krew-ui-react')"
+        run: npm run build -- krew-ui-react --configuration=production
+
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
         with:
