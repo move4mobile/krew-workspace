@@ -99,9 +99,42 @@ jobs:
           projectId: m4m-krew-dev
           channelId: ${{ env.PREVIEW_ID }}
 
+  #################################################################################
+  # Environment: Test
+  # Deploy to Firebase
+  #################################################################################
+
+  DeployTest:
+    name: Deploy for Test
+    needs: [BuildArtifacts]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14]
+        app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
+    environment:
+      name: Test
+      url: ${{ steps.action-hosting-deploy.outputs.details_url }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@master
+        with:
+          name: artifacts
+          path: dist/apps
+
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: dist
+
+      - name: Prepare deploy
+        run: |
+          cp -f apps/${{ matrix.app }}/server/.firebaserc ./
+          cp -f apps/${{ matrix.app }}/server/firebase.json ./
+
       - name: Deploy ${{ matrix.app }} to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
-        id: action-hosting-live-deploy
+        id: action-hosting-deploy
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
