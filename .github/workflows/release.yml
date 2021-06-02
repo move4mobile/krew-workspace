@@ -139,8 +139,8 @@ jobs:
 
       - uses: actions/download-artifact@master
         with:
-          name: dist/apps
-          path: artifacts
+          name: artifacts
+          path: dist/apps
 
       - name: Prepare artifacts
         run: |
