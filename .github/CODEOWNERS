@@ -7,6 +7,10 @@
 # review when someone opens a pull request.
 #* <@user> # NOT YET SETUP ON PURPOSE
 
+# Configs
+.github/ @mschilling @cassshh
+.vscode/ @mschilling @cassshh
+
 # Libs
 libs/ @mschilling @cassshh @aaltw
 
