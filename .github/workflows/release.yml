@@ -62,7 +62,7 @@ jobs:
 
   CreatePreview:
     name: Deploy Preview URL
-    if: false && ${{ github.event_name == 'pull_request'
+    if: false && ${{ github.event_name == 'pull_request' }}
     needs: [BuildArtifacts]
     runs-on: ubuntu-latest
     strategy:
