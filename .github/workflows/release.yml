@@ -121,8 +121,11 @@ jobs:
 
       - uses: actions/download-artifact@master
         with:
-          name: artifacts
           path: artifacts
+
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: artifacts
 
       - name: Use Node ${{ matrix.node-version }}
         uses: actions/setup-node@v2-beta
