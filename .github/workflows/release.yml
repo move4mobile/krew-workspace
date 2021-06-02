@@ -119,11 +119,6 @@ jobs:
           fetch-depth: '0'
           persist-credentials: false
 
-      - uses: actions/download-artifact@master
-        with:
-          name: artifacts
-          path: artifacts
-
       - name: Use Node ${{ matrix.node-version }}
         uses: actions/setup-node@v2-beta
         with:
@@ -141,6 +136,21 @@ jobs:
         run: npm ci
         env:
           CI: true
+
+      - uses: actions/download-artifact@master
+        with:
+          name: artifacts
+          path: dist/apps
+
+      - name: Prepare artifacts
+        run: |
+          mkdir -p ../../artifacts
+          zip -r -X ../../artifacts/artifacts.zip .
+        working-directory: dist/apps
+
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: artifacts
 
       - name: Semantic release
         run: npx semantic-release
