@@ -62,6 +62,7 @@ jobs:
 
   CreatePreview:
     name: Deploy Preview URL
+    if: ${{ github.event_name == 'pull_request'
     needs: [BuildArtifacts]
     runs-on: ubuntu-latest
     strategy:
@@ -105,7 +106,8 @@ jobs:
   #################################################################################
 
   DeployTest:
-    name: Deploy for Test
+    name: Deploy to Test
+    if: github.event.ref == 'refs/heads/develop'
     needs: [BuildArtifacts]
     runs-on: ubuntu-latest
     strategy:
