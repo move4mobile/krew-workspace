@@ -8,7 +8,7 @@ on:
 
 jobs:
   Build:
-    name: Nightly integration build
+    name: Nightly build
 
     runs-on: ${{ matrix.os }}
 
@@ -16,7 +16,7 @@ jobs:
       matrix:
         node-version: [14] #[14, 16]
         os: [ubuntu-latest]
-        app: [krew-ui-angular] #['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
+        app: [krew-ui-svelte] #['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
 
     steps:
       - name: Checkout code
@@ -40,11 +40,8 @@ jobs:
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm ci
 
-      - name: Build and Lint
-        uses: mansagroup/nrwl-nx-action@v2.0.3
-        with:
-          targets: build, lint
-          projects: '${{ matrix.app }}'
+      - name: Lint app ${{ matrix.app }}
+        run: npm run lint -- ${{ matrix.app }}
 
       - name: Build app ${{ matrix.app }}
         run: npm run build -- ${{ matrix.app }} --configuration=production
