@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: '0 2 * * *' # run at 2 AM UTC
   workflow_dispatch:
+  pull_request:
 
 jobs:
   Build:
@@ -13,11 +14,9 @@ jobs:
 
     strategy:
       matrix:
-        node-version:
-          - 14
-          - 16
-        os:
-          - ubuntu-latest
+        node-version: [14] #[14, 16]
+        os: [ubuntu-latest]
+        app: [krew-ui-angular] #['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
 
     steps:
       - name: Checkout code
@@ -40,14 +39,12 @@ jobs:
       - name: Install node modules
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm ci
-        env:
-          CI: true
 
-      - name: Build artifact
-        run: npm run build -- --configuration=production
-
-      - name: Archive artifact
-        uses: actions/upload-artifact@v2
+      - name: Build and Lint
+        uses: mansagroup/nrwl-nx-action@v2.0.3
         with:
-          name: artifacts
-          path: dist
+          targets: build, lint
+          projects: '${{ matrix.app }}'
+
+      - name: Build app ${{ matrix.app }}
+        run: npm run build -- ${{ matrix.app }} --configuration=production
