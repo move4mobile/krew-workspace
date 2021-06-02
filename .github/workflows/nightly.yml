@@ -8,7 +8,7 @@ on:
 
 jobs:
   nighlty:
-    name: Nightly build job
+    name: Nightly build job ${{ matrix.app }}
 
     runs-on: ${{ matrix.os }}
 
@@ -18,7 +18,7 @@ jobs:
       matrix:
         node-version: [14] #[14, 16]
         os: [ubuntu-latest]
-        app: ['krew-ui-angular', 'krew-ui-svelte'] #['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
+        app: ['krew-ui-svelte'] #['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
 
     steps:
       - name: Checkout code
