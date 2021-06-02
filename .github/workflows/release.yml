@@ -62,7 +62,7 @@ jobs:
 
   CreatePreview:
     name: Deploy Preview URL
-    if: false && ${{ github.event_name == 'pull_request' }}
+    if: ${{ false && github.event_name == 'pull_request' }}
     needs: [BuildArtifacts]
     runs-on: ubuntu-latest
     strategy:
@@ -70,7 +70,6 @@ jobs:
         node-version: [14]
         app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
     env:
-      APP_ID: ${{ matrix.app }}
       PREVIEW_ID: ${{ matrix.app }}-PR-${{github.event.number}}
     environment:
       name: Preview Channels
