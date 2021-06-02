@@ -18,8 +18,6 @@ jobs:
     strategy:
       matrix:
         app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
-    env:
-      APP_ID: ${{ matrix.app }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -43,8 +41,8 @@ jobs:
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm ci
 
-      - name: Build app ${{ env.APP_ID }}
-        run: npm run build -- ${{ env.APP_ID }} --configuration=production
+      - name: Build app ${{ matrix.app }}
+        run: npm run build -- ${{ matrix.app }} --configuration=production
 
       - name: Display structure of dist folder
         run: ls -R
@@ -56,7 +54,7 @@ jobs:
           name: artifacts
           path: dist/apps
 
- #################################################################################
+  #################################################################################
   # Environment: Preview Channels
   # Preview URL
   #################################################################################
@@ -88,7 +86,7 @@ jobs:
 
       - name: Prepare deploy
         run: |
-          cp -f apps/${{ env.APP_ID }}/server/firebase.json ./
+          cp -f apps/${{ matrix.app }}/server/firebase.json ./
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         id: action-hosting-deploy
@@ -143,4 +141,3 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
