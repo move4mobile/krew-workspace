@@ -62,7 +62,7 @@ jobs:
 
   CreatePreview:
     name: Deploy Preview URL
-    if: ${{ false && github.event_name == 'pull_request' }}
+    if: ${{ github.event_name == 'pull_request' }}
     needs: [BuildArtifacts]
     runs-on: ubuntu-latest
     strategy:
@@ -106,7 +106,7 @@ jobs:
 
   DeployTest:
     name: Deploy to Test
-    # if: github.event.ref == 'refs/heads/develop'
+    if: github.event.ref == 'refs/heads/develop'
     needs: [BuildArtifacts]
     runs-on: ubuntu-latest
     strategy:
@@ -115,7 +115,6 @@ jobs:
         app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
     environment:
       name: Test
-      url: ${{ steps.action-hosting-deploy.outputs.details_url }}
     steps:
       - uses: actions/checkout@v2
 
