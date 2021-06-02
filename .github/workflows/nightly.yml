@@ -8,7 +8,7 @@ on:
 
 jobs:
   nighlty:
-    name: Nightly build job ${{ matrix.app }}
+    name: Nightly build job
 
     runs-on: ${{ matrix.os }}
 
@@ -16,9 +16,9 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14] #[14, 16]
-        os: [ubuntu-latest]
-        app: ['krew-ui-svelte'] #['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
+        node-version: [14, 16]
+        os: [ubuntu-latest, windows-latest]
+        app: [krew-ui-angular, krew-ui-svelte, krew-ui-react]
 
     steps:
       - name: Checkout code
@@ -33,7 +33,7 @@ jobs:
 
       - name: Check cache
         uses: actions/cache@v2
-        id: node-cache # use this to check for `cache-hit` (`steps.node-cache.outputs.cache-hit != 'true'`)
+        id: node-cache
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-node-modules-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
