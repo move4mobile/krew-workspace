@@ -7,16 +7,18 @@ on:
   pull_request:
 
 jobs:
-  Build:
-    name: Nightly build
+  nighlty:
+    name: Nightly build job
 
     runs-on: ${{ matrix.os }}
+
+    continue-on-error: true
 
     strategy:
       matrix:
         node-version: [14] #[14, 16]
         os: [ubuntu-latest]
-        app: [krew-ui-svelte] #['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
+        app: ['krew-ui-angular', 'krew-ui-svelte'] #['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
 
     steps:
       - name: Checkout code
