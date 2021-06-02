@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         node-version: [14, 16]
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
         app: [krew-ui-angular, krew-ui-svelte, krew-ui-react]
 
     steps:
