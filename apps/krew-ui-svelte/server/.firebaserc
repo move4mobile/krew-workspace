@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "m4m-krew-dev": {
+      "hosting": {
+        "krew-ui-svelte": [
+          "m4m-krew-svelte-dev"
+        ]
+      }
+    }
+  }
+}
