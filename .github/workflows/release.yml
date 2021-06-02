@@ -88,6 +88,7 @@ jobs:
 
       - name: Prepare deploy
         run: |
+          cp -f apps/${{ matrix.app }}/server/.firebaserc ./
           cp -f apps/${{ matrix.app }}/server/firebase.json ./
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
