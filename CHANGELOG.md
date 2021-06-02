@@ -1,3 +1,17 @@
+# [0.2.0](https://github.com/move4mobile/krew-workspace/compare/v0.1.0...v0.2.0) (2021-06-02)
+
+
+### Bug Fixes
+
+* trigger next release ([eb428e2](https://github.com/move4mobile/krew-workspace/commit/eb428e2407e42526c07a8a92f4cad88a07575416))
+* **dependabot:** set target to 'develop' ([f491e29](https://github.com/move4mobile/krew-workspace/commit/f491e295c19c2511deb33a35f29e517fa049e55b))
+
+
+### Features
+
+* add shared assets lib ([#62](https://github.com/move4mobile/krew-workspace/issues/62)) ([d8c4eb7](https://github.com/move4mobile/krew-workspace/commit/d8c4eb723f0443a259c69176bf6570c40dca574a))
+* **krew-ui-react:** setup react app ([#75](https://github.com/move4mobile/krew-workspace/issues/75)) ([bf4d1a3](https://github.com/move4mobile/krew-workspace/commit/bf4d1a3efebea98c4f3b2b59635185e1ab43dc8d))
+
 # [0.1.0](https://github.com/move4mobile/krew-workspace/compare/v0.0.2...v0.1.0) (2021-06-01)
 
 ### Bug Fixes
