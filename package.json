@@ -48,6 +48,7 @@
     "regenerator-runtime": "0.13.7",
     "rxjs": "~6.6.7",
     "tslib": "^2.2.0",
+    "vue": "^3.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -90,7 +91,13 @@
     "@types/react-router-dom": "5.1.7",
     "@typescript-eslint/eslint-plugin": "4.26.0",
     "@typescript-eslint/parser": "4.26.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "@vue/test-utils": "^2.0.0-0",
     "autoprefixer": "^10.2.6",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "26.2.2",
     "cypress": "^6.0.1",
     "cz-conventional-changelog": "^3.3.0",
@@ -103,9 +110,12 @@
     "eslint-plugin-react": "7.23.1",
     "eslint-plugin-react-hooks": "4.2.0",
     "eslint-plugin-svelte3": "^3.1.2",
+    "eslint-plugin-vue": "^7.8.0",
     "husky": "^6.0.0",
     "jest": "26.6.3",
     "jest-preset-angular": "8.4.0",
+    "jest-serializer-vue": "^2.0.2",
+    "jest-transform-stub": "^2.0.0",
     "postcss": "^8.3.0",
     "prettier": "2.3.0",
     "rollup-plugin-local-resolve": "^1.0.7",
@@ -117,7 +127,8 @@
     "tailwindcss": "^2.1.3",
     "ts-jest": "26.5.6",
     "ts-node": "~10.0.0",
-    "typescript": "4.2.4"
+    "typescript": "4.2.4",
+    "vue-jest": "5.0.0-alpha.7"
   },
   "config": {
     "commitizen": {

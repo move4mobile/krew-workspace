@@ -18,28 +18,48 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
   "projects": {
     "krew-ui-svelte": {
       "tags": [],
-      "implicitDependencies": ["shared-assets"]
+      "implicitDependencies": [
+        "shared-assets"
+      ]
     },
     "krew-ui-angular": {
       "tags": [],
-      "implicitDependencies": ["shared-assets"]
+      "implicitDependencies": [
+        "shared-assets"
+      ]
     },
     "krew-angular-feature-shell": {
-      "tags": ["scope:angular", "type:feature"]
+      "tags": [
+        "scope:angular",
+        "type:feature"
+      ]
     },
     "krew-ui-react": {
       "tags": [],
-      "implicitDependencies": ["shared-assets"]
+      "implicitDependencies": [
+        "shared-assets"
+      ]
     },
     "shared-assets": {
-      "tags": ["scope:shared", "type:assets"]
+      "tags": [
+        "scope:shared",
+        "type:assets"
+      ]
+    },
+    "krew-ui-vue": {
+      "tags": []
     }
   }
 }
