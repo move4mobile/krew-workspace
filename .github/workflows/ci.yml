@@ -2,6 +2,7 @@ name: Default CI Workflow
 
 on:
   pull_request:
+    branches: [develop, main]
   workflow_dispatch:
 jobs:
   Build:
