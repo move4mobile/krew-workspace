@@ -17,7 +17,7 @@ jobs:
       matrix:
         node-version: [14, 16]
         os: [ubuntu-latest]
-        app: [krew-ui-angular, krew-ui-svelte, krew-ui-react]
+        app: [krew-ui-angular, krew-ui-svelte, krew-ui-react, krew-ui-vue]
 
     steps:
       - name: Checkout code
