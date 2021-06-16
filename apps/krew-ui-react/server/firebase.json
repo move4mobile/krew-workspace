@@ -1,7 +1,7 @@
 {
   "hosting": {
-    "target": "krew-ui-svelte",
-    "public": "dist/apps/krew-ui-svelte",
+    "target": "krew-ui-react",
+    "public": "dist/apps/krew-ui-react",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
 }

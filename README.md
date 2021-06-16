@@ -41,9 +41,9 @@ nx serve <app-name>
 For example, if you want to run the sample app locally, type
 
 ```
-nx serve myapp
+nx serve krew-ui-angular
 ```
 
 Next, open a browser and navigate to http://localhost:4200
 
-.
+..

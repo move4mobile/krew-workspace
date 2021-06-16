@@ -23,21 +23,23 @@
     }
   },
   "projects": {
-    "myapp": {
-      "tags": []
-    },
-    "myapp-e2e": {
-      "tags": [],
-      "implicitDependencies": ["myapp"]
-    },
     "krew-ui-svelte": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["shared-assets"]
     },
     "krew-ui-angular": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["shared-assets"]
     },
     "krew-angular-feature-shell": {
       "tags": ["scope:angular", "type:feature"]
+    },
+    "krew-ui-react": {
+      "tags": [],
+      "implicitDependencies": ["shared-assets"]
+    },
+    "shared-assets": {
+      "tags": ["scope:shared", "type:assets"]
     }
   }
 }

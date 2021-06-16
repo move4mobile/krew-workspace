@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "m4m-krew-dev": {
+      "hosting": {
+        "krew-ui-react": [
+          "m4m-krew-react-dev"
+        ]
+      }
+    }
+  }
+}

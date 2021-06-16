@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "krew-ui-angular",
     "public": "dist/apps/krew-ui-angular",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }

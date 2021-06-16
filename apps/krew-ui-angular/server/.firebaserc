@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "m4m-krew-dev": {
+      "hosting": {
+        "krew-ui-angular": [
+          "m4m-krew-angular-dev"
+        ]
+      }
+    }
+  }
+}
