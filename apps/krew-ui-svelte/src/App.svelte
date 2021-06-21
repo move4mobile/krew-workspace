@@ -1,11 +1,25 @@
 <script lang="ts">
+  import { Router, Route, Link } from 'svelte-routing';
+  import About from './routes/About.svelte';
+
   export let name: string;
+
+  export let url = '';
 
 </script>
 
 <main>
   <h1>Welcome to {name}!</h1>
-  <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+
+  <Router {url}>
+    <nav>
+      <Link to="/">Home</Link>
+      <Link to="about">About</Link>
+    </nav>
+
+    <Route path="/"><p>Hi there!</p></Route>
+    <Route path="about" component={About} />
+  </Router>
 </main>
 
 <style src="./app.scss" lang="scss"></style>
