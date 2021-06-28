@@ -106,7 +106,7 @@
     "jest": "26.6.3",
     "jest-preset-angular": "8.4.0",
     "postcss": "^8.3.5",
-    "prettier": "2.3.1",
+    "prettier": "2.3.2",
     "rollup-plugin-local-resolve": "^1.0.7",
     "sass": "^1.35.1",
     "svelte": "^3.38.3",
