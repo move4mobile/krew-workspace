@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Lock</title>
+    <g id="Icon/Lock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M7,7 C7,4.23857625 9.23857625,2 12,2 C14.7614237,2 17,4.23857625 17,7 L17,10 L20,10 L20,19 C20,20.1 19.1,21 18,21 L18,21 L6,21 C4.9,21 4,20.1 4,19 L4,19 L4,10 L7,10 L7,7 Z M18,12 L6,12 L6,19 L18,19 L18,12 Z M15,10 L15,7 C15,5.34314575 13.6568542,4 12,4 C10.3431458,4 9,5.34314575 9,7 L9,10 L15,10 Z" id="Combined-Shape" fill="#18456D"></path>
+    </g>
+</svg>

@@ -3,6 +3,7 @@
   "conventionalCommits.scopes": [
     "krew-ui-angular",
     "krew-angular-lib",
-    "krew-ui-react"
+    "krew-ui-react",
+    "shared"
   ]
 }
