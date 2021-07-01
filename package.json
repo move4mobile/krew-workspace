@@ -42,6 +42,7 @@
     "@nrwl/angular": "12.3.1",
     "core-js": "^3.14.0",
     "document-register-element": "1.14.10",
+    "isomorphic-unfetch": "^3.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-router-dom": "5.2.0",
