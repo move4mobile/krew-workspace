@@ -51,3 +51,11 @@ Or, if you want to run all apps at the same time, type
 ```
 nx run-many --target=serve --projects=krew-ui-angular,krew-ui-svelte,krew-ui-react
 ```
+
+## App development ports configuration
+
+| - App name -    | - Port - |
+| --------------- | -------- |
+| krew-ui-angular | 4401     |
+| krew-ui-react   | 4402     |
+| krew-ui-svelte  | 4403     |
