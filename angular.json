@@ -75,12 +75,30 @@
           },
           "configurations": {
             "production": {
-              "dev": false
+              "dev": false,
+              "fileReplacements": [
+                {
+                  "replace": "libs/shared/environments/src/lib/environment.ts",
+                  "with": "libs/shared/environments/src/lib/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "dev": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@nxext/svelte:build",
+          "configurations": {
+            "production": {
+              "browserTarget": "krew-ui-svelte:build:production"
+            },
+            "development": {
+              "browserTarget": "krew-ui-svelte:build:development"
+            }
+          },
           "options": {
             "port": 4400,
             "outputPath": "dist/apps/krew-ui-svelte",
@@ -96,7 +114,8 @@
             ],
             "watch": true,
             "serve": true
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -263,8 +282,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/krew-ui-react/src/environments/environment.ts",
-                  "with": "apps/krew-ui-react/src/environments/environment.prod.ts"
+                  "replace": "libs/shared/environments/src/lib/environment.ts",
+                  "with": "libs/shared/environments/src/lib/environment.prod.ts"
                 }
               ],
               "optimization": true,
