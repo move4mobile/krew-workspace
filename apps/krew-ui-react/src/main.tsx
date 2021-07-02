@@ -5,6 +5,10 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './app/app';
 
+// TODO: remove before merging
+import { environment } from '@krew/shared/environments';
+console.log(`Api URL: ${environment.apiUrl}`);
+
 ReactDOM.render(
   <StrictMode>
     <BrowserRouter>
