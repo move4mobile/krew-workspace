@@ -1,5 +1,7 @@
-export const environment = {
+import { IEnvironment } from './environment.interface';
+
+export const environment: IEnvironment = {
   production: true,
-  apiUrl: 'https://company-app.develop.m4mapp.com/api',
+  apiUrl: '<to_be_provided>',
   apiClientId: '<to_be_provided>',
 };
