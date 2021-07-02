@@ -349,6 +349,27 @@
           }
         }
       }
+    },
+    "api-client": {
+      "root": "libs/api-client",
+      "sourceRoot": "libs/api-client/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api-client/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api-client"],
+          "options": {
+            "jestConfig": "libs/api-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

@@ -43,6 +43,9 @@
     },
     "sdk": {
       "tags": []
+    },
+    "api-client": {
+      "tags": []
     }
   }
 }
