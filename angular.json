@@ -129,7 +129,7 @@
             "tsConfig": "apps/krew-ui-angular/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "apps/krew-ui-angular/src/favicon.ico", 
+              "apps/krew-ui-angular/src/favicon.ico",
               "apps/krew-ui-angular/src/assets",
               {
                 "glob": "**/*",
@@ -156,8 +156,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/krew-ui-angular/src/environments/environment.ts",
-                  "with": "apps/krew-ui-angular/src/environments/environment.prod.ts"
+                  "replace": "libs/shared/environments/src/lib/environment.ts",
+                  "with": "libs/shared/environments/src/lib/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -247,7 +247,7 @@
             "polyfills": "apps/krew-ui-react/src/polyfills.ts",
             "tsConfig": "apps/krew-ui-react/tsconfig.app.json",
             "assets": [
-              "apps/krew-ui-react/src/favicon.ico", 
+              "apps/krew-ui-react/src/favicon.ico",
               "apps/krew-ui-react/src/assets",
               {
                 "glob": "**/*",
@@ -317,6 +317,28 @@
       "sourceRoot": "libs/shared/assets/src",
       "prefix": "krew",
       "architect": {}
+    },
+    "shared-environments": {
+      "projectType": "library",
+      "root": "libs/shared/environments",
+      "sourceRoot": "libs/shared/environments/src",
+      "prefix": "krew",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/environments"],
+          "options": {
+            "jestConfig": "libs/shared/environments/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/environments/src/**/*.ts", "libs/shared/environments/src/**/*.html"]
+          }
+        }
+      }
     }
   }
 }
