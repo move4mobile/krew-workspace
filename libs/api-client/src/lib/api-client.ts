@@ -1,6 +1,6 @@
 import { News } from './news';
-import { applyMixins } from './utils';
-import { Base } from './base';
+// import { applyMixins } from './utils';
+// import { Base } from './base';
 
 // Export types
 export * from './news/types';

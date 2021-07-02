@@ -1,4 +1,4 @@
-import { Pagination } from '../base';
+// import { Pagination } from '../base';
 
 export type NewsItem = {
   id: string;
