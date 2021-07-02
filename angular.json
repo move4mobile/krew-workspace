@@ -100,7 +100,7 @@
             }
           },
           "options": {
-            "port": 4402,
+            "port": 4403,
             "outputPath": "dist/apps/krew-ui-svelte",
             "entryFile": "apps/krew-ui-svelte/src/main.ts",
             "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
@@ -310,7 +310,8 @@
         "serve": {
           "builder": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "krew-ui-react:build"
+            "buildTarget": "krew-ui-react:build",
+            "port": 4402
           },
           "configurations": {
             "production": {
