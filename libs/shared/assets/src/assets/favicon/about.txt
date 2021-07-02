@@ -1,6 +1,0 @@
-This favicon was generated using the following font:
-
-- Font Title: Fira Sans Extra Condensed
-- Font Author: Digitized data copyright 2012-2016, The Mozilla Foundation and Telefonica S.A.
-- Font Source: http://fonts.gstatic.com/s/firasansextracondensed/v5/NaPKcYDaAO5dirw6IaFn7lPJFqXmS-M9Atn3wgda5fiku3efvE8.ttf
-- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL)
