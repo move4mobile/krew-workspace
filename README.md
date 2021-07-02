@@ -54,8 +54,8 @@ nx run-many --target=serve --projects=krew-ui-angular,krew-ui-svelte,krew-ui-rea
 
 ## App development ports configuration
 
-| - App name -    | - Port - |
-| --------------- | -------- |
-| krew-ui-angular | 4401     |
-| krew-ui-react   | 4402     |
-| krew-ui-svelte  | 4403     |
+| App name        | Port |
+| --------------- | ---- |
+| krew-ui-angular | 4401 |
+| krew-ui-react   | 4402 |
+| krew-ui-svelte  | 4403 |
