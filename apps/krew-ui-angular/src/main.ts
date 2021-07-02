@@ -4,6 +4,11 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+import { createKrewClient } from '@krew/api-client';
+
+const apiClient = createKrewClient({});
+console.log(apiClient.debug.ping());
+
 if (environment.production) {
   enableProdMode();
 }
