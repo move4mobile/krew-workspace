@@ -19,8 +19,11 @@ export abstract class Base {
 
   constructor(config: Config) {
     this.apiKey = config.apiKey;
-    this.basePath = config.basePath || 'https://company-app.develop.m4mapp.com/api/';
+    this.basePath = config.basePath || 'https://jsonplaceholder.typicode.com/';
   }
+
+  protected abstract findOne(id: string): Promise<any>;
+  protected abstract findMany(): Promise<any[]>;
 
   protected request<T>(endpoint: string, options?: RequestInit): Promise<T> {
     const url = this.basePath + endpoint;

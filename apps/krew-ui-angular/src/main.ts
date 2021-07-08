@@ -16,7 +16,8 @@ console.log('item', item);
 const apiClient = createKrewClient({});
 console.log(apiClient.debug.ping());
 
-console.log(apiClient.news.find());
+console.log(apiClient.news.findMany());
+console.log(apiClient.news.findOne('1'));
 
 if (environment.production) {
   enableProdMode();

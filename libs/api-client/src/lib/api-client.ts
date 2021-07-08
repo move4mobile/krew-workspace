@@ -1,8 +1,7 @@
 export * from './core';
-
 import { News } from './services';
-// import { Base } from './base';
 
+/* example class */
 class Debug {
   ping() {
     return 'pong';
