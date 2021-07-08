@@ -1,5 +1,20 @@
 export * from './core';
 
-export function apiClient(): string {
-  return 'api-client';
+import { News } from './services';
+// import { Base } from './base';
+
+class Debug {
+  ping() {
+    return 'pong';
+  }
 }
+
+export default function createKrewClient(options: any) {
+  return {
+    debug: new Debug(),
+
+    news: new News({ apiKey: '' }),
+  };
+}
+
+export { createKrewClient };
