@@ -8,6 +8,14 @@ export type Params = {
   [key: string]: any;
 };
 
+export interface IResourceGet {
+  get(id: string | number): Promise<any>;
+}
+
+export interface IResourceAll {
+  all(params?: Params): Promise<any[]>;
+}
+
 export abstract class BaseService {
   #clientId: string;
   #clientSecret: string;
@@ -19,9 +27,6 @@ export abstract class BaseService {
     this.#clientSecret = config.clientSecret;
     this.#basePath = config.basePath || 'https://jsonplaceholder.typicode.com/';
   }
-
-  protected abstract get(id: string | number): Promise<any>;
-  protected abstract all(params?: Params): Promise<any[]>;
 
   // NOTE: we can replace this with 'fetch' or `axios`?
   protected request<T>(Model: any, endpoint: string, options?: RequestInit): Promise<T> {
