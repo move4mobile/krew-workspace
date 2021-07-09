@@ -13,6 +13,10 @@ export type Pagination = {
   per_page?: number;
 };
 
+export type QueryFilter = {
+  limit?: number;
+};
+
 export abstract class Base {
   private apiKey: string;
   private basePath: string;
@@ -22,9 +26,10 @@ export abstract class Base {
     this.basePath = config.basePath || 'https://jsonplaceholder.typicode.com/';
   }
 
-  protected abstract findOne(id: string): Promise<any>;
-  protected abstract findMany(): Promise<any[]>;
+  protected abstract get(id: string): Promise<any>;
+  protected abstract all(filter: QueryFilter): Promise<any[]>;
 
+  // TODO: replace with 'fetch' or `axios`?
   protected request<T>(endpoint: string, options?: RequestInit): Promise<T> {
     const url = this.basePath + endpoint;
     const headers = {

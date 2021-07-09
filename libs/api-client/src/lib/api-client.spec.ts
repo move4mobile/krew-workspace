@@ -1,7 +1,7 @@
-import { apiClient } from './api-client';
+import { createKrewClient } from './api-client';
 
 describe('apiClient', () => {
   it('should work', () => {
-    expect(apiClient()).toEqual('api-client');
+    expect(createKrewClient({})).toBeDefined();
   });
 });
