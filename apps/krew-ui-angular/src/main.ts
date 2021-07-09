@@ -17,8 +17,11 @@ const apiClient = createKrewClient({});
 
 console.log(apiClient.news.all());
 console.log(apiClient.news.get('1'));
+console.log(apiClient.news.create('1'));
+console.log(apiClient.news.update('1'));
+console.log(apiClient.news.get('1'));
 
-// console.log(apiClient.calendar.all());
+console.log(apiClient.agenda.findMany());
 
 if (environment.production) {
   enableProdMode();

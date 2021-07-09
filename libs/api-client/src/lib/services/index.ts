@@ -1,2 +1,2 @@
-export * from './calendar.service';
+export * from './agenda.service';
 export * from './news.service';

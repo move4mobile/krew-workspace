@@ -1,6 +1,5 @@
-// took 'isomorphic-unfetch' from an example. we don't have to use this.;
-
 import { plainToClass } from 'class-transformer';
+// took 'isomorphic-unfetch' from an example. we don't have to use this.;
 import * as fetchImport from 'isomorphic-unfetch';
 const fetch = (fetchImport.default || fetchImport) as typeof fetchImport.default;
 
@@ -9,16 +8,11 @@ type Config = {
   basePath?: string;
 };
 
-export type Pagination = {
-  page?: number;
-  per_page?: number;
+export type Params = {
+  [key: string]: any;
 };
 
-export type QueryFilter = {
-  limit?: number;
-};
-
-export abstract class Base {
+export abstract class BaseService {
   private apiKey: string;
   private basePath: string;
 
@@ -27,11 +21,13 @@ export abstract class Base {
     this.basePath = config.basePath || 'https://jsonplaceholder.typicode.com/';
   }
 
-  // TODO: replace with 'fetch' or `axios`?
+  protected abstract get(id: string | number): Promise<any>;
+  protected abstract all(params?: Params): Promise<any[]>;
+
+  // NOTE: we can replace this with 'fetch' or `axios`?
   protected request<T>(Model: any, endpoint: string, options?: RequestInit): Promise<T> {
     const url = this.basePath + endpoint;
     const headers = {
-      // 'api-key': this.apiKey,
       Authorization: 'Bearer ' + this.apiKey,
       'Content-type': 'application/json',
     };
@@ -40,8 +36,6 @@ export abstract class Base {
       ...options,
       headers,
     };
-
-    console.log('request ' + url);
 
     return fetch(url, config).then(r => {
       if (r.ok) {

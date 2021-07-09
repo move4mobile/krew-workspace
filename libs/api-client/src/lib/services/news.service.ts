@@ -1,9 +1,9 @@
 import { NewsItem } from '../core';
-import { Base } from './base.service';
+import { BaseService } from './base.service';
 
 const resourceName = 'todos';
 
-export class News extends Base {
+export class NewsService extends BaseService {
   async get(id: string): Promise<NewsItem> {
     return this.request<NewsItem>(NewsItem, `${resourceName}/${id}`);
   }

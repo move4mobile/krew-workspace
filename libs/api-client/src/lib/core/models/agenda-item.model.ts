@@ -1,6 +1,6 @@
 import { Expose } from 'class-transformer';
 
-export class CalendarItem /* implements ICalendarItem */ {
+export class AgendaItem /* implements IAgendaItem */ {
   @Expose()
   id: string;
 
