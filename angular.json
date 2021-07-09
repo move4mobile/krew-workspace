@@ -129,7 +129,7 @@
             "tsConfig": "apps/krew-ui-angular/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "apps/krew-ui-angular/src/favicon.ico", 
+              "apps/krew-ui-angular/src/favicon.ico",
               "apps/krew-ui-angular/src/assets",
               {
                 "glob": "**/*",
@@ -247,7 +247,7 @@
             "polyfills": "apps/krew-ui-react/src/polyfills.ts",
             "tsConfig": "apps/krew-ui-react/tsconfig.app.json",
             "assets": [
-              "apps/krew-ui-react/src/favicon.ico", 
+              "apps/krew-ui-react/src/favicon.ico",
               "apps/krew-ui-react/src/assets",
               {
                 "glob": "**/*",
@@ -317,6 +317,38 @@
       "sourceRoot": "libs/shared/assets/src",
       "prefix": "krew",
       "architect": {}
+    },
+    "api-client": {
+      "root": "libs/api-client",
+      "sourceRoot": "libs/api-client/src",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/api-client",
+            "tsConfig": "libs/api-client/tsconfig.lib.json",
+            "packageJson": "libs/api-client/package.json",
+            "main": "libs/api-client/src/index.ts",
+            "assets": ["libs/api-client/*.md"]
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api-client/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api-client"],
+          "options": {
+            "jestConfig": "libs/api-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
