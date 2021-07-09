@@ -1,12 +1,8 @@
 import { plainToClass } from 'class-transformer';
 // took 'isomorphic-unfetch' from an example. we don't have to use this.;
 import * as fetchImport from 'isomorphic-unfetch';
+import { Config } from '../core';
 const fetch = (fetchImport.default || fetchImport) as typeof fetchImport.default;
-
-type Config = {
-  apiKey: string;
-  basePath?: string;
-};
 
 export type Params = {
   [key: string]: any;

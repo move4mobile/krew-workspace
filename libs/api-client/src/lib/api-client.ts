@@ -1,11 +1,15 @@
 export * from './core';
+import { Config } from './core';
 import { NewsService, AgendaService } from './services';
 
-export default function createKrewClient(options: any) {
-  return {
-    news: () => new NewsService({ apiKey: '' }),
+export default function createKrewClient(config: Config) {
+  const _newsService = new NewsService(config);
+  const _agendaService = new AgendaService(config);
 
-    agenda: () => new AgendaService({ apiKey: '' }),
+  return {
+    news: () => _newsService,
+
+    agenda: () => _agendaService,
   };
 }
 
