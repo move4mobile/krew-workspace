@@ -1,18 +1,11 @@
 export * from './core';
-import { News } from './services';
-
-/* example class */
-class Debug {
-  ping() {
-    return 'pong';
-  }
-}
+import { News, Calendar } from './services';
 
 export default function createKrewClient(options: any) {
   return {
-    debug: new Debug(),
-
     news: new News({ apiKey: '' }),
+
+    calendar: new Calendar({ apiKey: '' }),
   };
 }
 

@@ -14,10 +14,11 @@ const item: Partial<NewsItem> = {
 console.log('item', item);
 
 const apiClient = createKrewClient({});
-console.log(apiClient.debug.ping());
 
 console.log(apiClient.news.all());
 console.log(apiClient.news.get('1'));
+
+console.log(apiClient.calendar.all());
 
 if (environment.production) {
   enableProdMode();
