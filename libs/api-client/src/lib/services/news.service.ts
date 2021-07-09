@@ -4,23 +4,14 @@ import { Base } from './base.service';
 
 const resourceName = 'todos';
 
-interface IResource {
-  find(): Promise<any>;
-  findAll(): Promise<any[]>;
-}
-
-export class News extends Base implements IResource {
-  async find(): Promise<NewsItem> {
-    throw new Error('Method not implemented.');
+export class News extends Base {
+  protected getUrl(): string {
+    return resourceName;
   }
 
-  async findAll(): Promise<NewsItem[]> {
-    throw new Error('Method not implemented.');
-  }
-
-  async get(id: string): Promise<NewsItem> {
-    return this.request<NewsItem>(`${resourceName}/${id}`).then(serialize);
-  }
+  // async get(id: string): Promise<NewsItem> {
+  //   return this.request<NewsItem>(`${resourceName}/${id}`).then(serialize);
+  // }
 
   async all(): Promise<NewsItem[]> {
     let query = `${resourceName}`;

@@ -5,9 +5,13 @@ import { Base } from './base.service';
 const resourceName = 'posts';
 
 export class Calendar extends Base {
-  async get(id: string): Promise<CalendarItem> {
-    return this.request<CalendarItem>(`${resourceName}/${id}`).then(serialize);
+  protected getUrl(): string {
+    return resourceName;
   }
+
+  // async get(id: string): Promise<CalendarItem> {
+  //   return this.request<CalendarItem>(`${resourceName}/${id}`).then(serialize);
+  // }
 
   async all(): Promise<CalendarItem[]> {
     const query = `${resourceName}`;
