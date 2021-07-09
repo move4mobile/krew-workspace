@@ -43,6 +43,9 @@
     },
     "shared-environments": {
       "tags": ["scope:shared", "type:environments"]
+    },
+    "api-client": {
+      "tags": []
     }
   }
 }

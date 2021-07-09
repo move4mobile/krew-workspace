@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/apps/krew-ui-react',
     '<rootDir>/libs/shared/assets',
     '<rootDir>/libs/shared/environments',
+    '<rootDir>/libs/api-client',
   ],
 };
