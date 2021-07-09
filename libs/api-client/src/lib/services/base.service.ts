@@ -21,7 +21,7 @@ export abstract class BaseService {
   protected request<T>(Model: any, endpoint: string, options?: RequestInit): Promise<T> {
     const url = this.#basePath + endpoint;
     const headers = {
-      Authorization: 'Bearer ' + this.apiKey,
+      Authorization: 'Bearer ' + this.#accessToken,
       'Content-type': 'application/json',
     };
 
@@ -36,10 +36,6 @@ export abstract class BaseService {
       }
       throw new Error(r.statusText);
     });
-  }
-
-  private getToken(): string {
-    return this.#accessToken;
   }
 
   protected setToken(accessToken: string) {
