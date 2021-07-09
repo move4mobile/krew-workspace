@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { createKrewClient } from '@krew/api-client';
 
 @Component({
   selector: 'krew-root',
@@ -7,6 +9,16 @@ import { Component } from '@angular/core';
     <router-outlet></router-outlet>
   `,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+    const apiClient = createKrewClient({});
+
+    apiClient
+      .auth()
+      .login('user', 'password')
+      .then(() => {
+        // console.log();
+      });
+  }
   title = 'krew-ui-angular';
 }
