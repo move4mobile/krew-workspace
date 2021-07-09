@@ -1,12 +1,5 @@
-import { Expose } from 'class-transformer';
-
-export class AgendaItem /* implements IAgendaItem */ {
-  @Expose()
+export class AgendaItem {
   id: string;
-
-  @Expose()
   title: string;
-
-  @Expose()
   date: string;
 }

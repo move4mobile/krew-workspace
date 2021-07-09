@@ -1,21 +1,10 @@
-import { Expose } from 'class-transformer';
+import { NewsItemStatus } from '../../core';
 
-export class NewsItem /* implements INewsItem */ {
-  @Expose()
+export class NewsItem {
   id: string;
-
-  @Expose()
   title: string;
-
-  @Expose()
   date: string;
-
-  @Expose()
   thumbnail?: string;
-
-  @Expose()
   image?: string;
-
-  @Expose()
-  status: string;
+  status: NewsItemStatus;
 }
