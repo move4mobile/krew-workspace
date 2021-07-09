@@ -9,12 +9,15 @@ export type Params = {
 };
 
 export abstract class BaseService {
-  private apiKey: string;
-  private basePath: string;
+  #clientId: string;
+  #clientSecret: string;
+  #basePath: string;
+  #accessToken: string;
 
   constructor(config: Config) {
-    this.apiKey = config.apiKey;
-    this.basePath = config.basePath || 'https://jsonplaceholder.typicode.com/';
+    this.#clientId = config.clientId;
+    this.#clientSecret = config.clientSecret;
+    this.#basePath = config.basePath || 'https://jsonplaceholder.typicode.com/';
   }
 
   protected abstract get(id: string | number): Promise<any>;
@@ -22,7 +25,7 @@ export abstract class BaseService {
 
   // NOTE: we can replace this with 'fetch' or `axios`?
   protected request<T>(Model: any, endpoint: string, options?: RequestInit): Promise<T> {
-    const url = this.basePath + endpoint;
+    const url = this.#basePath + endpoint;
     const headers = {
       Authorization: 'Bearer ' + this.apiKey,
       'Content-type': 'application/json',
@@ -39,5 +42,13 @@ export abstract class BaseService {
       }
       throw new Error(r.statusText);
     });
+  }
+
+  private getToken(): string {
+    return this.#accessToken;
+  }
+
+  protected setToken(accessToken: string) {
+    this.#accessToken = accessToken;
   }
 }

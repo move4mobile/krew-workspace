@@ -1,4 +1,5 @@
 export type Config = {
-  apiKey: string;
+  clientId?: string;
+  clientSecret?: string;
   basePath?: string;
 };
