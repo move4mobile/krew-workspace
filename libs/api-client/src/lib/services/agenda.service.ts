@@ -1,5 +1,5 @@
 import { AgendaItem } from '../core';
-import { BaseService } from './base.service';
+import { BaseService, Params } from './base.service';
 
 const resourceName = 'posts';
 
@@ -8,7 +8,7 @@ export class AgendaService extends BaseService {
     throw new Error('Method not implemented.');
   }
 
-  async all(): Promise<AgendaItem[]> {
+  async all(params?: Params): Promise<AgendaItem[]> {
     const query = `${resourceName}`;
 
     return this.request<AgendaItem[]>(AgendaItem, query);
