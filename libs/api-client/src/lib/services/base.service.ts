@@ -28,7 +28,7 @@ export abstract class Base {
   }
 
   // TODO: replace with 'fetch' or `axios`?
-  protected request<T>(endpoint: string, Model: any, options?: RequestInit): Promise<T> {
+  protected request<T>(Model: any, endpoint: string, options?: RequestInit): Promise<T> {
     const url = this.basePath + endpoint;
     const headers = {
       // 'api-key': this.apiKey,
