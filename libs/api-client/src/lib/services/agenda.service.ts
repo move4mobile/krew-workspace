@@ -4,8 +4,8 @@ import { BaseService } from './base.service';
 const resourceName = 'posts';
 
 export class AgendaService extends BaseService {
-  async get(id: string): Promise<AgendaItem> {
-    return this.request<AgendaItem>(AgendaItem, `${resourceName}/${id}`);
+  protected get(id: string): Promise<AgendaItem> {
+    throw new Error('Method not implemented.');
   }
 
   async all(): Promise<AgendaItem[]> {

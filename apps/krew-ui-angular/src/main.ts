@@ -15,13 +15,10 @@ console.log('item', item);
 
 const apiClient = createKrewClient({});
 
-console.log(apiClient.news.all());
-console.log(apiClient.news.get('1'));
-console.log(apiClient.news.create('1'));
-console.log(apiClient.news.update('1'));
-console.log(apiClient.news.get('1'));
+// console.log(apiClient.news.all());
+console.log(apiClient.news().get('1'));
 
-console.log(apiClient.agenda.findMany());
+// console.log(apiClient.agenda.all());
 
 if (environment.production) {
   enableProdMode();
