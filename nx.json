@@ -40,6 +40,9 @@
     },
     "shared-assets": {
       "tags": ["scope:shared", "type:assets"]
+    },
+    "api-client": {
+      "tags": []
     }
   }
 }
