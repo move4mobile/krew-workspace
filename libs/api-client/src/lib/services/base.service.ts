@@ -18,7 +18,7 @@ export type QueryFilter = {
   limit?: number;
 };
 
-export abstract class Base<T> {
+export abstract class Base {
   private apiKey: string;
   private basePath: string;
 
@@ -26,17 +26,9 @@ export abstract class Base<T> {
     this.apiKey = config.apiKey;
     this.basePath = config.basePath || 'https://jsonplaceholder.typicode.com/';
   }
-  public get<T>(id: string): Promise<T> {
-    return this.request<T>(`${this.getUrl()}/${id}`);
-  }
-
-  protected abstract getUrl(): string;
-
-  // protected abstract get(id: string): Promise<any>;
-  // protected abstract all(filter: QueryFilter): Promise<any[]>;
 
   // TODO: replace with 'fetch' or `axios`?
-  protected request<T>(endpoint: string, options?: RequestInit): Promise<T> {
+  protected request<T>(endpoint: string, Model: any, options?: RequestInit): Promise<T> {
     const url = this.basePath + endpoint;
     const headers = {
       // 'api-key': this.apiKey,
@@ -53,17 +45,9 @@ export abstract class Base<T> {
 
     return fetch(url, config).then(r => {
       if (r.ok) {
-        return r.json();
+        return plainToClass<T, any>(Model, r.json());
       }
       throw new Error(r.statusText);
     });
   }
-
-  private serialize(data: any): T {
-    return plainToClass(T, data);
-  }
-
-  // private serializeMany(data: any[]): T[] {
-  //   return data.map(serialize);
-  // }
 }
