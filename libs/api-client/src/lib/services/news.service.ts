@@ -1,5 +1,6 @@
 import { NewsItem } from '../core';
-import { BaseService, IResourceAll, IResourceGet, Params } from './base.service';
+import { BaseService } from './base.service';
+import { IResourceAll, IResourceGet, Params } from '../core';
 
 const resourceName = 'todos';
 

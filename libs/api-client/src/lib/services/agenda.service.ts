@@ -1,5 +1,5 @@
-import { AgendaItem } from '../core';
-import { BaseService, IResourceAll, Params } from './base.service';
+import { AgendaItem, IResourceAll, Params } from '../core';
+import { BaseService } from './base.service';
 
 const resourceName = 'posts';
 

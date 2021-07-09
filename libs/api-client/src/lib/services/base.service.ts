@@ -38,6 +38,30 @@ export abstract class BaseService {
     });
   }
 
+  // TODO: this is a separate method for testing
+  protected postLogin(endpoint: string, postData: any, options?: RequestInit): Promise<any> {
+    const url = this.#basePath + endpoint;
+    const headers = {
+      'Content-type': 'application/json',
+    };
+
+    const config = {
+      method: 'POST',
+      ...options,
+      headers,
+      body: JSON.stringify(postData),
+    };
+
+    console.log(config);
+
+    return fetch(url, config).then(r => {
+      if (r.ok) {
+        return r.json();
+      }
+      throw new Error(r.statusText);
+    });
+  }
+
   protected setToken(accessToken: string) {
     this.#accessToken = accessToken;
   }
