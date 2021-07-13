@@ -117,7 +117,7 @@
     "svelte": "^3.38.3",
     "svelte-check": "^2.2.1",
     "svelte-jester": "^1.7.0",
-    "svelte-preprocess": "^4.7.3",
+    "svelte-preprocess": "^4.7.4",
     "tailwindcss": "^2.2.4",
     "ts-jest": "26.5.6",
     "ts-node": "~10.1.0",
