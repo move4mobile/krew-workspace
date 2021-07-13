@@ -44,6 +44,18 @@ For example, if you want to run the sample app locally, type
 nx serve krew-ui-angular
 ```
 
-Next, open a browser and navigate to http://localhost:4200
+Next, open a browser and navigate to http://localhost:4201
 
-..
+Or, if you want to run all apps at the same time, type
+
+```
+nx run-many --target=serve --projects=krew-ui-angular,krew-ui-svelte,krew-ui-react
+```
+
+## App development ports configuration
+
+| App name        | Port |
+| --------------- | ---- |
+| krew-ui-angular | 4401 |
+| krew-ui-react   | 4402 |
+| krew-ui-svelte  | 4403 |

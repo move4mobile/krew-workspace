@@ -41,6 +41,9 @@
     "shared-assets": {
       "tags": ["scope:shared", "type:assets"]
     },
+    "shared-environments": {
+      "tags": ["scope:shared", "type:environments"]
+    },
     "api-client": {
       "tags": []
     }
