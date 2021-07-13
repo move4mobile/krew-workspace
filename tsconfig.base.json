@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@krew/krew-angular/feature-shell": ["libs/krew-angular/feature-shell/src/index.ts"],
+      "@krew/environments": ["libs/shared/environments/src/index.ts"],
       "@krew/api-client": ["libs/api-client/src/index.ts"]
     }
   },

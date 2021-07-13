@@ -75,14 +75,32 @@
           },
           "configurations": {
             "production": {
-              "dev": false
+              "dev": false,
+              "fileReplacements": [
+                {
+                  "replace": "libs/shared/environments/src/lib/environment.ts",
+                  "with": "libs/shared/environments/src/lib/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "dev": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@nxext/svelte:build",
+          "configurations": {
+            "production": {
+              "browserTarget": "krew-ui-svelte:build:production"
+            },
+            "development": {
+              "browserTarget": "krew-ui-svelte:build:development"
+            }
+          },
           "options": {
-            "port": 4400,
+            "port": 4403,
             "outputPath": "dist/apps/krew-ui-svelte",
             "entryFile": "apps/krew-ui-svelte/src/main.ts",
             "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
@@ -96,7 +114,8 @@
             ],
             "watch": true,
             "serve": true
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -156,8 +175,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/krew-ui-angular/src/environments/environment.ts",
-                  "with": "apps/krew-ui-angular/src/environments/environment.prod.ts"
+                  "replace": "libs/shared/environments/src/lib/environment.ts",
+                  "with": "libs/shared/environments/src/lib/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -174,6 +193,10 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": {
+            "browserTarget": "krew-ui-angular:build",
+            "port": 4401
+          },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
@@ -263,8 +286,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/krew-ui-react/src/environments/environment.ts",
-                  "with": "apps/krew-ui-react/src/environments/environment.prod.ts"
+                  "replace": "libs/shared/environments/src/lib/environment.ts",
+                  "with": "libs/shared/environments/src/lib/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -287,7 +310,8 @@
         "serve": {
           "builder": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "krew-ui-react:build"
+            "buildTarget": "krew-ui-react:build",
+            "port": 4402
           },
           "configurations": {
             "production": {
@@ -317,6 +341,28 @@
       "sourceRoot": "libs/shared/assets/src",
       "prefix": "krew",
       "architect": {}
+    },
+    "shared-environments": {
+      "projectType": "library",
+      "root": "libs/shared/environments",
+      "sourceRoot": "libs/shared/environments/src",
+      "prefix": "krew",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/environments"],
+          "options": {
+            "jestConfig": "libs/shared/environments/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/environments/src/**/*.ts", "libs/shared/environments/src/**/*.html"]
+          }
+        }
+      }
     },
     "api-client": {
       "root": "libs/api-client",
