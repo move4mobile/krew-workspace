@@ -8,7 +8,7 @@ module.exports = {
       './libs/krew-angular/**/*.{html,ts,css,scss,sass,less,styl}',
     ],
   },
-  darkMode: 'media', // or 'media' or 'class'
+  darkMode: 'media',
   theme: {
     extend: {},
   },
