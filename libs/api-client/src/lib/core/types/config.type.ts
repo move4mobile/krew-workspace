@@ -1,6 +1,10 @@
 export type Config = {
-  clientId?: string;
-  clientSecret?: string;
-  basePath?: string;
   sandbox?: boolean;
+  storageMode?: 'LOCALSTORAGE' | 'MEMORY'; // 'localstorage';
+};
+
+// TODO: move to some other file
+export const DEFAULT_CONFIG: Config = {
+  sandbox: false,
+  storageMode: 'MEMORY',
 };
