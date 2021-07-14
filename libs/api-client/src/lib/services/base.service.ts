@@ -9,6 +9,7 @@ export abstract class BaseService {
   #clientSecret: string;
   #basePath: string;
   #accessToken: string;
+  #sandbox: boolean = false;
 
   constructor(config: Config) {
     this.#clientId = config.clientId || '3c798074ceb26d43da9f0d6e845d3e44';
