@@ -13,9 +13,12 @@ export class AuthService extends BaseService {
     const query = `${resourceName}`;
 
     const postData = {
-      grant_type: 'password',
+      username,
+      password,
     };
 
-    return this.postLogin(query, postData);
+    const response = await this.postLogin(query, postData);
+    this.saveToken(response.token);
+    return response;
   }
 }

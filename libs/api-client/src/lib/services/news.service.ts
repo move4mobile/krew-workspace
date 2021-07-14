@@ -2,7 +2,7 @@ import { NewsItem } from '../core';
 import { BaseService } from './base.service';
 import { IResourceAll, IResourceGet, Params } from '../core';
 
-const resourceName = 'todos';
+const resourceName = '/news';
 
 export class NewsService extends BaseService implements IResourceAll, IResourceGet {
   constructor(config: any) {

@@ -1,7 +1,7 @@
 import { AgendaItem, IResourceAll, Params } from '../core';
 import { BaseService } from './base.service';
 
-const resourceName = 'posts';
+const resourceName = '/agenda';
 
 export class AgendaService extends BaseService implements IResourceAll {
   async all(params?: Params): Promise<AgendaItem[]> {

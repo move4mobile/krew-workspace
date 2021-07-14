@@ -1,5 +1,6 @@
 export type Config = {
   sandbox?: boolean;
+  devProxyPort?: number;
   storageMode?: 'LOCALSTORAGE' | 'MEMORY'; // 'localstorage';
 };
 

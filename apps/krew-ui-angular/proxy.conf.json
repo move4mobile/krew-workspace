@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://api.companyapp.m4m.io/api",
+    "secure": false,
+    "pathRewrite": { "^/api": "" },
+    "logLevel": "debug"
+  }
+}

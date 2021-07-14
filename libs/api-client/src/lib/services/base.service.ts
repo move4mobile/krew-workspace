@@ -18,13 +18,17 @@ export abstract class BaseService {
       // Default settings (production)
       this.#basePath = 'https://api.companyapp.m4m.io/api';
     }
+
+    if (config.devProxyPort) {
+      this.#basePath = 'http://127.0.0.1:8080/' + this.#basePath;
+    }
   }
 
   // NOTE: we can replace this with 'fetch' or `axios`?
   protected request<T>(Model: any, endpoint: string, options?: RequestInit): Promise<T> {
     const url = this.#basePath + endpoint;
     const headers = {
-      Authorization: 'Bearer ' + this.#accessToken,
+      Authorization: 'Bearer ' + this.getToken(),
       'Content-type': 'application/json',
     };
 
@@ -32,6 +36,8 @@ export abstract class BaseService {
       ...options,
       headers,
     };
+
+    console.log(config);
 
     return fetch(url, config).then(r => {
       if (r.ok) {
@@ -66,6 +72,13 @@ export abstract class BaseService {
   }
 
   protected saveToken(accessToken: string) {
-    this.#accessToken = accessToken;
+    this.#accessToken = accessToken; // NOTE: doesn't work (yet)
+
+    // Always local storage for now
+    localStorage.setItem('token', accessToken);
+  }
+
+  private getToken() {
+    return localStorage.getItem('token');
   }
 }

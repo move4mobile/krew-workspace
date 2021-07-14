@@ -11,13 +11,13 @@ import { createKrewClient } from '@krew/api-client';
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
-    const apiClient = createKrewClient({});
+    const apiClient = createKrewClient({ devProxyPort: 8080 });
 
     apiClient
       .auth()
-      .login('testuser@move4mobile.com', 'password')
+      .login('demo@move4mobile.com', 'demo')
       .then(() => {
-        // console.log();
+        apiClient.news().all().then(console.log);
       });
   }
   title = 'krew-ui-angular';
