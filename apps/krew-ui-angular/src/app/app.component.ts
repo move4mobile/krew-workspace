@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
     apiClient
       .auth()
-      .login('user', 'password')
+      .login('testuser@move4mobile.com', 'password')
       .then(() => {
         // console.log();
       });
