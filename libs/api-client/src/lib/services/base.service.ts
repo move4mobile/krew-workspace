@@ -75,8 +75,6 @@ export abstract class BaseService {
   protected saveToken(accessToken: string) {
     this.#accessToken = accessToken; // NOTE: doesn't work (yet)
 
-    console.log('save token ' + accessToken);
-
     switch (this.#storagemode) {
       case 'LOCAL_STORAGE':
         localStorage.setItem(TOKEN_KEY, accessToken);

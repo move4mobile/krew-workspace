@@ -6,9 +6,7 @@ export * from './core';
 
 interface IKrewClient {
   auth(): AuthService;
-
   news(): NewsService;
-
   agenda(): AgendaService;
 }
 

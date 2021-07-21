@@ -8,14 +8,16 @@ class UserCredential {
 
 export class AuthService extends BaseService {
   async login(username: string, password: string): Promise<UserCredential> {
+    if (!username || !password) {
+      throw new Error('sername or password is null');
+    }
+
     const query = `${resourceName}`;
 
     const postData = {
       username,
       password,
     };
-
-    console.log('login user', postData);
 
     const response = await this.postLogin(query, postData);
     this.saveToken(response.token);
