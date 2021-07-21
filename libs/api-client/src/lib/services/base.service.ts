@@ -4,12 +4,17 @@ import * as fetchImport from 'isomorphic-unfetch';
 import { Config, DEFAULT_CONFIG } from '../core';
 const fetch = (fetchImport.default || fetchImport) as typeof fetchImport.default;
 
+const TOKEN_KEY = 'accessToken';
+
 export abstract class BaseService {
   #basePath: string;
   #accessToken: string;
+  #storagemode: 'LOCAL_STORAGE' | 'MEMORY';
 
   constructor(configData: Config) {
     const config = Object.assign({}, DEFAULT_CONFIG, configData);
+
+    this.#storagemode = config.storageMode;
 
     if (config.sandbox === true) {
       // Sandbox mode
@@ -20,7 +25,7 @@ export abstract class BaseService {
     }
 
     if (config.devProxyPort) {
-      this.#basePath = 'http://127.0.0.1:8080/' + this.#basePath;
+      this.#basePath = `http://127.0.0.1:${config.devProxyPort}/` + this.#basePath;
     }
   }
 
@@ -36,8 +41,6 @@ export abstract class BaseService {
       ...options,
       headers,
     };
-
-    console.log(config);
 
     return fetch(url, config).then(r => {
       if (r.ok) {
@@ -61,8 +64,6 @@ export abstract class BaseService {
       body: JSON.stringify(postData),
     };
 
-    console.log(config);
-
     return fetch(url, config).then(r => {
       if (r.ok) {
         return r.json();
@@ -74,11 +75,18 @@ export abstract class BaseService {
   protected saveToken(accessToken: string) {
     this.#accessToken = accessToken; // NOTE: doesn't work (yet)
 
-    // Always local storage for now
-    localStorage.setItem('token', accessToken);
+    console.log('save token ' + accessToken);
+
+    switch (this.#storagemode) {
+      case 'LOCAL_STORAGE':
+        localStorage.setItem(TOKEN_KEY, accessToken);
+        break;
+      default:
+        throw new Error(`Storage mode ${this.#storagemode} not yet supported`);
+    }
   }
 
   private getToken() {
-    return localStorage.getItem('token');
+    return localStorage.getItem(TOKEN_KEY);
   }
 }

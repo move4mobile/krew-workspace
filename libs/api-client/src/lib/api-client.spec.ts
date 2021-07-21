@@ -8,6 +8,9 @@ describe('apiClient', () => {
   it('should be able to fail login', async () => {
     const apiClient = createKrewClient({ sandbox: true });
 
-    expect(await apiClient.auth().login('demo@move4mobile.com', '<enter password>')).toThrowError('Unauthorized');
+    // login
+    await apiClient.auth().login(process.env.LOGIN_USER, process.env.LOGIN_PWD);
+
+    expect(apiClient).toThrowError('Unauthorized');
   });
 });
