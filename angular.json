@@ -68,7 +68,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "libs/shared/assets/src/assets",
+                "input": "libs/shared/assets",
                 "output": "assets"
               }
             ]
@@ -152,7 +152,7 @@
               "apps/krew-ui-angular/src/assets",
               {
                 "glob": "**/*",
-                "input": "libs/shared/assets/src/assets",
+                "input": "libs/shared/assets",
                 "output": "assets"
               }
             ],
@@ -274,7 +274,7 @@
               "apps/krew-ui-react/src/assets",
               {
                 "glob": "**/*",
-                "input": "libs/shared/assets/src/assets",
+                "input": "libs/shared/assets",
                 "output": "assets"
               }
             ],
