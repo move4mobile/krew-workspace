@@ -1,4 +1,4 @@
-import { createKrewClient, NewsItemStatus } from './api-client';
+import { createKrewClient, NewsItemStatus } from '../api-client';
 
 describe('apiClient', () => {
   it('should be able to retrieve news', async () => {
@@ -10,7 +10,7 @@ describe('apiClient', () => {
     const news = await apiClient.news().all({
       status: NewsItemStatus.PUBLISHED,
       offset: 0,
-      limit: 10
+      limit: 10,
     });
 
     expect(news.length).toBeGreaterThan(0);
