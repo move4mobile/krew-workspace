@@ -4,7 +4,7 @@ import { AuthService } from './services/auth.service';
 
 export * from './core';
 
-interface IKrewClient {
+export interface IKrewClient {
   auth(): AuthService;
   news(): NewsService;
   agenda(): AgendaService;
