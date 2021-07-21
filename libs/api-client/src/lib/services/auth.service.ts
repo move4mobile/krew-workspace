@@ -2,12 +2,13 @@ import { BaseService } from './base.service';
 
 const resourceName = '/auth/login';
 
-class UserCredential {
-  user: any;
+class AuthResponse {
+  token: string;
+  refresh_token: string;
 }
 
 export class AuthService extends BaseService {
-  async login(username: string, password: string): Promise<UserCredential> {
+  async login(username: string, password: string): Promise<AuthResponse> {
     if (!username || !password) {
       throw new Error('sername or password is null');
     }
@@ -19,7 +20,7 @@ export class AuthService extends BaseService {
       password,
     };
 
-    const response = await this.postLogin(query, postData);
+    const response: AuthResponse = await this.postLogin(query, postData);
     this.saveToken(response.token);
     return response;
   }
