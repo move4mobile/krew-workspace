@@ -44,6 +44,8 @@ export abstract class BaseService {
       headers,
     };
 
+    console.log('fetch ' + url);
+
     return fetch(url, config).then(r => {
       if (r.ok) {
         return plainToClass<T, any>(Model, r.json());
