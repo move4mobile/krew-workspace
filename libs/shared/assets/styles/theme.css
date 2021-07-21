@@ -1,0 +1,16 @@
+:root {
+  --brand-01: #00327f;
+  --brand-01-darker: #001e4b;
+  --brand-01-lighter: #62728b;
+
+  --brand-01-placeholder: rgba(255, 255, 255, 0.5);
+
+  --brand-02: #f92822;
+
+  --white: #ffffff;
+
+  --gray-light: #bfb8b0;
+  --gray-lightest: #f3f2ef;
+
+  --gray-bg: rgba(0, 0, 0, 0.03);
+}
