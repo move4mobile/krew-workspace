@@ -4,11 +4,13 @@ import * as fetchImport from 'isomorphic-unfetch';
 import { Config, DEFAULT_CONFIG } from '../core';
 const fetch = (fetchImport.default || fetchImport) as typeof fetchImport.default;
 
-const TOKEN_KEY = 'accessToken';
+const ACCESS_TOKEN_KEY = 'accessToken';
+const REFRESH_TOKEN_KEY = 'refreshToken';
 
 export abstract class BaseService {
   #basePath: string;
   #accessToken: string;
+  #refreshToken: string;
   #storagemode: 'LOCAL_STORAGE' | 'MEMORY';
 
   constructor(configData: Config) {
@@ -33,7 +35,7 @@ export abstract class BaseService {
   protected request<T>(Model: any, endpoint: string, options?: RequestInit): Promise<T> {
     const url = this.#basePath + endpoint;
     const headers = {
-      Authorization: 'Bearer ' + this.getToken(),
+      Authorization: 'Bearer ' + this.getAccessToken(),
       'Content-type': 'application/json',
     };
 
@@ -51,7 +53,7 @@ export abstract class BaseService {
   }
 
   // TODO: this is a separate method for testing
-  protected postLogin(endpoint: string, postData: any, options?: RequestInit): Promise<any> {
+  protected requestWithoutBearer(endpoint: string, postData: any, options?: RequestInit): Promise<any> {
     const url = this.#basePath + endpoint;
     const headers = {
       'Content-type': 'application/json',
@@ -72,19 +74,25 @@ export abstract class BaseService {
     });
   }
 
-  protected saveToken(accessToken: string) {
+  protected saveToken(accessToken: string, refreshToken: string) {
     this.#accessToken = accessToken; // NOTE: doesn't work (yet)
+    this.#refreshToken = refreshToken;
 
     switch (this.#storagemode) {
       case 'LOCAL_STORAGE':
-        localStorage.setItem(TOKEN_KEY, accessToken);
+        localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
+        localStorage.setItem(REFRESH_TOKEN_KEY,refreshToken);
         break;
       default:
         throw new Error(`Storage mode ${this.#storagemode} not yet supported`);
     }
   }
 
-  private getToken() {
-    return localStorage.getItem(TOKEN_KEY);
+  protected getAccessToken() {
+    return localStorage.getItem(ACCESS_TOKEN_KEY);
   }
+  protected getRefreshToken() {
+    return localStorage.getItem(REFRESH_TOKEN_KEY);
+  }
+
 }
