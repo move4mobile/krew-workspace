@@ -22,10 +22,11 @@ export class AuthService extends BaseService {
 
     const response: AuthResponse = await this.postLogin(query, postData);
     this.saveToken(response.token);
+
     return response;
   }
 
   get isLoggedIn(): boolean {
-    return !!this.getToken();
+    return Boolean(this.getToken());
   }
 }

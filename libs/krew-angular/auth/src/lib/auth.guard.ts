@@ -4,19 +4,19 @@ import { Observable } from 'rxjs';
 import { createKrewClient, IKrewClient } from '@krew/api-client';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
   client: IKrewClient;
-  
+
   constructor() {
-    this.client = createKrewClient({sandbox: true,});
+    this.client = createKrewClient({ sandbox: true });
   }
-  
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    this.client.auth().login('develop@move4mobile.com', 'kr3w!h@ck3rs');
-    
-    return true;
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    return this.client.auth().isLoggedIn;
   }
-  
 }
