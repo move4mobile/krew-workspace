@@ -8,8 +8,8 @@ describe('apiClient', () => {
     await apiClient.auth().login(process.env.LOGIN_USER, process.env.LOGIN_PWD);
 
     const agendaItems = await apiClient.agenda().all({
-      from: new Date('2021-06-01'),
-      to: new Date('2021-07-01'),
+      from: '2021-06-01',
+      to: '2021-07-01',
     });
 
     expect(agendaItems.length).toBeGreaterThan(0);

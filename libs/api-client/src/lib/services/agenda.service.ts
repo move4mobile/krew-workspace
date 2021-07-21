@@ -9,19 +9,19 @@ export class AgendaService extends BaseService implements IResourceAll {
     let query = `${resourceName}`;
 
     const now = DateTime.now();
-    let from = now.minus({ days: 30 }).toJSDate();
-    let to = now.toJSDate();
+    let from = now.minus({ days: 30 }).toISODate();
+    let to = now.toISODate();
 
     if (params.from) {
-      from = new Date(params.from);
+      from = params.from;
     }
     if (params.to) {
-      to = new Date(params.to);
+      to = params.to;
     }
 
     const config = {
-      from: from.toISOString(),
-      to: to.toISOString(),
+      from: from,
+      to: to,
     };
 
     //prettier-ignore
