@@ -10,7 +10,7 @@ class AuthResponse {
 export class AuthService extends BaseService {
   async login(username: string, password: string): Promise<AuthResponse> {
     if (!username || !password) {
-      throw new Error('sername or password is null');
+      throw new Error('Username or password is null');
     }
 
     const query = `${resourceName}`;
@@ -23,5 +23,9 @@ export class AuthService extends BaseService {
     const response: AuthResponse = await this.postLogin(query, postData);
     this.saveToken(response.token);
     return response;
+  }
+
+  isLoggedIn(): boolean {
+    return true;
   }
 }
