@@ -83,17 +83,17 @@ export abstract class BaseService {
     switch (this.#storagemode) {
       case 'LOCAL_STORAGE':
         localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
-        localStorage.setItem(REFRESH_TOKEN_KEY,refreshToken);
+        localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
         break;
       default:
         throw new Error(`Storage mode ${this.#storagemode} not yet supported`);
     }
   }
 
-  protected getAccessToken() {
+  protected getAccessToken(): string|null {
     return localStorage.getItem(ACCESS_TOKEN_KEY);
   }
-  protected getRefreshToken() {
+  protected getRefreshToken(): string|null {
     return localStorage.getItem(REFRESH_TOKEN_KEY);
   }
 
