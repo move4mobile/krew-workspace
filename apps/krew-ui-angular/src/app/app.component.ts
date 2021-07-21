@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-import { createKrewClient } from '@krew/api-client';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'krew-root',
@@ -9,16 +7,6 @@ import { createKrewClient } from '@krew/api-client';
     <router-outlet></router-outlet>
   `,
 })
-export class AppComponent implements OnInit {
-  ngOnInit(): void {
-    const apiClient = createKrewClient({ sandbox: true });
-
-    apiClient
-      .auth()
-      .login('demo@move4mobile.com', '<enter password>')
-      .then(() => {
-        apiClient.news().all().then(console.log);
-      });
-  }
+export class AppComponent {
   title = 'krew-ui-angular';
 }
