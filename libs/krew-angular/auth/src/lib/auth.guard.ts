@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { createKrewClient, IKrewClient } from '@krew/api-client';
 
@@ -9,7 +9,7 @@ import { createKrewClient, IKrewClient } from '@krew/api-client';
 export class AuthGuard implements CanActivate {
   client: IKrewClient;
 
-  constructor() {
+  constructor(private router: Router) {
     this.client = createKrewClient({ sandbox: true });
   }
 
@@ -17,6 +17,12 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.client.auth().isLoggedIn;
+    if (this.client.auth().isLoggedIn) {
+      return true;
+    } else {
+      this.router.navigate([`/auth/login`]);
+
+      return false;
+    }
   }
 }

@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BottomBarComponent } from './bottom-bar.component';
 import { ShellComponent } from './shell.component';
-import { AuthGuard } from '@krew/krew-angular/auth';
+import { AuthModule, AuthGuard, authRoutes } from '@krew/krew-angular/auth';
 // TODO: never to IEnvironment
 
 export const ENVIRONMENT = new InjectionToken<unknown>('environment');
@@ -33,14 +33,18 @@ export const ENVIRONMENT = new InjectionToken<unknown>('environment');
             // },
           ],
         },
+        {
+          path: 'auth',
+          children: authRoutes,
+        },
       ],
       { initialNavigation: 'enabled' }
     ),
+    AuthModule,
   ],
   exports: [RouterModule],
   declarations: [BottomBarComponent, ShellComponent],
 })
-
 export class FeatureShellModule {
   static withEnvironment(environment: unknown): ModuleWithProviders<FeatureShellModule> {
     console.log(environment);
