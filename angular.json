@@ -112,6 +112,11 @@
                 "glob": "/*",
                 "input": "apps/krew-ui-svelte/public/**",
                 "output": "./"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/shared/assets/src/assets",
+                "output": "assets"
               }
             ],
             "watch": true,
