@@ -1,13 +1,9 @@
-import { AgendaItem } from '../core';
-import { BaseService, Params } from './base.service';
+import { AgendaItem, IResourceAll, Params } from '../core';
+import { BaseService } from './base.service';
 
-const resourceName = 'posts';
+const resourceName = '/agenda';
 
-export class AgendaService extends BaseService {
-  protected get(id: string): Promise<AgendaItem> {
-    throw new Error('Method not implemented.');
-  }
-
+export class AgendaService extends BaseService implements IResourceAll {
   async all(params?: Params): Promise<AgendaItem[]> {
     const query = `${resourceName}`;
 

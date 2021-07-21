@@ -1,30 +1,39 @@
 import { plainToClass } from 'class-transformer';
 // took 'isomorphic-unfetch' from an example. we don't have to use this.;
 import * as fetchImport from 'isomorphic-unfetch';
-import { Config } from '../core';
+import { Config, DEFAULT_CONFIG } from '../core';
 const fetch = (fetchImport.default || fetchImport) as typeof fetchImport.default;
 
-export type Params = {
-  [key: string]: any;
-};
+const TOKEN_KEY = 'accessToken';
 
 export abstract class BaseService {
-  private apiKey: string;
-  private basePath: string;
+  #basePath: string;
+  #accessToken: string;
+  #storagemode: 'LOCAL_STORAGE' | 'MEMORY';
 
-  constructor(config: Config) {
-    this.apiKey = config.apiKey;
-    this.basePath = config.basePath || 'https://jsonplaceholder.typicode.com/';
+  constructor(configData: Config) {
+    const config = Object.assign({}, DEFAULT_CONFIG, configData);
+
+    this.#storagemode = config.storageMode;
+
+    if (config.sandbox === true) {
+      // Sandbox mode
+      this.#basePath = 'https://company-app.develop.m4mapp.com/api';
+    } else {
+      // Default settings (production)
+      this.#basePath = 'https://api.companyapp.m4m.io/api';
+    }
+
+    if (config.devProxyPort) {
+      this.#basePath = `http://127.0.0.1:${config.devProxyPort}/` + this.#basePath;
+    }
   }
-
-  protected abstract get(id: string | number): Promise<any>;
-  protected abstract all(params?: Params): Promise<any[]>;
 
   // NOTE: we can replace this with 'fetch' or `axios`?
   protected request<T>(Model: any, endpoint: string, options?: RequestInit): Promise<T> {
-    const url = this.basePath + endpoint;
+    const url = this.#basePath + endpoint;
     const headers = {
-      Authorization: 'Bearer ' + this.apiKey,
+      Authorization: 'Bearer ' + this.getToken(),
       'Content-type': 'application/json',
     };
 
@@ -39,5 +48,43 @@ export abstract class BaseService {
       }
       throw new Error(r.statusText);
     });
+  }
+
+  // TODO: this is a separate method for testing
+  protected postLogin(endpoint: string, postData: any, options?: RequestInit): Promise<any> {
+    const url = this.#basePath + endpoint;
+    const headers = {
+      'Content-type': 'application/json',
+    };
+
+    const config = {
+      method: 'POST',
+      ...options,
+      headers,
+      body: JSON.stringify(postData),
+    };
+
+    return fetch(url, config).then(r => {
+      if (r.ok) {
+        return r.json();
+      }
+      throw new Error(r.statusText);
+    });
+  }
+
+  protected saveToken(accessToken: string) {
+    this.#accessToken = accessToken; // NOTE: doesn't work (yet)
+
+    switch (this.#storagemode) {
+      case 'LOCAL_STORAGE':
+        localStorage.setItem(TOKEN_KEY, accessToken);
+        break;
+      default:
+        throw new Error(`Storage mode ${this.#storagemode} not yet supported`);
+    }
+  }
+
+  private getToken() {
+    return localStorage.getItem(TOKEN_KEY);
   }
 }
