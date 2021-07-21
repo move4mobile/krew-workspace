@@ -25,7 +25,7 @@ export class AuthService extends BaseService {
     return response;
   }
 
-  isLoggedIn(): boolean {
-    return true;
+  get isLoggedIn(): boolean {
+    return !!this.getToken();
   }
 }

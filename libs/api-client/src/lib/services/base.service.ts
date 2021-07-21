@@ -84,7 +84,7 @@ export abstract class BaseService {
     }
   }
 
-  private getToken() {
+  protected getToken() {
     return localStorage.getItem(TOKEN_KEY);
   }
 }
