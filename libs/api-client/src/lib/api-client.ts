@@ -5,7 +5,7 @@ import { MeService } from './services/me.service';
 
 export * from './core';
 
-interface IKrewClient {
+export interface IKrewClient {
   auth(): AuthService;
   me(): MeService;
   news(): NewsService;

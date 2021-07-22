@@ -44,8 +44,6 @@ export abstract class BaseService {
       headers,
     };
 
-    console.log('fetch ' + url);
-
     return fetch(url, config).then(r => {
       if (r.ok) {
         return plainToClass<T, any>(Model, r.json());
@@ -68,11 +66,12 @@ export abstract class BaseService {
       body: JSON.stringify(postData),
     };
 
-    return fetch(url, config).then(r => {
+    return fetch(url, config).then(async r => {
       if (r.ok) {
         return r.json();
       }
-      throw new Error(r.statusText);
+
+      return Promise.reject(await r.text());
     });
   }
 
@@ -90,11 +89,11 @@ export abstract class BaseService {
     }
   }
 
-  protected getAccessToken(): string|null {
+  protected getAccessToken(): string | null {
     return localStorage.getItem(ACCESS_TOKEN_KEY);
   }
-  protected getRefreshToken(): string|null {
+
+  protected getRefreshToken(): string | null {
     return localStorage.getItem(REFRESH_TOKEN_KEY);
   }
-
 }

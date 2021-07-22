@@ -23,6 +23,7 @@ export class AuthService extends BaseService {
 
     const response: AuthResponse = await this.requestWithoutBearer(query, postData);
     this.saveToken(response.token, response.refresh_token);
+
     return response;
   }
 
@@ -34,11 +35,16 @@ export class AuthService extends BaseService {
     const query = `${refreshResourceName}`;
 
     const postData = {
-      refresh_token: this.getRefreshToken()
+      refresh_token: this.getRefreshToken(),
     };
 
     const response: AuthResponse = await this.requestWithoutBearer(query, postData);
     this.saveToken(response.token, response.refresh_token);
+
     return response;
+  }
+
+  get isLoggedIn(): boolean {
+    return Boolean(this.getAccessToken());
   }
 }

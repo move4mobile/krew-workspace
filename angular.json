@@ -395,6 +395,20 @@
           }
         }
       }
+    },
+    "krew-angular-auth": {
+      "projectType": "library",
+      "root": "libs/krew-angular/auth",
+      "sourceRoot": "libs/krew-angular/auth/src",
+      "prefix": "krew",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/krew-angular/auth/src/**/*.ts", "libs/krew-angular/auth/src/**/*.html"]
+          }
+        }
+      }
     }
   }
 }
