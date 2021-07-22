@@ -1,5 +1,4 @@
 import { BaseService } from './base.service';
-import { NewsItem } from '@krew/api-client';
 
 const resourceName = '/me/password';
 
