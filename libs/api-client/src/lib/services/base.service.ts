@@ -66,11 +66,12 @@ export abstract class BaseService {
       body: JSON.stringify(postData),
     };
 
-    return fetch(url, config).then(r => {
+    return fetch(url, config).then(async r => {
       if (r.ok) {
         return r.json();
       }
-      throw new Error(r.statusText);
+
+      return Promise.reject(await r.text());
     });
   }
 

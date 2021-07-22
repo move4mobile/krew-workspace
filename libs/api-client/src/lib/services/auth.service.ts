@@ -23,6 +23,7 @@ export class AuthService extends BaseService {
 
     const response: AuthResponse = await this.requestWithoutBearer(query, postData);
     this.saveToken(response.token, response.refresh_token);
+
     return response;
   }
 
@@ -39,6 +40,7 @@ export class AuthService extends BaseService {
 
     const response: AuthResponse = await this.requestWithoutBearer(query, postData);
     this.saveToken(response.token, response.refresh_token);
+
     return response;
   }
 
