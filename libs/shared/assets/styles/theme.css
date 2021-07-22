@@ -12,5 +12,5 @@
   --gray-light: #bfb8b0;
   --gray-lightest: #f3f2ef;
 
-  --gray-bg: rgba(0, 0, 0, 0.03);
+  --gray-block-bg: rgba(0, 0, 0, 0.03); /* use as extra block bg on a gray brackground */
 }
