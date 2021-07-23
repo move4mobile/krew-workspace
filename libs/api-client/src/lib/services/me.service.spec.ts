@@ -8,6 +8,7 @@ describe('meService', () => {
     await apiClient.auth().login(process.env.LOGIN_USER, process.env.LOGIN_PWD);
 
     const me = await apiClient.me().get();
+    console.log(me);
 
     expect(me.id).toBeDefined();
   });
