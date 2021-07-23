@@ -1,4 +1,4 @@
-import { DEFAULT_CONFIG, NewsItem } from '../core';
+import { NewsItem } from '../core';
 import { BaseService } from './base.service';
 import { IResourceAll, IResourceGet, Params } from '../core';
 
@@ -12,15 +12,22 @@ export class NewsService extends BaseService implements IResourceAll, IResourceG
     return this.request<NewsItem>(NewsItem, `${resourceName}/${id}`);
   }
 
-  async all(params?: Params): Promise<NewsItem[]> {
+  async all(params: Params = {}): Promise<NewsItem[]> {
     let query = `${resourceName}`;
 
-    const config = Object.assign({
-      limit: 10,
-      offset: 0
-    }, params);
+    const config = Object.assign(
+      {
+        limit: 10,
+        offset: 0,
+      },
+      params
+    );
 
-    query += "?" + Object.keys(config).map(key => key + '=' + params[key]).join('&');
+    query +=
+      '?' +
+      Object.keys(config)
+        .map(key => key + '=' + config[key])
+        .join('&');
 
     return this.request<NewsItem[]>(NewsItem, query);
   }

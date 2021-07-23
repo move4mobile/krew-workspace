@@ -1,4 +1,4 @@
-import { createKrewClient, NewsItemStatus } from '../api-client';
+import { createKrewClient } from '../api-client';
 
 let apiClient;
 
