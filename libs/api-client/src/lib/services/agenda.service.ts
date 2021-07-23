@@ -5,7 +5,7 @@ import { DateTime } from 'luxon';
 const resourceName = '/agenda';
 
 export class AgendaService extends BaseService implements IResourceAll {
-  async all(params?: Params): Promise<AgendaItem[]> {
+  async all(params: Params = {}): Promise<AgendaItem[]> {
     let query = `${resourceName}`;
 
     const now = DateTime.now();
