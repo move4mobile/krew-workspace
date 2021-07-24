@@ -52,6 +52,27 @@ export abstract class BaseService {
     });
   }
 
+  protected post(endpoint: string, postData: any, options?: RequestInit) {
+    const url = this.#basePath + endpoint;
+    const headers = {
+      Authorization: 'Bearer ' + this.getAccessToken(),
+      'Content-type': 'application/json',
+    };
+
+    const config = {
+      method: 'POST',
+      ...options,
+      headers,
+      body: JSON.stringify(postData),
+    };
+
+    return fetch(url, config).then(r => {
+      if (r.ok === false) {
+        throw new ResponseError(r.statusText,r.status);
+      }
+    });
+  }
+
   // TODO: this is a separate method for testing
   protected requestWithoutBearer(endpoint: string, postData: any, options?: RequestInit): Promise<any> {
     const url = this.#basePath + endpoint;
