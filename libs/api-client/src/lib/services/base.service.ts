@@ -44,13 +44,32 @@ export abstract class BaseService {
       headers,
     };
 
-    console.log('fetch ' + url);
-
     return fetch(url, config).then(r => {
       if (r.ok) {
         return plainToClass<T, any>(Model, r.json());
       }
       throw new Error(r.statusText);
+    });
+  }
+
+  protected post(endpoint: string, postData: any, options?: RequestInit) {
+    const url = this.#basePath + endpoint;
+    const headers = {
+      Authorization: 'Bearer ' + this.getAccessToken(),
+      'Content-type': 'application/json',
+    };
+
+    const config = {
+      method: 'POST',
+      ...options,
+      headers,
+      body: JSON.stringify(postData),
+    };
+
+    return fetch(url, config).then(r => {
+      if (r.ok === false) {
+        throw new ResponseError(r.statusText,r.status);
+      }
     });
   }
 
