@@ -1,9 +1,9 @@
+import { CurrentPasswordIsInvalidError } from '../core';
 import { BaseService } from './base.service';
 
 const resourceName = '/me/password';
 
 export class PasswordService extends BaseService {
-
   /**
    * Update the current password of the authenticated user.
    *
@@ -18,18 +18,16 @@ export class PasswordService extends BaseService {
 
     const postData = {
       password: currentPassword,
-      new_password: newPassword
+      new_password: newPassword,
     };
 
     try {
       this.post(query, postData);
-    }
-    catch (error){
-      if (error.message === "Invalid current password"){
+    } catch (error) {
+      if (error.message === 'Invalid current password') {
         throw new CurrentPasswordIsInvalidError();
       }
       throw error;
     }
   }
-
 }
