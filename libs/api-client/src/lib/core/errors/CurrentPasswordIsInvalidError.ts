@@ -1,0 +1,1 @@
+class CurrentPasswordIsInvalidError extends Error {}
