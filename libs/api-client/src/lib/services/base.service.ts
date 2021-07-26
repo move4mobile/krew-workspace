@@ -1,7 +1,7 @@
 import { plainToClass } from 'class-transformer';
 // took 'isomorphic-unfetch' from an example. we don't have to use this.;
 import * as fetchImport from 'isomorphic-unfetch';
-import { Config, DEFAULT_CONFIG } from '../core';
+import { Config, DEFAULT_CONFIG, ResponseError } from '../core';
 const fetch = (fetchImport.default || fetchImport) as typeof fetchImport.default;
 
 const ACCESS_TOKEN_KEY = 'accessToken';
@@ -68,7 +68,7 @@ export abstract class BaseService {
 
     return fetch(url, config).then(r => {
       if (r.ok === false) {
-        throw new ResponseError(r.statusText,r.status);
+        throw new ResponseError(r.statusText, r.status);
       }
     });
   }
@@ -109,11 +109,10 @@ export abstract class BaseService {
     }
   }
 
-  protected getAccessToken(): string|null {
+  protected getAccessToken(): string | null {
     return localStorage.getItem(ACCESS_TOKEN_KEY);
   }
-  protected getRefreshToken(): string|null {
+  protected getRefreshToken(): string | null {
     return localStorage.getItem(REFRESH_TOKEN_KEY);
   }
-
 }

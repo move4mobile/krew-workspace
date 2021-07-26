@@ -1,7 +1,5 @@
 import { Config } from './core';
-import { NewsService, AgendaService } from './services';
-import { AuthService } from './services/auth.service';
-import { MeService } from './services/me.service';
+import { NewsService, AgendaService, AuthService, MeService } from './services';
 
 export * from './core';
 

@@ -1,8 +1,6 @@
-class ResponseError extends Error
-{
+export class ResponseError extends Error {
   private _statusCode: number;
   private _message: string;
-
 
   constructor(message: string, statusCode: number) {
     super(message);
