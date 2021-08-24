@@ -23,29 +23,32 @@
     }
   },
   "projects": {
-    "krew-ui-svelte": {
-      "tags": [],
-      "implicitDependencies": ["shared-assets"]
+    "api-client": {
+      "tags": []
+    },
+    "krew-angular-feature-shell": {
+      "tags": ["scope:angular", "type:feature"]
     },
     "krew-ui-angular": {
       "tags": [],
       "implicitDependencies": ["shared-assets"]
     },
-    "krew-angular-feature-shell": {
-      "tags": ["scope:angular", "type:feature"]
-    },
     "krew-ui-react": {
       "tags": [],
       "implicitDependencies": ["shared-assets"]
+    },
+    "krew-ui-svelte": {
+      "tags": [],
+      "implicitDependencies": ["shared-assets"]
+    },
+    "krew-website": {
+      "tags": []
     },
     "shared-assets": {
       "tags": ["scope:shared", "type:assets"]
     },
     "shared-environments": {
       "tags": ["scope:shared", "type:environments"]
-    },
-    "api-client": {
-      "tags": []
     }
   }
 }

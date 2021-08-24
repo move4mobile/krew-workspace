@@ -47,87 +47,59 @@
     }
   },
   "projects": {
-    "krew-ui-svelte": {
-      "root": "apps/krew-ui-svelte",
-      "sourceRoot": "apps/krew-ui-svelte/src",
-      "projectType": "application",
+    "api-client": {
+      "root": "libs/api-client",
+      "sourceRoot": "libs/api-client/src",
+      "projectType": "library",
       "architect": {
         "build": {
-          "builder": "@nxext/svelte:build",
+          "builder": "@nrwl/node:package",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/krew-ui-svelte",
-            "entryFile": "apps/krew-ui-svelte/src/main.ts",
-            "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
-            "svelteConfig": "apps/krew-ui-svelte/svelte.config.cjs",
-            "assets": [
-              {
-                "glob": "/*",
-                "input": "apps/krew-ui-svelte/public/**",
-                "output": "./"
-              },
-              {
-                "glob": "**/*",
-                "input": "libs/shared/assets/src/assets",
-                "output": "assets"
-              }
-            ]
-          },
-          "configurations": {
-            "production": {
-              "dev": false,
-              "fileReplacements": [
-                {
-                  "replace": "libs/shared/environments/src/lib/environment.ts",
-                  "with": "libs/shared/environments/src/lib/environment.prod.ts"
-                }
-              ]
-            },
-            "development": {
-              "dev": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@nxext/svelte:build",
-          "configurations": {
-            "production": {
-              "browserTarget": "krew-ui-svelte:build:production"
-            },
-            "development": {
-              "browserTarget": "krew-ui-svelte:build:development"
-            }
-          },
-          "options": {
-            "port": 4403,
-            "outputPath": "dist/apps/krew-ui-svelte",
-            "entryFile": "apps/krew-ui-svelte/src/main.ts",
-            "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
-            "svelteConfig": "apps/krew-ui-svelte/svelte.config.cjs",
-            "assets": [
-              {
-                "glob": "/*",
-                "input": "apps/krew-ui-svelte/public/**",
-                "output": "./"
-              }
-            ],
-            "watch": true,
-            "serve": true
-          },
-          "defaultConfiguration": "development"
+            "outputPath": "dist/libs/api-client",
+            "tsConfig": "libs/api-client/tsconfig.lib.json",
+            "packageJson": "libs/api-client/package.json",
+            "main": "libs/api-client/src/index.ts",
+            "assets": ["libs/api-client/*.md"]
+          }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/krew-ui-svelte/**/*.{ts,svelte,spec.ts}"]
+            "lintFilePatterns": ["libs/api-client/**/*.ts"]
           }
         },
-        "check": {
-          "builder": "@nrwl/workspace:run-commands",
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api-client"],
           "options": {
-            "command": "svelte-check",
-            "cwd": "apps/krew-ui-svelte"
+            "jestConfig": "libs/api-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "krew-angular-feature-shell": {
+      "projectType": "library",
+      "root": "libs/krew-angular/feature-shell",
+      "sourceRoot": "libs/krew-angular/feature-shell/src",
+      "prefix": "krew",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/krew-angular/feature-shell"],
+          "options": {
+            "jestConfig": "libs/krew-angular/feature-shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/krew-angular/feature-shell/src/**/*.ts",
+              "libs/krew-angular/feature-shell/src/**/*.html"
+            ]
           }
         }
       }
@@ -230,31 +202,6 @@
         }
       }
     },
-    "krew-angular-feature-shell": {
-      "projectType": "library",
-      "root": "libs/krew-angular/feature-shell",
-      "sourceRoot": "libs/krew-angular/feature-shell/src",
-      "prefix": "krew",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/krew-angular/feature-shell"],
-          "options": {
-            "jestConfig": "libs/krew-angular/feature-shell/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/krew-angular/feature-shell/src/**/*.ts",
-              "libs/krew-angular/feature-shell/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "krew-ui-react": {
       "root": "apps/krew-ui-react",
       "sourceRoot": "apps/krew-ui-react/src",
@@ -335,6 +282,123 @@
         }
       }
     },
+    "krew-ui-svelte": {
+      "root": "apps/krew-ui-svelte",
+      "sourceRoot": "apps/krew-ui-svelte/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nxext/svelte:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/krew-ui-svelte",
+            "entryFile": "apps/krew-ui-svelte/src/main.ts",
+            "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
+            "svelteConfig": "apps/krew-ui-svelte/svelte.config.cjs",
+            "assets": [
+              {
+                "glob": "/*",
+                "input": "apps/krew-ui-svelte/public/**",
+                "output": "./"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/shared/assets/src/assets",
+                "output": "assets"
+              }
+            ]
+          },
+          "configurations": {
+            "production": {
+              "dev": false,
+              "fileReplacements": [
+                {
+                  "replace": "libs/shared/environments/src/lib/environment.ts",
+                  "with": "libs/shared/environments/src/lib/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "dev": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@nxext/svelte:build",
+          "configurations": {
+            "production": {
+              "browserTarget": "krew-ui-svelte:build:production"
+            },
+            "development": {
+              "browserTarget": "krew-ui-svelte:build:development"
+            }
+          },
+          "options": {
+            "port": 4403,
+            "outputPath": "dist/apps/krew-ui-svelte",
+            "entryFile": "apps/krew-ui-svelte/src/main.ts",
+            "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
+            "svelteConfig": "apps/krew-ui-svelte/svelte.config.cjs",
+            "assets": [
+              {
+                "glob": "/*",
+                "input": "apps/krew-ui-svelte/public/**",
+                "output": "./"
+              }
+            ],
+            "watch": true,
+            "serve": true
+          },
+          "defaultConfiguration": "development"
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/krew-ui-svelte/**/*.{ts,svelte,spec.ts}"]
+          }
+        },
+        "check": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "svelte-check",
+            "cwd": "apps/krew-ui-svelte"
+          }
+        }
+      }
+    },
+    "krew-website": {
+      "root": "apps/krew-website",
+      "sourceRoot": "apps/krew-website/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/krew-website",
+            "commands": [
+              {
+                "command": "rm -rf ../../dist/apps/krew-website"
+              },
+              {
+                "command": "npx astro build"
+              }
+            ]
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/krew-website",
+            "commands": [
+              {
+                "command": "npx astro dev"
+              }
+            ]
+          }
+        }
+      }
+    },
     "shared-assets": {
       "projectType": "library",
       "root": "libs/shared/assets",
@@ -360,38 +424,6 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/shared/environments/src/**/*.ts", "libs/shared/environments/src/**/*.html"]
-          }
-        }
-      }
-    },
-    "api-client": {
-      "root": "libs/api-client",
-      "sourceRoot": "libs/api-client/src",
-      "projectType": "library",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/api-client",
-            "tsConfig": "libs/api-client/tsconfig.lib.json",
-            "packageJson": "libs/api-client/package.json",
-            "main": "libs/api-client/src/index.ts",
-            "assets": ["libs/api-client/*.md"]
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/api-client/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/api-client"],
-          "options": {
-            "jestConfig": "libs/api-client/jest.config.js",
-            "passWithNoTests": true
           }
         }
       }
