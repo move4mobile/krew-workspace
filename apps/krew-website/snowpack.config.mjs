@@ -3,7 +3,8 @@
 
 export default {
   alias: {
-    $styles: './src/public/style',
+    $components: './src/components',
     $utils: './src/utils',
+    $styles: './src/public/style',
   },
 };

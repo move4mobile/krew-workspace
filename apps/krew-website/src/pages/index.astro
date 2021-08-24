@@ -1,58 +1,54 @@
 ---
-// Component Imports
-import Tour from '../components/Tour.astro';
-// You can import components from any supported Framework here!
-import SvelteCounter from '../components/SvelteCounter.svelte';
+import Head from '$components/Head.astro';
 
-// Component Script:
-// You can write any JavaScript/TypeScript that you'd like here.
-// It will run during the build, but never in the browser.
-// All variables are available to use in the HTML template below.
 let title = 'My Astro Site';
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>{title}</title>
 
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    
-    <link rel="stylesheet" href="/style/global.css">
-    <link rel="stylesheet" href="/style/home.css">
+  <Head />
 
-    <style>
-        header {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-            max-width: min(100%, 68ch);
-        }
-    </style>
+  <title>{title}</title>
+
+  <!-- <link rel="stylesheet" href="/style/global.css"> -->
+  <!-- <link rel="stylesheet" href="/style/home.css"> -->
+
 </head>
 <body>
-    <main>
-        <header>
-            <div>
-                <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo">
-                <h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
-            </div>
-        </header>
 
-        <Tour />
+  <section>
+    <div>
+      <!-- <a class="link" href="/"><img class="w5" src="/assets/images/hnpwa-logo.png" alt="Krew PWA"></a> -->
+      <h1>Krew UI's as Progressive Web Apps</h1>
+    </div>
+  </section>
 
-        <!--
-           - You can also use imported framework components directly in your markup!
-           -
-           - Note: by default, these components are NOT interactive on the client.
-           - The `:visible` directive tells Astro to make it interactive.
-           -
-           - See https://docs.astro.build/core-concepts/component-hydration/ 
-           -->
-        <SvelteCounter client:visible />
-    </main>
+  <main class="page-content">
+    <div class="wrapper">
+      <div>
+      <h2>
+      A spiritual successor to TodoMVC
+      </h2>
+      <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique autem
+      tenetur non ipsum veritatis! Laborum maiores praesentium reprehenderit sequi
+      ad cupiditate voluptates nisi commodi molestias?
+      </p>
+
+      <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint omnis voluptas magnam,
+      ipsam autem obcaecati dolorum harum soluta.
+      </p>
+
+      <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur ratione vero
+      est! Culpa beatae iure cum aspernatur suscipit recusandae pariatur, repellat ratione
+      dignissimos, sunt laboriosam magnam neque maxime! Voluptatum dolore reiciendis,
+      consequuntur aut, iure soluta odit animi quod eveniet, a minus nam neque eius.
+      </p>
+    </div>
+  </main>
+
 </body>
 </html>
