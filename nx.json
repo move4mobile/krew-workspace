@@ -46,6 +46,9 @@
     },
     "api-client": {
       "tags": []
+    },
+    "krew-angular-auth": {
+      "tags": ["scope:angular", "type:feature"]
     }
   }
 }
