@@ -117,7 +117,7 @@
     "prettier": "2.4.0",
     "rollup-plugin-local-resolve": "^1.0.7",
     "sass": "^1.39.0",
-    "svelte": "^3.42.4",
+    "svelte": "^3.42.5",
     "svelte-check": "^2.2.6",
     "svelte-jester": "^1.7.0",
     "svelte-preprocess": "^4.9.1",
