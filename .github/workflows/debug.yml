@@ -20,8 +20,6 @@ jobs:
       matrix:
         node-version: [14]
         app: ['krew-ui-angular', 'krew-website']
-    if: |
-      ${{ matrix.app == 'app: krew-website' }}
     env:
       PREVIEW_ID: ${{ matrix.app }}-PR-${{github.event.number}}
     environment:
