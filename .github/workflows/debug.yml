@@ -36,8 +36,8 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
 
       - name: Output debug
-        # if: |
-        #   contains(github.event.pull_request.labels.*.name, format('{{app: {0}}}', matrix.app))
+        if: |
+          contains(github.event.pull_request.labels.*.name, format('app: {0}', matrix.app))
         run: |
           echo 'Yes!'
           echo ${{ matrix.app }}
