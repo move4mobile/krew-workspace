@@ -41,4 +41,4 @@ jobs:
         run: |
           echo 'Yes!'
           echo ${{ matrix.app }}
-          echo ${{ format('{app: {0}}', matrix.app) }}
+          echo ${{ format('app: {0}', matrix.app) }}
