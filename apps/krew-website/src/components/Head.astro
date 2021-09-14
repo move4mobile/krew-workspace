@@ -6,7 +6,7 @@ export interface Props {
 }
 const { title, description, permalink } = Astro.props;
 
-const mainStyle = Astro.resolve('../styles/main.css') + `?${new Date().getTime()}`;
+const mainStyle = Astro.resolve('../styles/main.css');
 
 ---
 
