@@ -352,7 +352,16 @@
                 "command": "npx astro build"
               }
             ]
-          }
+          },
+          "configurations": {
+            "production": {
+              "dev": false
+            },
+            "development": {
+              "dev": true
+            }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "executor": "@nrwl/workspace:run-commands",
