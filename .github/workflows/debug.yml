@@ -21,7 +21,7 @@ jobs:
         node-version: [14]
         app: ['krew-ui-angular', 'krew-website']
     if: |
-      contains(github.event.pull_request.labels.*.name, format('app: {0}', matrix.app))
+      ${{ matrix.app == 'app: krew-website' }}
     env:
       PREVIEW_ID: ${{ matrix.app }}-PR-${{github.event.number}}
     environment:
