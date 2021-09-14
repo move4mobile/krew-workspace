@@ -28,10 +28,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Display structure of downloaded files
-        run: ls -R
-        working-directory: dist
-
       - name: Output debug
         if: |
           contains(github.event.issue.labels.*.name, 'app: krew-website')
