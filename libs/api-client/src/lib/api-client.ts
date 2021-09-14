@@ -3,7 +3,7 @@ import { NewsService, AgendaService, AuthService, MeService } from './services';
 
 export * from './core';
 
-interface IKrewClient {
+export interface IKrewClient {
   auth(): AuthService;
   me(): MeService;
   news(): NewsService;

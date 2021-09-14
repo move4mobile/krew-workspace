@@ -1,9 +1,4 @@
 {
   "editor.formatOnSave": true,
-  "conventionalCommits.scopes": [
-    "krew-ui-angular",
-    "krew-angular-lib",
-    "krew-ui-react",
-    "shared"
-  ]
+  "conventionalCommits.scopes": ["krew-ui-angular", "krew-angular-lib", "krew-ui-react", "shared", "api-client"]
 }

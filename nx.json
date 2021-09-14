@@ -23,9 +23,6 @@
     }
   },
   "projects": {
-    "api-client": {
-      "tags": []
-    },
     "krew-angular-feature-shell": {
       "tags": ["scope:angular", "type:feature"]
     },
@@ -49,6 +46,12 @@
     },
     "shared-environments": {
       "tags": ["scope:shared", "type:environments"]
+    },
+    "api-client": {
+      "tags": []
+    },
+    "krew-angular-auth": {
+      "tags": ["scope:angular", "type:feature"]
     }
   }
 }
