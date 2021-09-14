@@ -33,3 +33,4 @@ jobs:
           contains(github.event.pull_request.labels.*.name, 'app: krew-website')
         run: |
           echo 'Yes!'
+          echo ${{ matrix.app }}
