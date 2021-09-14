@@ -31,6 +31,8 @@ jobs:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
+        if: |
+          contains(github.event.pull_request.labels.*.name, 'krew-website')
         run: echo "$GITHUB_CONTEXT"
 
       - name: Output debug
