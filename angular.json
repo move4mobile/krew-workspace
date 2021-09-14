@@ -346,7 +346,7 @@
             "cwd": "apps/krew-website",
             "commands": [
               {
-                "command": "rm -rf ../../dist/apps/krew-website"
+                "command": "npx rimraf ../../dist/apps/krew-website"
               },
               {
                 "command": "npx astro build"

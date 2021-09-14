@@ -117,6 +117,7 @@
     "jest-preset-angular": "9.0.7",
     "postcss": "^8.3.6",
     "prettier": "2.4.0",
+    "rimraf": "^3.0.2",
     "rollup-plugin-local-resolve": "^1.0.7",
     "sass": "^1.39.2",
     "svelte": "^3.42.5",
