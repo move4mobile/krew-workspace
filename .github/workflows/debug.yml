@@ -1,0 +1,39 @@
+name: Debug Workflow
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+    branches: [develop, main]
+  workflow_dispatch:
+jobs:
+  #################################################################################
+  # Environment: Preview Channels
+  # Preview URL
+  #################################################################################
+
+  CreatePreview:
+    name: Deploy Preview URL
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14]
+        app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react', 'krew-website']
+    env:
+      PREVIEW_ID: ${{ matrix.app }}-PR-${{github.event.number}}
+    environment:
+      name: Preview Channels
+      url: ${{ steps.action-hosting-deploy.outputs.details_url }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: dist
+
+      - name: Output debug
+        if: |
+          contains(github.event.issue.labels.*.name, 'app: krew-website')
+        run: |
+          echo 'Yes!'
