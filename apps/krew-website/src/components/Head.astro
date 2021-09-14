@@ -5,23 +5,20 @@ export interface Props {
   permalink: string;
 }
 const { title, description, permalink } = Astro.props;
+
+const mainStyle = Astro.resolve('../styles/main.css') + `?${new Date().getTime()}`;
+
 ---
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>HNPWA</title>
-  <meta name="description" content="Krew UI's as Progressive Web Apps">
-  <!-- <meta name="theme-color" content="#F4751E"> -->
-
-  <!-- Schema.org markup for Google+ -->
-  <meta itemprop="name" content="KPWA">
-  <meta itemprop="description" content="Krew UI's as Progressive Web Apps">
-  <!-- <meta itemprop="image" content="https://link-to-image.png"> -->
+<title>KREWPWA</title>
+<meta name="description" content="Krew UI's as Progressive Web Apps">
+<!-- <meta name="theme-color" content="#"> -->
 
 
-  <link rel="icon" href="/assets/favicon.ico">
-  <link rel="canonical" href="https://my-site.com/">
-  <!-- <link rel="alternate" type="application/rss+xml" title="KPWA" href="/feed.xml"> -->
-  <!-- <link rel="manifest" href="/assets/manifest.json"> -->
+<link rel="icon" href="/assets/favicon.ico">
+<link rel="canonical" href="https://my-site.com/">
+
+<link rel="stylesheet" href="{mainStyle}" />
