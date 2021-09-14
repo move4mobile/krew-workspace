@@ -14,7 +14,9 @@ jobs:
 
   CreatePreview:
     name: Deploy Preview URL
-    if: ${{ github.event_name == 'pull_request' }}
+    # if: ${{ github.event_name == 'pull_request' }}
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'krew-website')
     runs-on: ubuntu-latest
     strategy:
       matrix:
