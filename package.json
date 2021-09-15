@@ -116,7 +116,7 @@
     "postcss": "^8.3.6",
     "prettier": "2.4.0",
     "rollup-plugin-local-resolve": "^1.0.7",
-    "sass": "^1.40.0",
+    "sass": "^1.41.0",
     "svelte": "^3.42.5",
     "svelte-check": "^2.2.6",
     "svelte-jester": "^1.7.0",
