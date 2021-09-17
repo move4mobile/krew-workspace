@@ -112,6 +112,7 @@ export abstract class BaseService {
   protected getAccessToken(): string | null {
     return localStorage.getItem(ACCESS_TOKEN_KEY);
   }
+
   protected getRefreshToken(): string | null {
     return localStorage.getItem(REFRESH_TOKEN_KEY);
   }
