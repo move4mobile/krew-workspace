@@ -18,10 +18,13 @@ libs/ @mschilling @cassshh @aaltw
 apps/krew-ui-angular/ @aaltw @esteenredeker @mschilling @cassshh @guidovanvilsteren @RoyStobbelaar
 
 # React app
-apps/krew-ui-react/ @paul-goossens @youridekker @esteenredeker
+apps/krew-ui-react/ @paul-goossens
 
 # Vue app
-apps/krew-ui-vue/ @RoyStobbelaar @jstrating @guidovanvilsteren @aaltw @paul-goossens @youridekker
+apps/krew-ui-vue/ @RoyStobbelaar @jstrating @guidovanvilsteren @aaltw @paul-goossens
 
 # Svelte app
 apps/krew-ui-svelte/ @mschilling @cassshh @jstrating
+
+# Krew website app
+apps/krew-website/ @aaltw @mschilling @cassshh @nratering
