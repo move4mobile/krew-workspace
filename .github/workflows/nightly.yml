@@ -70,7 +70,7 @@ jobs:
           SLACK_COLOR: 'danger'
           SLACK_TITLE: 'Krew nightly'
           SLACK_MESSAGE: 'The nightly build for Krew is failing :warning:'
-          SLACK_FOOTER: 'by :robot-face:'
+          SLACK_FOOTER: 'by :robot_face:'
           MSG_MINIMAL: true
 # Docs / info
 # Used actions:
