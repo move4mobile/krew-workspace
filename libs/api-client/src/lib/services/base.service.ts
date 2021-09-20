@@ -1,7 +1,7 @@
 import { plainToClass } from 'class-transformer';
 // took 'isomorphic-unfetch' from an example. we don't have to use this.;
 import * as fetchImport from 'isomorphic-unfetch';
-import { Config, DEFAULT_CONFIG } from '../core';
+import { Config, DEFAULT_CONFIG, ResponseError } from '../core';
 const fetch = (fetchImport.default || fetchImport) as typeof fetchImport.default;
 
 const ACCESS_TOKEN_KEY = 'accessToken';
@@ -44,13 +44,32 @@ export abstract class BaseService {
       headers,
     };
 
-    console.log('fetch ' + url);
-
     return fetch(url, config).then(r => {
       if (r.ok) {
         return plainToClass<T, any>(Model, r.json());
       }
       throw new Error(r.statusText);
+    });
+  }
+
+  protected post(endpoint: string, postData: any, options?: RequestInit) {
+    const url = this.#basePath + endpoint;
+    const headers = {
+      Authorization: 'Bearer ' + this.getAccessToken(),
+      'Content-type': 'application/json',
+    };
+
+    const config = {
+      method: 'POST',
+      ...options,
+      headers,
+      body: JSON.stringify(postData),
+    };
+
+    return fetch(url, config).then(r => {
+      if (r.ok === false) {
+        throw new ResponseError(r.statusText, r.status);
+      }
     });
   }
 
@@ -90,11 +109,11 @@ export abstract class BaseService {
     }
   }
 
-  protected getAccessToken(): string|null {
+  protected getAccessToken(): string | null {
     return localStorage.getItem(ACCESS_TOKEN_KEY);
   }
-  protected getRefreshToken(): string|null {
+
+  protected getRefreshToken(): string | null {
     return localStorage.getItem(REFRESH_TOKEN_KEY);
   }
-
 }
