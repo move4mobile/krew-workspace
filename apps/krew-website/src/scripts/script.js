@@ -1,7 +1,4 @@
-const VanillaScrollspy = require('vanillajs-scrollspy').default;
 const navbar = document.querySelector('#navbar');
-const scrollspy = VanillaScrollspy(navbar);
-scrollspy.init();
 
 // Darkmode switch
 if (localStorage.theme === 'dark' || (!'theme' in localStorage && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -59,3 +56,25 @@ back2Top.addEventListener('click', (e) => {
     });
   }
 });
+
+// toggle mobile nav
+const openNav = document.querySelector('#openNav');
+const closeNav = document.querySelector('#closeNav');
+const mobileNav = document.querySelector('#mobileNav');
+
+openNav.addEventListener('click', (e) => {
+  e.preventDefault();
+  mobileNav.classList.remove('hidden');
+});
+
+closeNav.addEventListener('click', (e) => {
+  e.preventDefault();
+  mobileNav.classList.add('hidden');
+});
+
+document.querySelectorAll('.closeNavLink').forEach(item => {
+  item.addEventListener('click', event => {
+    mobileNav.classList.add('hidden');
+  })
+})
+
