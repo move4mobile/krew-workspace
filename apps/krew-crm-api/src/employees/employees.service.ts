@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { DatabaseService } from 'src/database/database.service';
+import { DatabaseService } from '../../src/database/database.service';
 import { EmployeesArgs } from './dto/employees.args';
 import { EmployeeRole } from './enums/employee-role.enum';
 import { Employee } from './models/employee.model';
@@ -50,18 +50,10 @@ export class EmployeesService {
     if (!tag) {
       return employees;
     }
-    return employees.filter((e) =>
-      e.tags
-        .map((t) => t.toLocaleLowerCase())
-        .includes(tag.toLocaleLowerCase()),
-    );
+    return employees.filter((e) => e.tags.map((t) => t.toLocaleLowerCase()).includes(tag.toLocaleLowerCase()));
   }
 
-  private filterByAccount(
-    employees: Employee[],
-    accountType: string,
-    accountId: string,
-  ): Employee[] {
+  private filterByAccount(employees: Employee[], accountType: string, accountId: string): Employee[] {
     if (!accountId) {
       return employees;
     }

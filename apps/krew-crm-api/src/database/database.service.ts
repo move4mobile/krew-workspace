@@ -1,11 +1,11 @@
 import { Injectable, Inject, Logger, CACHE_MANAGER } from '@nestjs/common';
 import { GoogleSpreadsheet, GoogleSpreadsheetRow } from 'google-spreadsheet';
-import { Badge } from 'src/badges/models/badge.model';
-import { CACHE_WORKSHEET_DEFAULT_TTL } from 'src/common/constants';
-import { EmployeeBadge } from 'src/employee-badges/models/employee-badge.model';
-import { EmployeeProject } from 'src/employee-projects/models/employee-project.model';
-import { Employee } from 'src/employees/models/employee.model';
-import { Project } from 'src/projects/models/project.model';
+import { Badge } from '../../src/badges/models/badge.model';
+import { CACHE_WORKSHEET_DEFAULT_TTL } from '../../src/common/constants';
+import { EmployeeBadge } from '../../src/employee-badges/models/employee-badge.model';
+import { EmployeeProject } from '../../src/employee-projects/models/employee-project.model';
+import { Employee } from '../../src/employees/models/employee.model';
+import { Project } from '../../src/projects/models/project.model';
 
 const TAB_EMPLOYEES = 'Employees';
 const TAB_EMPLOYEE_BADGES = 'EmployeeBadges';
@@ -24,10 +24,7 @@ interface IDatabaseService {
 @Injectable()
 export class DatabaseService implements IDatabaseService {
   #doc: GoogleSpreadsheet;
-  constructor(
-    @Inject('DatabaseProvider') doc,
-    @Inject(CACHE_MANAGER) protected readonly cacheManager,
-  ) {
+  constructor(@Inject('DatabaseProvider') doc, @Inject(CACHE_MANAGER) protected readonly cacheManager) {
     this.#doc = doc;
   }
 
@@ -48,24 +45,16 @@ export class DatabaseService implements IDatabaseService {
 
   async getEmployeeBadges(): Promise<EmployeeBadge[]> {
     const rows = await this.getSpreadsheetRows(TAB_EMPLOYEE_BADGES);
-    return rows
-      .map((row: any) => EmployeeBadge.fromRow(row))
-      .filter((e) => e.employeeId);
+    return rows.map((row: any) => EmployeeBadge.fromRow(row)).filter((e) => e.employeeId);
   }
 
   async getEmployeeProjects(): Promise<EmployeeProject[]> {
     const rows = await this.getSpreadsheetRows(TAB_EMPLOYEE_PROJECTS);
-    return rows
-      .map((row: any) => EmployeeProject.fromRow(row))
-      .filter((e) => e.employeeId);
+    return rows.map((row: any) => EmployeeProject.fromRow(row)).filter((e) => e.employeeId);
   }
 
-  protected async getSpreadsheetRows(
-    sheetTitle: string,
-  ): Promise<GoogleSpreadsheetRow[]> {
-    let spreadSheetRows: GoogleSpreadsheetRow[] = await this.cacheManager.get(
-      sheetTitle,
-    );
+  protected async getSpreadsheetRows(sheetTitle: string): Promise<GoogleSpreadsheetRow[]> {
+    let spreadSheetRows: GoogleSpreadsheetRow[] = await this.cacheManager.get(sheetTitle);
     if (spreadSheetRows) {
       Logger.debug(`Loading ${sheetTitle} from cache`);
       return spreadSheetRows;

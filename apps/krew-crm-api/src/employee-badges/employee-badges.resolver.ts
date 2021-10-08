@@ -1,10 +1,8 @@
 import { Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
-import { BadgesService } from 'src/badges/badge.service';
-import { Badge } from 'src/badges/models/badge.model';
-import { EmployeeProject } from 'src/employee-projects/models/employee-project.model';
-import { EmployeesService } from 'src/employees/employees.service';
-import { Employee } from 'src/employees/models/employee.model';
-import { Project } from 'src/projects/models/project.model';
+import { BadgesService } from '../../src/badges/badge.service';
+import { Badge } from '../../src/badges/models/badge.model';
+import { EmployeesService } from '../../src/employees/employees.service';
+import { Employee } from '../../src/employees/models/employee.model';
 import { EmployeeBadgesService } from './employee-badges.service';
 import { EmployeeBadge } from './models/employee-badge.model';
 

@@ -1,7 +1,7 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { EmployeeRole } from 'src/employees/enums/employee-role.enum';
-import { Employee } from 'src/employees/models/employee.model';
-import { Project } from 'src/projects/models/project.model';
+import { EmployeeRole } from '../../../src/employees/enums/employee-role.enum';
+import { Employee } from '../../../src/employees/models/employee.model';
+import { Project } from '../../../src/projects/models/project.model';
 
 enum FieldMapping {
   EMPLOYEE_ID = 'EmployeeId',

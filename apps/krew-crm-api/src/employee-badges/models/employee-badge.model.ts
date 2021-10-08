@@ -1,6 +1,6 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Badge } from 'src/badges/models/badge.model';
-import { Employee } from 'src/employees/models/employee.model';
+import { Badge } from '../../../src/badges/models/badge.model';
+import { Employee } from '../../../src/employees/models/employee.model';
 
 enum FieldMapping {
   EMPLOYEE = 'Employee',

@@ -1,9 +1,9 @@
 import { NotFoundException } from '@nestjs/common';
 import { Args, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
-import { EmployeeBadgesService } from 'src/employee-badges/employee-badges.service';
-import { EmployeeBadge } from 'src/employee-badges/models/employee-badge.model';
-import { EmployeeProjectsService } from 'src/employee-projects/employee-projects.service';
-import { Project } from 'src/projects/models/project.model';
+import { EmployeeBadgesService } from '../../src/employee-badges/employee-badges.service';
+import { EmployeeBadge } from '../../src/employee-badges/models/employee-badge.model';
+import { EmployeeProjectsService } from '../../src/employee-projects/employee-projects.service';
+import { Project } from '../../src/projects/models/project.model';
 import { EmployeesArgs } from './dto/employees.args';
 import { EmployeesService } from './employees.service';
 import { Employee } from './models/employee.model';

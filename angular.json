@@ -129,8 +129,7 @@
           "options": {
             "outputPath": "dist/apps/krew-crm-api",
             "main": "apps/krew-crm-api/src/main.ts",
-            "tsConfig": "apps/krew-crm-api/tsconfig.app.json",
-            "assets": ["apps/krew-crm-api/src/assets"]
+            "tsConfig": "apps/krew-crm-api/tsconfig.app.json"
           },
           "configurations": {
             "production": {
