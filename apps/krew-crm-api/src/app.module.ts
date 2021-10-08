@@ -18,7 +18,7 @@ import { ProjectsModule } from './projects/projects.module';
     EmployeeProjectsModule,
     CacheModule.register(),
     GraphQLModule.forRoot({
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      autoSchemaFile: join(process.cwd(), 'apps/krew-crm-api/src/schema.gql'),
     }),
   ],
   controllers: [],
