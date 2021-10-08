@@ -2,8 +2,8 @@ import { DateTime } from 'luxon'; // TODO: move to utils class
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { EmployeeRole } from '../enums/employee-role.enum';
 import { EmployeeAccounts } from './employee-accounts.model';
-import { Project } from 'src/projects/models/project.model';
-import { EmployeeBadge } from 'src/employee-badges/models/employee-badge.model';
+import { Project } from '../../../src/projects/models/project.model';
+import { EmployeeBadge } from '../../../src/employee-badges/models/employee-badge.model';
 
 enum FieldMapping {
   ID = 'Id',
