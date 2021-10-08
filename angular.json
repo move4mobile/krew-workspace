@@ -47,6 +47,52 @@
     }
   },
   "projects": {
+    "api-client": {
+      "root": "libs/api-client",
+      "sourceRoot": "libs/api-client/src",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/api-client",
+            "tsConfig": "libs/api-client/tsconfig.lib.json",
+            "packageJson": "libs/api-client/package.json",
+            "main": "libs/api-client/src/index.ts",
+            "assets": ["libs/api-client/*.md"]
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api-client/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api-client"],
+          "options": {
+            "jestConfig": "libs/api-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "krew-angular-auth": {
+      "projectType": "library",
+      "root": "libs/krew-angular/auth",
+      "sourceRoot": "libs/krew-angular/auth/src",
+      "prefix": "krew",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/krew-angular/auth/src/**/*.ts", "libs/krew-angular/auth/src/**/*.html"]
+          }
+        }
+      }
+    },
     "krew-angular-feature-shell": {
       "projectType": "library",
       "root": "libs/krew-angular/feature-shell",
@@ -68,6 +114,56 @@
               "libs/krew-angular/feature-shell/src/**/*.ts",
               "libs/krew-angular/feature-shell/src/**/*.html"
             ]
+          }
+        }
+      }
+    },
+    "krew-crm-api": {
+      "root": "apps/krew-crm-api",
+      "sourceRoot": "apps/krew-crm-api/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/krew-crm-api",
+            "main": "apps/krew-crm-api/src/main.ts",
+            "tsConfig": "apps/krew-crm-api/tsconfig.app.json",
+            "assets": ["apps/krew-crm-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/krew-crm-api/src/environments/environment.ts",
+                  "with": "apps/krew-crm-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "krew-crm-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/krew-crm-api/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/krew-crm-api"],
+          "options": {
+            "jestConfig": "apps/krew-crm-api/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
@@ -341,7 +437,7 @@
       "projectType": "application",
       "architect": {
         "build": {
-          "executor": "@nrwl/workspace:run-commands",
+          "builder": "@nrwl/workspace:run-commands",
           "options": {
             "cwd": "apps/krew-website",
             "commands": [
@@ -364,7 +460,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "executor": "@nrwl/workspace:run-commands",
+          "builder": "@nrwl/workspace:run-commands",
           "options": {
             "cwd": "apps/krew-website",
             "commands": [
@@ -401,52 +497,6 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/shared/environments/src/**/*.ts", "libs/shared/environments/src/**/*.html"]
-          }
-        }
-      }
-    },
-    "api-client": {
-      "root": "libs/api-client",
-      "sourceRoot": "libs/api-client/src",
-      "projectType": "library",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/api-client",
-            "tsConfig": "libs/api-client/tsconfig.lib.json",
-            "packageJson": "libs/api-client/package.json",
-            "main": "libs/api-client/src/index.ts",
-            "assets": ["libs/api-client/*.md"]
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/api-client/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/api-client"],
-          "options": {
-            "jestConfig": "libs/api-client/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "krew-angular-auth": {
-      "projectType": "library",
-      "root": "libs/krew-angular/auth",
-      "sourceRoot": "libs/krew-angular/auth/src",
-      "prefix": "krew",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/krew-angular/auth/src/**/*.ts", "libs/krew-angular/auth/src/**/*.html"]
           }
         }
       }
