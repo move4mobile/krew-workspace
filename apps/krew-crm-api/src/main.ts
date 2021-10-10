@@ -1,10 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
-import 'dotenv/config';
-import { Database } from './common/services/database.service';
+// import 'dotenv/config';
 import { ValidationPipe } from '@nestjs/common';
-Database.connect(process.env.SOURCE_DOC_ID!);
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
