@@ -1,5 +1,23 @@
 import { DateTime } from 'luxon'; // TODO: move to utils class
 
+export const parseString = (input: string): string => {
+  if (!input || input == '#N/A') {
+    return;
+  }
+  return input;
+};
+
+export const parseNumber = (input: string): number => {
+  if (!input) {
+    return;
+  }
+  const number = Number.parseInt(input);
+  if (isNaN(number)) {
+    return;
+  }
+  return number;
+};
+
 export const parseDate = (input: string): Date => {
   if (!input) {
     return;

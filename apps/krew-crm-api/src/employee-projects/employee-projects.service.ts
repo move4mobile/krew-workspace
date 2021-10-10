@@ -13,8 +13,8 @@ export class EmployeeProjectsService {
   }
 
   async findAllByEmployeeId(employeeId: string): Promise<Project[]> {
-    let data = await this.databaseService.getEmployeeProjects();
-    let projects = await this.projectsService.findAll();
+    const data = await this.databaseService.getEmployeeProjects();
+    const projects = await this.projectsService.findAll();
 
     return data.filter((e) => e.employeeId === employeeId).map((e) => projects.find((p) => p.id === '' + e.projectId));
   }

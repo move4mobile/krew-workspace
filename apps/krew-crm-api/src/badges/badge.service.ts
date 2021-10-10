@@ -13,8 +13,6 @@ export class BadgesService {
   }
 
   async findAll(): Promise<Badge[]> {
-    let data = await this.databaseService.getBadges();
-
-    return data;
+    return await this.databaseService.getBadges();
   }
 }

@@ -51,7 +51,7 @@ export class Employee {
   accounts: EmployeeAccounts;
 
   @Field()
-  active: Boolean;
+  active: boolean;
 
   /*
    ** Via Resolvers

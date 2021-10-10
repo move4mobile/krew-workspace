@@ -1,6 +1,7 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Badge } from '../../../src/badges/models/badge.model';
 import { Employee } from '../../../src/employees/models/employee.model';
+import { parseString, parseNumber } from '../../common/utils/sheets-parser.utils';
 
 enum FieldMapping {
   EMPLOYEE = 'Employee',
@@ -32,24 +33,4 @@ export class EmployeeBadge {
 
     return obj;
   }
-}
-
-// TODO: move to utils
-function parseString(input: string): string {
-  if (!input || input == '#N/A') {
-    return;
-  }
-  return input;
-}
-
-// TODO: move to utils
-function parseNumber(input: string): Number {
-  if (!input) {
-    return;
-  }
-  const number = Number.parseInt(input);
-  if (isNaN(number)) {
-    return;
-  }
-  return number;
 }

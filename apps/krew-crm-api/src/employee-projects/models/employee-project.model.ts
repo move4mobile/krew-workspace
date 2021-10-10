@@ -46,7 +46,7 @@ function parseString(input: string): string {
 }
 
 // TODO: move to utils
-function parseNumber(input: string): Number {
+function parseNumber(input: string): number {
   if (!input) {
     return;
   }
