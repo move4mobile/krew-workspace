@@ -1,9 +1,9 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { EmployeeRole } from '../enums/employee-role.enum';
 import { EmployeeAccounts } from './employee-accounts.model';
-import { Project } from '../../../src/projects/models/project.model';
 import { EmployeeBadge } from '../../../src/employee-badges/models/employee-badge.model';
 import { splitString, parseDate, parseBirthday } from '../../common/utils/sheets-parser.utils';
+import { EmployeeProject } from '../../employee-projects/models/employee-project.model';
 
 enum FieldMapping {
   ID = 'Id',
@@ -57,8 +57,8 @@ export class Employee {
    ** Via Resolvers
    */
 
-  @Field(() => [Project])
-  projects: Project[];
+  @Field(() => [EmployeeProject])
+  projects: EmployeeProject[];
 
   @Field(() => [EmployeeBadge])
   badges: EmployeeBadge[];
