@@ -468,6 +468,19 @@
               }
             ]
           }
+        },
+
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "dist/apps/krew-website",
+            "parallel": false,
+            "commands": [
+              {
+                "command": "echo list is not supported yet"
+              }
+            ]
+          }
         }
       }
     },
