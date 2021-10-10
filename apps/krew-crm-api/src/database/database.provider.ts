@@ -17,7 +17,6 @@ export const DatabaseProvider = {
       return doc;
     } catch (error) {
       console.log('Could not initialize DatabaseProvider');
-      // return admin.apps[0];
       throw new Error(error);
     }
   },

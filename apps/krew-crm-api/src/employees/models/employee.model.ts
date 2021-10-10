@@ -1,9 +1,9 @@
-import { DateTime } from 'luxon'; // TODO: move to utils class
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { EmployeeRole } from '../enums/employee-role.enum';
 import { EmployeeAccounts } from './employee-accounts.model';
 import { Project } from '../../../src/projects/models/project.model';
 import { EmployeeBadge } from '../../../src/employee-badges/models/employee-badge.model';
+import { splitString, parseDate, parseBirthday } from '../../common/utils/sheets-parser.utils';
 
 enum FieldMapping {
   ID = 'Id',
@@ -84,33 +84,4 @@ export class Employee {
 
     return obj;
   }
-}
-
-// TODO: move to utils class
-function parseDate(input: string): Date {
-  if (!input) {
-    return;
-  }
-  return new Date(input);
-}
-
-// TODO: move to utils class
-function parseBirthday(input: string): string {
-  const IGNORE_DATES = [1900];
-  const date = DateTime.fromJSDate(new Date(input));
-  if (!date.isValid) {
-    return;
-  }
-  if (IGNORE_DATES.includes(date.year)) {
-    return date.toFormat('dd/MM');
-  }
-  return date.toFormat('dd/MM/yyyy');
-}
-
-// TODO: move to utils class
-function splitString(input: string): string[] {
-  if (!input) {
-    return [];
-  }
-  return input.split(',').map((s) => s.trim());
 }
