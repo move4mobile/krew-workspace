@@ -7,22 +7,38 @@ if (localStorage.theme === 'dark' || (!'theme' in localStorage && window.matchMe
   document.querySelector('html').classList.add('dark');
 }
 
-document.getElementById('switchTheme').addEventListener('click', function() {
-  let htmlClasses = document.querySelector('html').classList;
-  if (localStorage.theme == 'dark') {
-    htmlClasses.remove('dark');
-    localStorage.removeItem('theme');
-  } else {
-    htmlClasses.add('dark');
-    localStorage.theme = 'dark';
-  }
-});
+var lightSwitches = document.getElementsByClassName('js-light-switch');
+
+for (let i = 0; i < lightSwitches.length; i++) {
+  lightSwitches[i].addEventListener('click', function() {
+    //console.log("Clicked index: " + i);
+    let htmlClasses = document.querySelector('html').classList;
+    if (localStorage.theme == 'dark') {
+      htmlClasses.remove('dark');
+      localStorage.removeItem('theme');
+    } else {
+      htmlClasses.add('dark');
+      localStorage.theme = 'dark';
+    }
+  });
+}
+
+// document.getElementsByClassName('js-light-switch').addEventListener('click', function() {
+//   let htmlClasses = document.querySelector('html').classList;
+//   if (localStorage.theme == 'dark') {
+//     htmlClasses.remove('dark');
+//     localStorage.removeItem('theme');
+//   } else {
+//     htmlClasses.add('dark');
+//     localStorage.theme = 'dark';
+//   }
+// });
 
 // scroll to top with easing
 const back2Top = document.querySelector('#back2Top');
 
 const easeOutCubic = function(t) {
-  return (--t)*t*t+1;
+  return (--t) * t * t + 1;
 };
 
 const scrollToTop = (startTime, currentTime, duration, windowScrollY) => {
@@ -75,6 +91,6 @@ closeNav.addEventListener('click', (e) => {
 document.querySelectorAll('.closeNavLink').forEach(item => {
   item.addEventListener('click', event => {
     mobileNav.classList.add('hidden');
-  })
-})
+  });
+});
 
