@@ -1,13 +1,13 @@
 import { DateTime } from 'luxon'; // TODO: move to utils class
 
-export const parseString = (input: string): string => {
+export const parseString = (input: string): string | undefined => {
   if (!input || input == '#N/A') {
     return;
   }
   return input;
 };
 
-export const parseNumber = (input: string): number => {
+export const parseNumber = (input: string): number | undefined => {
   if (!input) {
     return;
   }
@@ -18,14 +18,14 @@ export const parseNumber = (input: string): number => {
   return number;
 };
 
-export const parseDate = (input: string): Date => {
+export const parseDate = (input: string): Date | undefined => {
   if (!input) {
     return;
   }
   return new Date(input);
 };
 
-export const parseBirthday = (input: string): string => {
+export const parseBirthday = (input: string): string | undefined => {
   const IGNORE_DATES = [1900];
   const date = DateTime.fromJSDate(new Date(input));
   if (!date.isValid) {
