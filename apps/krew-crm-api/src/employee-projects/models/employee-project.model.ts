@@ -2,6 +2,7 @@ import { Field, ObjectType } from '@nestjs/graphql';
 import { EmployeeRole } from '../../../src/employees/enums/employee-role.enum';
 import { Employee } from '../../../src/employees/models/employee.model';
 import { Project } from '../../../src/projects/models/project.model';
+import { parseString, parseNumber } from '../../common/utils/sheets-parser.utils';
 
 enum FieldMapping {
   EMPLOYEE_ID = 'EmployeeId',
@@ -35,24 +36,4 @@ export class EmployeeProject {
 
     return obj;
   }
-}
-
-// TODO: move to utils
-function parseString(input: string): string {
-  if (!input || input == '#N/A') {
-    return;
-  }
-  return input;
-}
-
-// TODO: move to utils
-function parseNumber(input: string): number {
-  if (!input) {
-    return;
-  }
-  const number = Number.parseInt(input);
-  if (isNaN(number)) {
-    return;
-  }
-  return number;
 }
