@@ -1,3 +1,16 @@
+# [0.4.0](https://github.com/move4mobile/krew-workspace/compare/v0.3.0...v0.4.0) (2021-09-20)
+
+
+### Bug Fixes
+
+* **api-client:** export error classes ([#253](https://github.com/move4mobile/krew-workspace/issues/253)) ([678f78d](https://github.com/move4mobile/krew-workspace/commit/678f78dc45a8fc737d080479c71c0cc639f55575))
+
+
+### Features
+
+* **api-client:** small ApiClient improvements ([#252](https://github.com/move4mobile/krew-workspace/issues/252)) ([be82084](https://github.com/move4mobile/krew-workspace/commit/be8208467b3215d562911ec6cbeceda209e299fc))
+* **shared/assets:** shared application colors ([#240](https://github.com/move4mobile/krew-workspace/issues/240)) ([3fc1d7e](https://github.com/move4mobile/krew-workspace/commit/3fc1d7eb2225232edf1c39ea3a3b753c44f5149c))
+
 # [0.3.0](https://github.com/move4mobile/krew-workspace/compare/v0.2.0...v0.3.0) (2021-07-23)
 
 
