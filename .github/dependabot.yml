@@ -20,6 +20,10 @@ updates:
         # For @angular packages, ignore all new major version > 12
         versions: ['>12.x']
 
+      - dependency-name: '@nestjs/*'
+        # For @nestjs packages, ignore all new major version >= 8
+        versions: ['>=8.x']
+
       - dependency-name: 'typescript'
         # For @angular packages, ignore all new major version > 12
         versions: ['>=4.2.x']
