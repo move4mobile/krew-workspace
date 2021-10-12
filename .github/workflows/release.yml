@@ -75,6 +75,9 @@ jobs:
       name: Preview Channels
       url: ${{ steps.action-hosting-deploy.outputs.details_url }}
     steps:
+      - name: Display structure of downloaded files
+        run: echo ${{ matrix.app }}
+
       - uses: actions/checkout@v2
         if: |
           contains(github.event.pull_request.labels.*.name, format('app: {0}', matrix.app))
