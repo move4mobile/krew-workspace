@@ -21,7 +21,7 @@ for (let i = 0; i < lightSwitches.length; i++) {
 }
 
 // scroll to top with easing
-const back2Top = document.querySelector('#back2Top');
+const back2Top = document.getElementById('back2Top');
 
 const easeOutCubic = function(t) {
   return (--t) * t * t + 1;
@@ -60,9 +60,9 @@ back2Top.addEventListener('click', (e) => {
 });
 
 // toggle mobile nav
-const openNav = document.querySelector('#openNav');
-const closeNav = document.querySelector('#closeNav');
-const mobileNav = document.querySelector('#mobileNav');
+const openNav = document.getElementById('openNav');
+const closeNav = document.getElementById('closeNav');
+const mobileNav = document.getElementById('mobileNav');
 
 openNav.addEventListener('click', (e) => {
   e.preventDefault();
