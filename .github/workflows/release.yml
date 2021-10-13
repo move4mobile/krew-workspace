@@ -240,8 +240,14 @@ jobs:
 
       - name: Prepare deploy
         run: |
-          cp -f apps/${{ matrix.app }}/server/.firebaserc ./
-          cp -f apps/${{ matrix.app }}/server/firebase.json ./
+          cp -f apps/${{ matrix.app }}/server/production/.firebaserc ./
+          cp -f apps/${{ matrix.app }}/server/production/firebase.json ./
+
+      - uses: microsoft/variable-substitution@v1
+        with:
+          files: '.firebaserc'
+        env:
+          targetid: test
 
       - name: Deploy ${{ matrix.app }} to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0

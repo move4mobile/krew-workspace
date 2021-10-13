@@ -1,0 +1,9 @@
+{
+  "targets": {
+    "m4m-krew-dev": {
+      "hosting": {
+        "targetid": ""
+      }
+    }
+  }
+}

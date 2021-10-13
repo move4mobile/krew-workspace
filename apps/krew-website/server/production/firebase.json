@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "target": "targetid",
+    "public": "dist/apps/krew-website",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}
