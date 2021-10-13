@@ -122,7 +122,7 @@ jobs:
     strategy:
       matrix:
         node-version: [14]
-        app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
+        app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react', 'krew-website']
     environment:
       name: Test
     steps:
