@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/libs/shared/assets',
     '<rootDir>/libs/shared/environments',
     '<rootDir>/libs/api-client',
+    '<rootDir>/apps/krew-crm-api',
   ],
 };

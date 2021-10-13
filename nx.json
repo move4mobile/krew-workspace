@@ -23,8 +23,17 @@
     }
   },
   "projects": {
+    "api-client": {
+      "tags": []
+    },
+    "krew-angular-auth": {
+      "tags": ["scope:angular", "type:feature"]
+    },
     "krew-angular-feature-shell": {
       "tags": ["scope:angular", "type:feature"]
+    },
+    "krew-crm-api": {
+      "tags": []
     },
     "krew-ui-angular": {
       "tags": [],
@@ -46,12 +55,6 @@
     },
     "shared-environments": {
       "tags": ["scope:shared", "type:environments"]
-    },
-    "api-client": {
-      "tags": []
-    },
-    "krew-angular-auth": {
-      "tags": ["scope:angular", "type:feature"]
     }
   }
 }
