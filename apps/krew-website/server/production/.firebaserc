@@ -1,9 +1,0 @@
-{
-  "targets": {
-    "m4m-krew-dev": {
-      "hosting": {
-        "krew-website": ""
-      }
-    }
-  }
-}

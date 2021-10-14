@@ -234,14 +234,10 @@ jobs:
           name: artifacts
           path: dist/apps
 
-      - name: Display structure of downloaded files
-        run: ls -R
-        working-directory: dist
-
       - name: Prepare deploy
         run: |
-          cp -f apps/${{ matrix.app }}/server/production/.firebaserc ./
-          cp -f apps/${{ matrix.app }}/server/production/firebase.json ./
+          cp -f apps/${{ matrix.app }}/server/.firebaserc ./
+          cp -f apps/${{ matrix.app }}/server/firebase.json ./
 
       - uses: microsoft/variable-substitution@v1
         with:
