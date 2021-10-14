@@ -243,6 +243,9 @@ jobs:
         with:
           files: '.firebaserc'
         env:
+          targets.m4m-krew-dev.hosting.krew-ui-angular.0: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_UI_ANGULAR }}'
+          targets.m4m-krew-dev.hosting.krew-ui-react.0: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_UI_REACT }}'
+          targets.m4m-krew-dev.hosting.krew-ui-svelte.0: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_UI_SVELTE }}'
           targets.m4m-krew-dev.hosting.krew-website.0: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_WEBSITE }}'
 
       - name: Deploy ${{ matrix.app }} to Firebase
