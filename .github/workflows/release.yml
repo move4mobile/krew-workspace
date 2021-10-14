@@ -223,7 +223,7 @@ jobs:
     strategy:
       matrix:
         node-version: [14]
-        app: ['krew-website']
+        app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react', 'krew-website']
     environment:
       name: Production
     steps:
