@@ -92,7 +92,7 @@
     "@nrwl/tao": "12.6.0",
     "@nrwl/web": "12.6.0",
     "@nrwl/workspace": "12.6.0",
-    "@nxext/svelte": "^12.0.6",
+    "@nxext/svelte": "^12.1.0",
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/commit-analyzer": "^9.0.1",
     "@semantic-release/git": "^10.0.0",
