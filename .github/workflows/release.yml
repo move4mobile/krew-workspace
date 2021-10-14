@@ -243,7 +243,7 @@ jobs:
         with:
           files: '.firebaserc'
         env:
-          targets.m4m-krew-dev.hosting.krew-website: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_WEBSITE }}'
+          targets.m4m-krew-dev.hosting.krew-website.0: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_WEBSITE }}'
 
       - name: Prepare deploy
         run: |
