@@ -216,7 +216,7 @@ jobs:
   #################################################################################
 
   DeployProd:
-    name: Deploy to Productoni
+    name: Deploy to Producton
     # if: github.event.ref == 'refs/heads/main'
     needs: [BuildArtifacts]
     runs-on: ubuntu-latest
@@ -225,7 +225,7 @@ jobs:
         node-version: [14]
         app: ['krew-website']
     environment:
-      name: Test
+      name: Production
     steps:
       - uses: actions/checkout@v2
 
@@ -247,8 +247,7 @@ jobs:
         with:
           files: '.firebaserc'
         env:
-          target: targgetid
-          targets.m4m-krew-dev.hosting.targetid: test
+          targets.m4m-krew-dev.hosting.krew-website: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_WEBSITE }}'
 
       - name: Deploy ${{ matrix.app }} to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0

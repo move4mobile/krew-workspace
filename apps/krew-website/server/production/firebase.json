@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "target": "targetid",
+    "target": "krew-website",
     "public": "dist/apps/krew-website",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
