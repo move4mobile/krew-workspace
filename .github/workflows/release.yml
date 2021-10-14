@@ -243,12 +243,7 @@ jobs:
         with:
           files: '.firebaserc'
         env:
-          # targets.m4m-krew-dev.hosting.krew-website.0: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_WEBSITE }}'
-          targets.m4m-krew-dev.hosting.krew-website.0: 'hello-world'
-
-      - name: Prepare deploy
-        run: |
-          cat .firebaserc
+          targets.m4m-krew-dev.hosting.krew-website.0: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_WEBSITE }}'
 
       - name: Deploy ${{ matrix.app }} to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
