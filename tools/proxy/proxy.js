@@ -23,6 +23,7 @@ console.log('[proxy]', getProxyTarget(env));
 // Create server
 httpProxy
   .createServer({
+    originWhitelist: [], // Allow all origins
     headers: getHeaders(), // Get headers
     secure: false, // We do not want to validate SSL certificates
     target: getProxyTarget(env), // Proxy target
