@@ -245,11 +245,15 @@ jobs:
         env:
           targets.m4m-krew-dev.hosting.krew-website: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_WEBSITE }}'
 
+      - name: Prepare deploy
+        run: |
+          cat .firebaserc
+
       - name: Deploy ${{ matrix.app }} to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         id: action-hosting-deploy
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-          projectId: m4m-krew-dev
+          projectId: '${{ secrets.FIREBASE_PROJECT_ID }}'
           channelId: live
