@@ -245,9 +245,9 @@ jobs:
 
       - uses: microsoft/variable-substitution@v1
         with:
-          files: '.firebaserc'
+          files: 'firebase.json'
         env:
-          targetid: test
+          target: targgetid
 
       - name: Deploy ${{ matrix.app }} to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
