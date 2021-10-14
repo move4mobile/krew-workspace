@@ -2,7 +2,9 @@
   "targets": {
     "m4m-krew-dev": {
       "hosting": {
-        "krew-website": [""]
+        "krew-website": [
+          "m4m-krew-website-dev"
+        ]
       }
     }
   }

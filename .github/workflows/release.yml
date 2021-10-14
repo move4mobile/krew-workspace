@@ -116,7 +116,7 @@ jobs:
 
   DeployTest:
     name: Deploy to Test
-    if: github.event.ref == 'refs/heads/develop'
+    # if: github.event.ref == 'refs/heads/develop'
     needs: [BuildArtifacts]
     runs-on: ubuntu-latest
     strategy:
