@@ -1,0 +1,27 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  permalink: string;
+  canonical: string;
+}
+const { title, description, permalink, canonical } = Astro.props;
+
+const mainStyle = Astro.resolve('../styles/global.css');
+
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KREW PWA</title>
+<meta name="description" content="Krew UI's as Progressive Web Apps">
+<!-- <meta name="theme-color" content="#"> -->
+
+<link href="/assets/android-chrome-192x192.png" rel="shortcut icon" sizes="192x192">
+<link href="/assets/apple-touch-icon-152x152.png" rel="apple-touch-icon-precomposed">
+<link href="/assets/favicon.ico" rel="shortcut icon">
+
+<link rel="canonical" href="{canonical}">
+
+<link rel="stylesheet" href="{mainStyle}" />

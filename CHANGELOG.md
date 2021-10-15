@@ -1,3 +1,38 @@
+# [0.5.0](https://github.com/move4mobile/krew-workspace/compare/v0.4.0...v0.5.0) (2021-10-13)
+
+
+### Features
+
+* add GraphQL API to support crm data retrieval ([#470](https://github.com/move4mobile/krew-workspace/issues/470)) ([f211f03](https://github.com/move4mobile/krew-workspace/commit/f211f03e379b622f19cba83776071639a8bb0e66))
+
+# [0.4.0](https://github.com/move4mobile/krew-workspace/compare/v0.3.0...v0.4.0) (2021-09-20)
+
+
+### Bug Fixes
+
+* **api-client:** export error classes ([#253](https://github.com/move4mobile/krew-workspace/issues/253)) ([678f78d](https://github.com/move4mobile/krew-workspace/commit/678f78dc45a8fc737d080479c71c0cc639f55575))
+
+
+### Features
+
+* **api-client:** small ApiClient improvements ([#252](https://github.com/move4mobile/krew-workspace/issues/252)) ([be82084](https://github.com/move4mobile/krew-workspace/commit/be8208467b3215d562911ec6cbeceda209e299fc))
+* **shared/assets:** shared application colors ([#240](https://github.com/move4mobile/krew-workspace/issues/240)) ([3fc1d7e](https://github.com/move4mobile/krew-workspace/commit/3fc1d7eb2225232edf1c39ea3a3b753c44f5149c))
+
+# [0.3.0](https://github.com/move4mobile/krew-workspace/compare/v0.2.0...v0.3.0) (2021-07-23)
+
+
+### Features
+
+* **api-client:** add support for /me ([#237](https://github.com/move4mobile/krew-workspace/issues/237)) ([0fa89e2](https://github.com/move4mobile/krew-workspace/commit/0fa89e226e539fadcb598f21144f0ba6bd2d31bd))
+* **api-client:** extend AgendaItem model ([#238](https://github.com/move4mobile/krew-workspace/issues/238)) ([61e6847](https://github.com/move4mobile/krew-workspace/commit/61e6847e0a3848535759e897bc0d1c5ef9b43d64))
+* **api-client:** improvements + login support  ([#203](https://github.com/move4mobile/krew-workspace/issues/203)) ([79f9127](https://github.com/move4mobile/krew-workspace/commit/79f91273cd82aa7f7b8dd0defc69bba47b46640f))
+* **krew-ui-angular:** :construction: added feature shell with DI ([45152da](https://github.com/move4mobile/krew-workspace/commit/45152da718c8cad1835d8410ebb2fce86ba0296c))
+* **krew-ui-angular:** :sparkles: added bottom bar with links, hovers and darkmode ([9f24bef](https://github.com/move4mobile/krew-workspace/commit/9f24befef8ec909334dcf0c4c1729297ebb6a442))
+* shared library for environment variables ([#183](https://github.com/move4mobile/krew-workspace/issues/183)) ([0d79205](https://github.com/move4mobile/krew-workspace/commit/0d792050cfa84d7603e389738260a33cb2571ed3))
+* **api-client:** minimal Krew Client API ([#197](https://github.com/move4mobile/krew-workspace/issues/197)) ([59e9bdc](https://github.com/move4mobile/krew-workspace/commit/59e9bdc6598434b79c253430c76c12b4a675737a))
+* **krew-ui-svelte:** extract scss to separate file ([#104](https://github.com/move4mobile/krew-workspace/issues/104)) ([388f5a2](https://github.com/move4mobile/krew-workspace/commit/388f5a24659ec1053eb53a50b13d419813d91a8c))
+* **svelte:** setup routing ([#151](https://github.com/move4mobile/krew-workspace/issues/151)) ([ae0e3dc](https://github.com/move4mobile/krew-workspace/commit/ae0e3dc721f3b8571a2d6cfd8913e640d58b1bde))
+
 # [0.2.0](https://github.com/move4mobile/krew-workspace/compare/v0.1.0...v0.2.0) (2021-06-02)
 
 

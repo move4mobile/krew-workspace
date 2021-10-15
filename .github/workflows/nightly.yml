@@ -17,7 +17,7 @@ jobs:
       matrix:
         node-version: [14, 16]
         os: [ubuntu-latest]
-        app: [krew-ui-angular, krew-ui-svelte, krew-ui-react]
+        app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react', 'krew-website', 'krew-crm-api']
 
     steps:
       - name: Checkout code
@@ -46,3 +46,32 @@ jobs:
 
       - name: Build app ${{ matrix.app }}
         run: npm run build -- ${{ matrix.app }} --configuration=production
+
+  notify_on_failure:
+    needs: [nighlty]
+
+    if: failure()
+
+    name: Slack Notify
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@master
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: krew-dev
+          SLACK_USERNAME: 'M4M Bot'
+          SLACK_ICON: 'https://github.com/move4mobile.png?size=48'
+          SLACK_COLOR: 'danger'
+          SLACK_TITLE: 'Krew nightly'
+          SLACK_MESSAGE: 'The nightly build for Krew is failing :warning:'
+          SLACK_FOOTER: 'by :robot_face:'
+          MSG_MINIMAL: true
+# Docs / info
+# Used actions:
+# - https://github.com/marketplace/actions/slack-notify
