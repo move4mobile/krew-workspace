@@ -54,24 +54,32 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/api-client",
             "tsConfig": "libs/api-client/tsconfig.lib.json",
             "packageJson": "libs/api-client/package.json",
             "main": "libs/api-client/src/index.ts",
-            "assets": ["libs/api-client/*.md"]
+            "assets": [
+              "libs/api-client/*.md"
+            ]
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api-client/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/api-client/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/api-client"],
+          "outputs": [
+            "coverage/libs/api-client"
+          ],
           "options": {
             "jestConfig": "libs/api-client/jest.config.js",
             "passWithNoTests": true
@@ -88,7 +96,10 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/krew-angular/auth/src/**/*.ts", "libs/krew-angular/auth/src/**/*.html"]
+            "lintFilePatterns": [
+              "libs/krew-angular/auth/src/**/*.ts",
+              "libs/krew-angular/auth/src/**/*.html"
+            ]
           }
         }
       }
@@ -101,7 +112,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/krew-angular/feature-shell"],
+          "outputs": [
+            "coverage/libs/krew-angular/feature-shell"
+          ],
           "options": {
             "jestConfig": "libs/krew-angular/feature-shell/jest.config.js",
             "passWithNoTests": true
@@ -125,7 +138,9 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/krew-crm-api",
             "main": "apps/krew-crm-api/src/main.ts",
@@ -154,12 +169,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/krew-crm-api/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/krew-crm-api/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/krew-crm-api"],
+          "outputs": [
+            "coverage/apps/krew-crm-api"
+          ],
           "options": {
             "jestConfig": "apps/krew-crm-api/jest.config.js",
             "passWithNoTests": true
@@ -191,7 +210,9 @@
                 "output": "assets"
               }
             ],
-            "styles": ["apps/krew-ui-angular/src/styles.scss"],
+            "styles": [
+              "apps/krew-ui-angular/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -252,12 +273,17 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/krew-ui-angular/src/**/*.ts", "apps/krew-ui-angular/src/**/*.html"]
+            "lintFilePatterns": [
+              "apps/krew-ui-angular/src/**/*.ts",
+              "apps/krew-ui-angular/src/**/*.html"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/krew-ui-angular"],
+          "outputs": [
+            "coverage/apps/krew-ui-angular"
+          ],
           "options": {
             "jestConfig": "apps/krew-ui-angular/jest.config.js",
             "passWithNoTests": true
@@ -272,7 +298,9 @@
       "architect": {
         "build": {
           "builder": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/krew-ui-react",
             "index": "apps/krew-ui-react/src/index.html",
@@ -288,7 +316,9 @@
                 "output": "assets"
               }
             ],
-            "styles": ["apps/krew-ui-react/src/styles.scss"],
+            "styles": [
+              "apps/krew-ui-react/src/styles.scss"
+            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -332,12 +362,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/krew-ui-react/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/krew-ui-react/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/krew-ui-react"],
+          "outputs": [
+            "coverage/apps/krew-ui-react"
+          ],
           "options": {
             "jestConfig": "apps/krew-ui-react/jest.config.js",
             "passWithNoTests": true
@@ -352,12 +386,15 @@
       "architect": {
         "build": {
           "builder": "@nxext/svelte:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/krew-ui-svelte",
             "entryFile": "apps/krew-ui-svelte/src/main.ts",
             "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
             "svelteConfig": "apps/krew-ui-svelte/svelte.config.cjs",
+            "rollupConfig": "apps/krew-ui-svelte/rollup.config.js",
             "assets": [
               {
                 "glob": "/*",
@@ -403,11 +440,17 @@
             "entryFile": "apps/krew-ui-svelte/src/main.ts",
             "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
             "svelteConfig": "apps/krew-ui-svelte/svelte.config.cjs",
+            "rollupConfig": "apps/krew-ui-svelte/rollup.config.js",
             "assets": [
               {
                 "glob": "/*",
                 "input": "apps/krew-ui-svelte/public/**",
                 "output": "./"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/shared/assets/src/assets",
+                "output": "assets"
               }
             ],
             "watch": true,
@@ -418,7 +461,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/krew-ui-svelte/**/*.{ts,svelte,spec.ts}"]
+            "lintFilePatterns": [
+              "apps/krew-ui-svelte/**/*.{ts,svelte,spec.ts}"
+            ]
           }
         },
         "check": {
@@ -492,7 +537,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/environments"],
+          "outputs": [
+            "coverage/libs/shared/environments"
+          ],
           "options": {
             "jestConfig": "libs/shared/environments/jest.config.js",
             "passWithNoTests": true
@@ -501,7 +548,10 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/shared/environments/src/**/*.ts", "libs/shared/environments/src/**/*.html"]
+            "lintFilePatterns": [
+              "libs/shared/environments/src/**/*.ts",
+              "libs/shared/environments/src/**/*.html"
+            ]
           }
         }
       }
