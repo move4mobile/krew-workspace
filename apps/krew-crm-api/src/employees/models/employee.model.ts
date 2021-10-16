@@ -64,7 +64,7 @@ export class Employee {
   badges: EmployeeBadge[];
 
   get fullName() {
-    return `${this.givenName} ${this.fullName}`;
+    return `${this.givenName} ${this.familyName}`;
   }
 
   static fromRow(data: any) {

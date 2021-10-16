@@ -31,6 +31,11 @@ export class EmployeesResolver {
     return this.employeesService.findAll(employeesArgs);
   }
 
+  @ResolveField('fullName', () => String)
+  async getFullName(@Parent() employee: Employee) {
+    return employee.fullName;
+  }
+
   @ResolveField('projects', () => [EmployeeProject])
   async getProjects(@Parent() employee: Employee) {
     const { id } = employee;
