@@ -25,6 +25,16 @@ export const parseDate = (input: string): Date | undefined => {
   return new Date(input);
 };
 
+export const parseBoolean = (input: string): boolean | undefined => {
+  if (!input) {
+    return;
+  }
+  if (input === 'TRUE' || input === '0') {
+    return true;
+  }
+  return false;
+};
+
 export const parseBirthday = (input: string): string | undefined => {
   const IGNORE_DATES = [1900];
   const date = DateTime.fromJSDate(new Date(input));
