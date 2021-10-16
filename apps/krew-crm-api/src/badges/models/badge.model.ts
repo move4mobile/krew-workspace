@@ -24,7 +24,6 @@ export class Badge {
   @Field()
   name: string;
 
-  @Field()
   key: string;
 
   @Field()
