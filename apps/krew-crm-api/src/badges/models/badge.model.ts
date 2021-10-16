@@ -18,7 +18,7 @@ enum FieldMapping {
 
 @ObjectType({ description: 'badge ' })
 export class Badge {
-  @Field((type) => ID)
+  @Field(() => ID)
   id: string;
 
   @Field()

@@ -7,7 +7,7 @@ enum FieldMapping {
 
 @ObjectType({ description: 'project ' })
 export class Project {
-  @Field((type) => ID)
+  @Field(() => ID)
   id: string;
 
   @Field()

@@ -6,7 +6,7 @@ import { ProjectsService } from '../../src/projects/projects.service';
 import { EmployeeProjectsService } from './employee-projects.service';
 import { EmployeeProject } from './models/employee-project.model';
 
-@Resolver((of) => EmployeeProject)
+@Resolver(() => EmployeeProject)
 export class EmployeeProjectsResolver {
   constructor(
     private readonly employeeProjectsService: EmployeeProjectsService,
@@ -14,7 +14,7 @@ export class EmployeeProjectsResolver {
     private readonly employeesService: EmployeesService,
   ) {}
 
-  @Query((returns) => [EmployeeProject])
+  @Query(() => [EmployeeProject])
   employeeProjects(): Promise<EmployeeProject[]> {
     return this.employeeProjectsService.findAll();
   }

@@ -24,7 +24,7 @@ export class EmployeeProject {
   @Field(() => Project)
   project: Project;
 
-  @Field((type) => EmployeeRole)
+  @Field(() => EmployeeRole)
   role: EmployeeRole;
 
   static fromRow(data: any) {
