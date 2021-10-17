@@ -5,6 +5,7 @@ import { Project } from './models/project.model';
 import { EmployeeProjectsService } from '../employee-projects/employee-projects.service';
 import { ProjectsArgs } from './dto/projects.args';
 import { EmployeeProject } from '../employee-projects/models/employee-project.model';
+import { FilterStatus } from '../common/enums/filter-status.enum';
 
 @Resolver(() => Project)
 export class ProjectsResolver {
@@ -28,10 +29,19 @@ export class ProjectsResolver {
   }
 
   @ResolveField('members', () => [EmployeeProject])
-  async getMembers(@Parent() project: Project) {
+  async getMembers(
+    @Args('status', { nullable: true, type: () => FilterStatus }) status: FilterStatus = FilterStatus.ACTIVE,
+    @Parent() project: Project,
+  ) {
     const { id } = project;
 
     const employeeProjects = await this.employeeProjectsService.findAll();
-    return employeeProjects.filter((e) => e.projectId + '' === id);
+    return employeeProjects.filter(
+      (e) =>
+        e.projectId + '' === id &&
+        (status === FilterStatus.ALL ||
+          (status == FilterStatus.ACTIVE && e.active === true) ||
+          (status == FilterStatus.INACTIVE && e.active === false)),
+    );
   }
 }
