@@ -35,6 +35,14 @@ export class EmployeeProject {
   @Field({ nullable: true })
   endDate?: Date;
 
+  get active() {
+    // Easiest check to get started; definitely not rock solid (yet)
+    if (!!this.endDate) {
+      return false;
+    }
+    return true;
+  }
+
   static fromRow(data: any) {
     const obj = Object.assign(new EmployeeProject(), <Partial<EmployeeProject>>{
       employeeId: parseString(data[FieldMapping.EMPLOYEE_ID]),

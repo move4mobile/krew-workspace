@@ -29,4 +29,9 @@ export class EmployeeProjectsResolver {
     const { projectId } = employeeProject;
     return this.projectsService.findOneById(projectId + '');
   }
+
+  @ResolveField('active', () => Boolean)
+  async getStatusActive(@Parent() employeeProject: EmployeeProject) {
+    return employeeProject.active;
+  }
 }
