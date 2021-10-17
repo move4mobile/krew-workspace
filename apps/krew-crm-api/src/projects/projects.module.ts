@@ -17,5 +17,6 @@ import { ProjectsService } from './projects.service';
     DatabaseService,
     DateScalar,
   ],
+  exports: [ProjectsService],
 })
 export class ProjectsModule {}

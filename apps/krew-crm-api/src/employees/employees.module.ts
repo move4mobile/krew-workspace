@@ -21,5 +21,6 @@ import { EmployeesService } from './employees.service';
     EmployeeProjectsService,
     EmployeeBadgesService,
   ],
+  exports: [EmployeesService],
 })
 export class EmployeesModule {}
