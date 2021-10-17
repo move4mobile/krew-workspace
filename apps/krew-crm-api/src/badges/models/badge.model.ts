@@ -1,5 +1,5 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { parseBoolean } from '../../common/utils/sheets-parser.utils';
+import { parseBoolean, parseNumber } from '../../common/utils/sheets-parser.utils';
 import { lowerCase } from '../../common/utils/string.utils';
 
 enum FieldMapping {
@@ -19,7 +19,7 @@ enum FieldMapping {
 @ObjectType({ description: 'badge ' })
 export class Badge {
   @Field(() => ID)
-  id: string;
+  id: number;
 
   @Field()
   name: string;
@@ -47,7 +47,7 @@ export class Badge {
 
   static fromRow(data: any) {
     const obj = Object.assign(new Badge(), <Partial<Badge>>{
-      id: data[FieldMapping.ID] + '',
+      id: parseNumber(data[FieldMapping.ID] + ''),
       name: data[FieldMapping.NAME],
       key: data[FieldMapping.KEY],
       category: data[FieldMapping.CATEGORY],

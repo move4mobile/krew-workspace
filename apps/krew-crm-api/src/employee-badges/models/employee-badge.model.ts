@@ -20,7 +20,7 @@ export class EmployeeBadge {
   @Field(() => Employee)
   employee: Employee;
 
-  @Field()
+  @Field(() => Number)
   badgeId: number;
 
   @Field(() => Badge)

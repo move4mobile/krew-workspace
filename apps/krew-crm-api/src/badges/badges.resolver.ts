@@ -8,7 +8,7 @@ export class BadgesResolver {
   constructor(private readonly badgesService: BadgesService) {}
 
   @Query(() => Badge)
-  async badge(@Args('id') id: string): Promise<Badge> {
+  async badge(@Args('id') id: number): Promise<Badge> {
     const badge = await this.badgesService.findOneById(id);
     if (!badge) {
       throw new NotFoundException(id);

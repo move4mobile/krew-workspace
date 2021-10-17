@@ -1,4 +1,5 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { parseNumber } from '../../common/utils/sheets-parser.utils';
 
 enum FieldMapping {
   ID = 'ID',
@@ -19,7 +20,7 @@ export class Project {
 
   static fromRow(data: any) {
     const obj = Object.assign(new Project(), <Partial<Project>>{
-      id: data[FieldMapping.ID],
+      id: parseNumber(data[FieldMapping.ID]),
       name: data[FieldMapping.NAME],
       jiraKey: data[FieldMapping.JIRA_KEY],
     });

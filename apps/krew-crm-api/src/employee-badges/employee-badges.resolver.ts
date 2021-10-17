@@ -28,6 +28,6 @@ export class EmployeeBadgesResolver {
   @ResolveField('badge', () => Badge)
   getBadge(@Parent() employeeBadge: EmployeeBadge) {
     const { badgeId } = employeeBadge;
-    return this.badgesService.findOneById(badgeId + '');
+    return this.badgesService.findOneById(badgeId);
   }
 }

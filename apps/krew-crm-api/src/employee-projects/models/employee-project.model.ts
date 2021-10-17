@@ -20,7 +20,7 @@ export class EmployeeProject {
   @Field(() => Employee)
   employee: Employee;
 
-  @Field()
+  @Field(() => Number)
   projectId: number;
 
   @Field(() => Project)
