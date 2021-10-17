@@ -15,7 +15,7 @@ export class ProjectsResolver {
   ) {}
 
   @Query(() => Project)
-  async project(@Args('id') id: string): Promise<Project> {
+  async project(@Args('id') id: number): Promise<Project> {
     const project = await this.projectsService.findOneById(id);
     if (!project) {
       throw new NotFoundException(id);
@@ -38,7 +38,7 @@ export class ProjectsResolver {
     const employeeProjects = await this.employeeProjectsService.findAll();
     return employeeProjects.filter(
       (e) =>
-        e.projectId + '' === id &&
+        e.projectId === id &&
         (status === FilterStatus.ALL ||
           (status == FilterStatus.ACTIVE && e.active === true) ||
           (status == FilterStatus.INACTIVE && e.active === false)),

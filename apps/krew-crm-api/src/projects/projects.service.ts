@@ -6,7 +6,7 @@ import { ProjectsArgs } from './dto/projects.args';
 @Injectable()
 export class ProjectsService {
   constructor(private databaseService: DatabaseService) {}
-  async findOneById(id: string): Promise<Project> {
+  async findOneById(id: number): Promise<Project> {
     Logger.log(`Getting project with id ${id}...`);
 
     const projects = await this.findAll();

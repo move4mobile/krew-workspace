@@ -37,7 +37,7 @@ export class EmployeeProject {
 
   get active() {
     // Easiest check to get started; definitely not rock solid (yet)
-    if (!!this.endDate) {
+    if (this.endDate) {
       return false;
     }
     return true;

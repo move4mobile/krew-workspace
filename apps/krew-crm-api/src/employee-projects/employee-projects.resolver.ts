@@ -22,12 +22,12 @@ export class EmployeeProjectsResolver {
   @ResolveField('employee', () => Employee)
   getEmployee(@Parent() employeeProject: EmployeeProject) {
     const { employeeId } = employeeProject;
-    return this.employeesService.findOneById(employeeId + '');
+    return this.employeesService.findOneById(employeeId);
   }
   @ResolveField('project', () => Project)
   getProject(@Parent() employeeProject: EmployeeProject) {
     const { projectId } = employeeProject;
-    return this.projectsService.findOneById(projectId + '');
+    return this.projectsService.findOneById(projectId);
   }
 
   @ResolveField('active', () => Boolean)
