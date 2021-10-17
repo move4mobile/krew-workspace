@@ -1,7 +1,7 @@
 import { ArgsType, Field } from '@nestjs/graphql';
 
 @ArgsType()
-export class EmployeesArgs {
-  @Field(() => Boolean, { nullable: true })
-  active?;
+export class ProjectsArgs {
+  @Field(() => String, { nullable: true })
+  jiraKey?: string;
 }
