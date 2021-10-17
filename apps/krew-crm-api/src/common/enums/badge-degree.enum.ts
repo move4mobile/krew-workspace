@@ -8,5 +8,5 @@ export enum BadgeDegree {
 
 registerEnumType(BadgeDegree, {
   name: 'BadgeDegree',
-  description: 'Badge Degree can be Bronze, Silver or Gold',
+  description: 'Degree of a Badge (e.g. Bronze, Silver or Gold)',
 });
