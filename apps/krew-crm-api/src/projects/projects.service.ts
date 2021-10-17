@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { Project } from './models/project.model';
 import { DatabaseService } from '../../src/database/database.service';
 import { ProjectsArgs } from './dto/projects.args';
+import { JiraProjectStatus } from '../common/enums/jira-project-status.enum';
 
 @Injectable()
 export class ProjectsService {
@@ -19,6 +20,9 @@ export class ProjectsService {
     // Filter by JIRA Key
     data = this.filterByJiraKey(data, projectsArgs.jiraKey);
 
+    // Filter by JIRA Project Status
+    data = this.filterByJiraProjectStatus(data, projectsArgs.jiraProjectStatus);
+
     return data;
   }
 
@@ -27,5 +31,12 @@ export class ProjectsService {
       return projects;
     }
     return projects.filter((p) => p.jiraKey === jiraKey);
+  }
+
+  private filterByJiraProjectStatus(projects: Project[], jiraProjectStatus: JiraProjectStatus): Project[] {
+    if (!jiraProjectStatus) {
+      return projects;
+    }
+    return projects.filter((p) => p.status === jiraProjectStatus);
   }
 }
