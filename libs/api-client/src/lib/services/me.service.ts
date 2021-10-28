@@ -5,7 +5,7 @@ const resourceName = '/me';
 
 export class MeService extends BaseService {
   async get(): Promise<Employee> {
-    let query = `${resourceName}`;
+    const query = `${resourceName}`;
 
     return this.request<Employee>(Employee, query);
   }

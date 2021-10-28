@@ -122,7 +122,7 @@ jobs:
     strategy:
       matrix:
         node-version: [14]
-        app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react']
+        app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react', 'krew-website']
     environment:
       name: Test
     steps:
@@ -209,3 +209,51 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+  #################################################################################
+  # Environment: Production
+  # Deploy to Firebase
+  #################################################################################
+
+  DeployProd:
+    name: Deploy to Producton
+    if: github.event.ref == 'refs/heads/main'
+    needs: [CreateRelease]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14]
+        app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react', 'krew-website']
+    environment:
+      name: Production
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@master
+        with:
+          name: artifacts
+          path: dist/apps
+
+      - name: Prepare deploy
+        run: |
+          cp -f apps/${{ matrix.app }}/server/.firebaserc ./
+          cp -f apps/${{ matrix.app }}/server/firebase.json ./
+
+      - uses: microsoft/variable-substitution@v1
+        with:
+          files: '.firebaserc'
+        env:
+          targets.m4m-krew-dev.hosting.krew-ui-angular.0: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_UI_ANGULAR }}'
+          targets.m4m-krew-dev.hosting.krew-ui-react.0: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_UI_REACT }}'
+          targets.m4m-krew-dev.hosting.krew-ui-svelte.0: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_UI_SVELTE }}'
+          targets.m4m-krew-dev.hosting.krew-ui-vue.0: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_UI_VUE }}'
+          targets.m4m-krew-dev.hosting.krew-website.0: '${{ secrets.FIREBASE_HOSTING_TARGET_KREW_WEBSITE }}'
+
+      - name: Deploy ${{ matrix.app }} to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        id: action-hosting-deploy
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          projectId: '${{ secrets.FIREBASE_PROJECT_ID }}'
+          channelId: live

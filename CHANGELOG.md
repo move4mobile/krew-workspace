@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/move4mobile/krew-workspace/compare/v0.4.0...v0.5.0) (2021-10-13)
+
+
+### Features
+
+* add GraphQL API to support crm data retrieval ([#470](https://github.com/move4mobile/krew-workspace/issues/470)) ([f211f03](https://github.com/move4mobile/krew-workspace/commit/f211f03e379b622f19cba83776071639a8bb0e66))
+
 # [0.4.0](https://github.com/move4mobile/krew-workspace/compare/v0.3.0...v0.4.0) (2021-09-20)
 
 
