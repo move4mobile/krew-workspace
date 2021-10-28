@@ -5,6 +5,7 @@
   export let name: string;
 
   export let url = '';
+
 </script>
 
 <main>
