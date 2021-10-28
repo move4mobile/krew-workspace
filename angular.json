@@ -358,7 +358,6 @@
             "entryFile": "apps/krew-ui-svelte/src/main.ts",
             "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
             "svelteConfig": "apps/krew-ui-svelte/svelte.config.cjs",
-            "rollupConfig": "apps/krew-ui-svelte/rollup.config.js",
             "assets": [
               {
                 "glob": "/*",
@@ -404,7 +403,6 @@
             "entryFile": "apps/krew-ui-svelte/src/main.ts",
             "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
             "svelteConfig": "apps/krew-ui-svelte/svelte.config.cjs",
-            "rollupConfig": "apps/krew-ui-svelte/rollup.config.js",
             "assets": [
               {
                 "glob": "/*",
