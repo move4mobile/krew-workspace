@@ -11,7 +11,6 @@ const httpProxy = require('http-proxy');
 
 // Parse CLI argument options
 const args = require('minimist')(process.argv.slice(2));
-// console.log(args);
 
 // extract important args
 const env = args.env || 'prod';
