@@ -16,6 +16,6 @@ export class EmployeeBadgesService {
     const data = await this.databaseService.getEmployeeBadges();
     const badges = await this.badgesService.findAll();
 
-    return data.filter((e) => e.employeeId === employeeId).map((e) => badges.find((p) => p.id === '' + e.badgeId));
+    return data.filter((e) => e.employeeId === employeeId).map((e) => badges.find((p) => p.id === e.badgeId));
   }
 }

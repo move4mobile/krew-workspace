@@ -20,7 +20,7 @@ enum FieldMapping {
 
 @ObjectType({ description: 'employee ' })
 export class Employee {
-  @Field((type) => ID)
+  @Field(() => ID)
   id: string;
 
   @Field()
@@ -29,13 +29,13 @@ export class Employee {
   @Field()
   familyName: string;
 
-  @Field((type) => [String])
+  @Field(() => [String])
   emailAddresses: string[];
 
-  @Field((type) => [String])
+  @Field(() => [String])
   tags: string[];
 
-  @Field((type) => EmployeeRole)
+  @Field(() => EmployeeRole)
   role: EmployeeRole;
 
   @Field({ nullable: true })
@@ -47,7 +47,7 @@ export class Employee {
   @Field({ nullable: true })
   birthday!: string; // Format: DD/MM/YYYY where YYYY is optional
 
-  @Field((type) => EmployeeAccounts)
+  @Field(() => EmployeeAccounts)
   accounts: EmployeeAccounts;
 
   @Field()
@@ -64,7 +64,7 @@ export class Employee {
   badges: EmployeeBadge[];
 
   get fullName() {
-    return `${this.givenName} ${this.fullName}`;
+    return `${this.givenName} ${this.familyName}`;
   }
 
   static fromRow(data: any) {

@@ -6,7 +6,7 @@ import { Employee } from '../../src/employees/models/employee.model';
 import { EmployeeBadgesService } from './employee-badges.service';
 import { EmployeeBadge } from './models/employee-badge.model';
 
-@Resolver((of) => EmployeeBadge)
+@Resolver(() => EmployeeBadge)
 export class EmployeeBadgesResolver {
   constructor(
     private readonly employeeBadgesService: EmployeeBadgesService,
@@ -14,7 +14,7 @@ export class EmployeeBadgesResolver {
     private readonly badgesService: BadgesService,
   ) {}
 
-  @Query((returns) => [EmployeeBadge])
+  @Query(() => [EmployeeBadge])
   employeeBadges(): Promise<EmployeeBadge[]> {
     return this.employeeBadgesService.findAll();
   }
@@ -28,6 +28,6 @@ export class EmployeeBadgesResolver {
   @ResolveField('badge', () => Badge)
   getBadge(@Parent() employeeBadge: EmployeeBadge) {
     const { badgeId } = employeeBadge;
-    return this.badgesService.findOneById(badgeId + '');
+    return this.badgesService.findOneById(badgeId);
   }
 }

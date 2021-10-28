@@ -3,12 +3,12 @@ import { Args, Query, Resolver } from '@nestjs/graphql';
 import { BadgesService } from './badge.service';
 import { Badge } from './models/badge.model';
 
-@Resolver((of) => Badge)
+@Resolver(() => Badge)
 export class BadgesResolver {
   constructor(private readonly badgesService: BadgesService) {}
 
-  @Query((returns) => Badge)
-  async badge(@Args('id') id: string): Promise<Badge> {
+  @Query(() => Badge)
+  async badge(@Args('id') id: number): Promise<Badge> {
     const badge = await this.badgesService.findOneById(id);
     if (!badge) {
       throw new NotFoundException(id);
@@ -16,7 +16,7 @@ export class BadgesResolver {
     return badge;
   }
 
-  @Query((returns) => [Badge])
+  @Query(() => [Badge])
   badges(): Promise<Badge[]> {
     return this.badgesService.findAll();
   }

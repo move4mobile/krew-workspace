@@ -6,6 +6,6 @@ import { DatabaseService } from './database.service';
   imports: [CacheModule.register()],
   controllers: [],
   providers: [DatabaseProvider, DatabaseService],
-  exports: [DatabaseProvider, CacheModule],
+  exports: [DatabaseProvider, DatabaseService, CacheModule],
 })
 export class DatabaseModule {}
