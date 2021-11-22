@@ -105,7 +105,7 @@
     "@types/cache-manager": "^3.4.2",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.13",
-    "@types/jest": "27.0.2",
+    "@types/jest": "27.0.3",
     "@types/luxon": "^2.0.6",
     "@types/node": "16.11.7",
     "@types/react": "17.0.36",
