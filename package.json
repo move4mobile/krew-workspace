@@ -130,7 +130,7 @@
     "eslint-plugin-svelte3": "^3.2.1",
     "husky": "^6.0.0",
     "jest": "26.6.3",
-    "jest-preset-angular": "10.1.0",
+    "jest-preset-angular": "11.0.0",
     "postcss": "^8.3.11",
     "prettier": "2.4.1",
     "rimraf": "^3.0.2",
