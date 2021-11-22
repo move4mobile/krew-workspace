@@ -1,13 +1,12 @@
 ---
 export interface Props {
-  title: string;
-  description: string;
-  permalink: string;
-  canonical: string;
+  title?: string;
+  description?: string;
+  permalink?: string;
+  canonical?: string;
 }
 const { title, description, permalink, canonical } = Astro.props;
 
-const mainStyle = Astro.resolve('../styles/global.css');
 
 ---
 
@@ -24,4 +23,4 @@ const mainStyle = Astro.resolve('../styles/global.css');
 
 <link rel="canonical" href="{canonical}">
 
-<link rel="stylesheet" href="{mainStyle}" />
+<link rel="stylesheet" type="text/css" href={Astro.resolve("../styles/global.css")}>

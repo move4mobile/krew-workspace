@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-photo{
-  background-image: url("/assets/background.jpg");
+.bg-photo {
+  background-image: url('/assets/background.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -12,12 +12,12 @@
   z-index: 0;
 }
 
-.dark .bg-photo::after{
-  content: "";
+.dark .bg-photo::after {
+  content: '';
   display: block;
   z-index: 1;
   background: #000;
-  opacity: .5;
+  opacity: 0.5;
   position: absolute;
   top: 0;
   right: 0;
