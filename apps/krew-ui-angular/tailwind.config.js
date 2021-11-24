@@ -1,14 +1,14 @@
 module.exports = {
-  prefix: '',
   mode: 'jit',
   purge: {
-    content: ['./apps/krew-ui-angular/**/*.{html,ts}', './libs/krew-angular/**/*.{html,ts}'],
+    enabled: true,
+    content: ['apps/krew-ui-angular/**/*.{html,ts}', 'libs/krew-angular/**/*.{html,ts}'],
   },
   darkMode: 'media',
   theme: {
     extend: {
       colors: {
-        'brand-01': 'var(--brand-01)',
+        'brand-01': ({ opacityValue }) => `rgba(var(--brand-01), ${opacityValue})`,
         'brand-01-darker': 'var(--brand-01-darker)',
         'brand-01-lighter': 'var(--brand-01-lighter)',
 
