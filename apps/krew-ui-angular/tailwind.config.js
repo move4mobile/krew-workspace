@@ -1,3 +1,12 @@
+/**
+ * @param {string} varName
+ * @returns method used in tailwind config for creating custom colors with opacity
+ */
+const withOpacity =
+  varName =>
+  ({ opacityValue }) =>
+    `rgba(var(${varName}), ${opacityValue || 1})`;
+
 module.exports = {
   mode: 'jit',
   purge: {
@@ -8,7 +17,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'brand-01': ({ opacityValue }) => `rgba(var(--brand-01), ${opacityValue})`,
+        'brand-01': withOpacity('--brand-01'),
         'brand-01-darker': 'var(--brand-01-darker)',
         'brand-01-lighter': 'var(--brand-01-lighter)',
 
