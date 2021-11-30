@@ -131,7 +131,7 @@
     "husky": "^6.0.0",
     "jest": "26.6.3",
     "jest-preset-angular": "11.0.1",
-    "postcss": "^8.3.11",
+    "postcss": "^8.4.4",
     "prettier": "2.5.0",
     "rimraf": "^3.0.2",
     "rollup-plugin-local-resolve": "^1.0.7",
