@@ -1,0 +1,8 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/assets",
+  "sourceRoot": "libs/shared/assets/src",
+  "prefix": "krew",
+  "targets": {},
+  "tags": ["scope:shared", "type:assets"]
+}

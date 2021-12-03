@@ -1,0 +1,24 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/environments",
+  "sourceRoot": "libs/shared/environments/src",
+  "prefix": "krew",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/environments"],
+      "options": {
+        "jestConfig": "libs/shared/environments/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/shared/environments/src/**/*.ts", "libs/shared/environments/src/**/*.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:shared", "type:environments"]
+}
