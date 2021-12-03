@@ -53,6 +53,17 @@ export class DatabaseService implements IDatabaseService {
     return rows.map((row: any) => EmployeeProject.fromRow(row)).filter((e) => e.employeeId);
   }
 
+  async preloadDatabase(): Promise<void> {
+    // What to preload and how, can be optimized later
+    Promise.all([
+      this.getSpreadsheetRows(TAB_EMPLOYEES),
+      this.getSpreadsheetRows(TAB_EMPLOYEE_BADGES),
+      this.getSpreadsheetRows(TAB_EMPLOYEE_PROJECTS),
+      this.getSpreadsheetRows(TAB_PROJECTS),
+      this.getSpreadsheetRows(TAB_BADGES),
+    ]);
+  }
+
   protected async getSpreadsheetRows(sheetTitle: string): Promise<GoogleSpreadsheetRow[]> {
     let spreadSheetRows: GoogleSpreadsheetRow[] = await this.cacheManager.get(sheetTitle);
     if (spreadSheetRows) {

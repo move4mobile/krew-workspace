@@ -3,15 +3,15 @@ import { EmployeeRole } from '../enums/employee-role.enum';
 
 @ArgsType()
 export class EmployeesArgs {
-  @Field((type) => Boolean, { nullable: true })
+  @Field(() => Boolean, { nullable: true })
   active?;
 
-  @Field((type) => EmployeeRole, { nullable: true })
+  @Field(() => EmployeeRole, { nullable: true })
   role?;
 
-  @Field((type) => String, { nullable: true })
+  @Field(() => String, { nullable: true })
   tag?;
 
-  @Field((type) => String, { nullable: true })
+  @Field(() => String, { nullable: true })
   githubAccount?;
 }

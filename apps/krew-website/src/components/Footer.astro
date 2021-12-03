@@ -1,7 +1,5 @@
 ---
 
-const mainScript = Astro.resolve('../scripts/script.js');
-
 ---
 <footer class="bg-red-600 p-4 fixed bottom-0 left-0 right-0 z-10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -20,4 +18,4 @@ const mainScript = Astro.resolve('../scripts/script.js');
   </div>
 </footer>
 
-<script src="{mainScript}"></script>
+<script src={Astro.resolve("../scripts/script.js")}></script>

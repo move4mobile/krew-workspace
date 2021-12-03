@@ -5,7 +5,7 @@ import { DatabaseService } from '../../src/database/database.service';
 @Injectable()
 export class BadgesService {
   constructor(private databaseService: DatabaseService) {}
-  async findOneById(id: string): Promise<Badge> {
+  async findOneById(id: number): Promise<Badge> {
     Logger.log(`Getting badge with id ${id}...`);
 
     const badges = await this.findAll();
