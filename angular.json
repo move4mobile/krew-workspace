@@ -1,51 +1,5 @@
 {
   "version": 1,
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
-  "defaultProject": "krew-ui-angular",
-  "schematics": {
-    "@nrwl/angular": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "strict": true
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
-    },
-    "@nrwl/react": {
-      "application": {
-        "style": "scss",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "scss"
-      },
-      "library": {
-        "style": "scss",
-        "linter": "eslint"
-      }
-    }
-  },
   "projects": {
     "api-client": {
       "root": "libs/api-client",
@@ -67,7 +21,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/api-client/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -77,7 +32,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "krew-angular-auth": {
       "projectType": "library",
@@ -89,9 +45,11 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/krew-angular/auth/src/**/*.ts", "libs/krew-angular/auth/src/**/*.html"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:angular", "type:feature"]
     },
     "krew-angular-feature-shell": {
       "projectType": "library",
@@ -114,9 +72,11 @@
               "libs/krew-angular/feature-shell/src/**/*.ts",
               "libs/krew-angular/feature-shell/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:angular", "type:feature"]
     },
     "krew-crm-api": {
       "root": "apps/krew-crm-api",
@@ -155,7 +115,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/krew-crm-api/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -165,7 +126,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "krew-ui-angular": {
       "projectType": "application",
@@ -253,7 +215,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/krew-ui-angular/src/**/*.ts", "apps/krew-ui-angular/src/**/*.html"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -263,7 +226,9 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["shared-assets"]
     },
     "krew-ui-react": {
       "root": "apps/krew-ui-react",
@@ -333,7 +298,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/krew-ui-react/**/*.{ts,tsx,js,jsx}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -343,7 +309,9 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["shared-assets"]
     },
     "krew-ui-svelte": {
       "root": "apps/krew-ui-svelte",
@@ -419,7 +387,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/krew-ui-svelte/**/*.{ts,svelte,spec.ts}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "check": {
           "builder": "@nrwl/workspace:run-commands",
@@ -428,7 +397,9 @@
             "cwd": "apps/krew-ui-svelte"
           }
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["shared-assets"]
     },
     "krew-website": {
       "root": "apps/krew-website",
@@ -475,14 +446,16 @@
             "command": "exit 0"
           }
         }
-      }
+      },
+      "tags": []
     },
     "shared-assets": {
       "projectType": "library",
       "root": "libs/shared/assets",
       "sourceRoot": "libs/shared/assets/src",
       "prefix": "krew",
-      "architect": {}
+      "architect": {},
+      "tags": ["scope:shared", "type:assets"]
     },
     "shared-environments": {
       "projectType": "library",
@@ -502,9 +475,11 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/shared/environments/src/**/*.ts", "libs/shared/environments/src/**/*.html"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:shared", "type:environments"]
     }
   }
 }
