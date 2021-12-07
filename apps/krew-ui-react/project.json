@@ -1,0 +1,83 @@
+{
+  "root": "apps/krew-ui-react",
+  "sourceRoot": "apps/krew-ui-react/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/krew-ui-react",
+        "index": "apps/krew-ui-react/src/index.html",
+        "main": "apps/krew-ui-react/src/main.tsx",
+        "polyfills": "apps/krew-ui-react/src/polyfills.ts",
+        "tsConfig": "apps/krew-ui-react/tsconfig.app.json",
+        "assets": [
+          "apps/krew-ui-react/src/favicon.ico",
+          "apps/krew-ui-react/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/shared/assets",
+            "output": "assets"
+          }
+        ],
+        "styles": ["apps/krew-ui-react/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "libs/shared/environments/src/lib/environment.ts",
+              "with": "libs/shared/environments/src/lib/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "krew-ui-react:build",
+        "port": 4402
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "krew-ui-react:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/krew-ui-react/**/*.{ts,tsx,js,jsx}"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/krew-ui-react"],
+      "options": {
+        "jestConfig": "apps/krew-ui-react/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["shared-assets"]
+}
