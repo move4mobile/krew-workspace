@@ -4,7 +4,6 @@
     "api-client": "libs/api-client",
     "krew-angular-auth": "libs/krew-angular/auth",
     "krew-angular-feature-shell": "libs/krew-angular/feature-shell",
-    "krew-crm-api": "apps/krew-crm-api",
     "krew-ui-angular": "apps/krew-ui-angular",
     "krew-ui-react": "apps/krew-ui-react",
     "krew-ui-svelte": "apps/krew-ui-svelte",
