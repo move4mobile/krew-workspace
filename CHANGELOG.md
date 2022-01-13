@@ -1,3 +1,20 @@
+# [0.6.0](https://github.com/move4mobile/krew-workspace/compare/v0.5.0...v0.6.0) (2022-01-13)
+
+
+### Bug Fixes
+
+* **api-client:** prefer-const lint error ([#506](https://github.com/move4mobile/krew-workspace/issues/506)) ([a244cff](https://github.com/move4mobile/krew-workspace/commit/a244cff5d11719ce300ea47d6c5736c01cc4a025))
+
+
+### Features
+
+* **krew-crm-api:** extend api + improvements ([#512](https://github.com/move4mobile/krew-workspace/issues/512)) ([0d39575](https://github.com/move4mobile/krew-workspace/commit/0d39575c1193d77824ffc31135b6cb1f40ad0867))
+* migrate krew-website to astro@0.21.0 ([#593](https://github.com/move4mobile/krew-workspace/issues/593)) ([6e844a7](https://github.com/move4mobile/krew-workspace/commit/6e844a7044142ed0137a84698bd037f97afe511f))
+* pr update remove package.json ([e00586a](https://github.com/move4mobile/krew-workspace/commit/e00586ae456cad4203b6054613a3b8a40419cd82))
+* update packages + tweaks ([#734](https://github.com/move4mobile/krew-workspace/issues/734)) ([88bae30](https://github.com/move4mobile/krew-workspace/commit/88bae30c55bf4a238fb827505cd6616fea456b80))
+* update tailwind usage in krew-angular (issue [#608](https://github.com/move4mobile/krew-workspace/issues/608)) ([#609](https://github.com/move4mobile/krew-workspace/issues/609)) ([efe3b6d](https://github.com/move4mobile/krew-workspace/commit/efe3b6d7204318094e9dba2757110ae3e136c3e7))
+* website update cleanup ([f6454dd](https://github.com/move4mobile/krew-workspace/commit/f6454dd8cfda14abe5f44cdf11c5dd5ce37ec55c))
+
 # [0.5.0](https://github.com/move4mobile/krew-workspace/compare/v0.4.0...v0.5.0) (2021-10-13)
 
 
