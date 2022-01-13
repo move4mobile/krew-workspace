@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "projects": {
+    "api-client": "libs/api-client",
+    "krew-angular-auth": "libs/krew-angular/auth",
+    "krew-angular-feature-shell": "libs/krew-angular/feature-shell",
+    "krew-ui-angular": "apps/krew-ui-angular",
+    "krew-ui-react": "apps/krew-ui-react",
+    "krew-ui-svelte": "apps/krew-ui-svelte",
+    "krew-website": "apps/krew-website",
+    "shared-assets": "libs/shared/assets",
+    "shared-environments": "libs/shared/environments"
+  }
+}

@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14]
+        node-version: [16]
 
     steps:
       - name: Checkout code
@@ -40,5 +40,5 @@ jobs:
       - name: Build affected apps
         uses: mansagroup/nrwl-nx-action@v2.0.3
         with:
-          targets: build
+          targets: lint,build
           affected: 'true'

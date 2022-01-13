@@ -1,0 +1,27 @@
+{
+  "projectType": "library",
+  "root": "libs/krew-angular/feature-shell",
+  "sourceRoot": "libs/krew-angular/feature-shell/src",
+  "prefix": "krew",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/krew-angular/feature-shell"],
+      "options": {
+        "jestConfig": "libs/krew-angular/feature-shell/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/krew-angular/feature-shell/src/**/*.ts",
+          "libs/krew-angular/feature-shell/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:angular", "type:feature"]
+}

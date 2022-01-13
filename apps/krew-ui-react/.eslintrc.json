@@ -4,9 +4,6 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "parserOptions": {
-        "project": ["apps/krew-ui-react/tsconfig.*?.json"]
-      },
       "rules": {}
     },
     {

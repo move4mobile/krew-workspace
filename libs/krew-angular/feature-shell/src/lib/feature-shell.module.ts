@@ -47,7 +47,6 @@ export const ENVIRONMENT = new InjectionToken<unknown>('environment');
 })
 export class FeatureShellModule {
   static withEnvironment(environment: unknown): ModuleWithProviders<FeatureShellModule> {
-    console.log(environment);
     return {
       ngModule: FeatureShellModule,
       providers: [

@@ -15,9 +15,9 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14, 16]
+        node-version: [16, 17]
         os: [ubuntu-latest]
-        app: [krew-ui-angular, krew-ui-svelte, krew-ui-react, 'krew-website', krew-crm-api]
+        app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react', 'krew-website']
 
     steps:
       - name: Checkout code
