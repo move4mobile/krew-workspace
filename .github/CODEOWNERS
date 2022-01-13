@@ -15,7 +15,7 @@
 libs/ @mschilling @cassshh @aaltw
 
 # Angular app
-apps/krew-ui-angular/ @aaltw @esteenredeker @mschilling @cassshh @guidovanvilsteren @RoyStobbelaar
+apps/krew-ui-angular/ @aaltw @mschilling @cassshh @guidovanvilsteren @RoyStobbelaar
 
 # React app
 apps/krew-ui-react/ @paul-goossens
