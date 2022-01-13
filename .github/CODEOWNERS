@@ -28,6 +28,3 @@ apps/krew-ui-svelte/ @mschilling @cassshh @jstrating
 
 # Krew website app
 apps/krew-website/ @aaltw @mschilling @cassshh @nratering
-
-# Krew CRM API
-apps/krew-crm-api/ @mschilling
