@@ -93,7 +93,7 @@
     "@nrwl/react": "13.9.2",
     "@nrwl/web": "13.9.2",
     "@nrwl/workspace": "13.9.2",
-    "@nxext/svelte": "^13.0.3",
+    "@nxext/svelte": "^13.3.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/git": "^10.0.1",
