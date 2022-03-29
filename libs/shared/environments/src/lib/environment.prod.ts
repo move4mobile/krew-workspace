@@ -5,4 +5,11 @@ export const environment: IEnvironment = {
   apiUrl: 'https://api.companyapp.m4m.io/api',
   apiClientId: '',
   apiClientSecret: '',
+  firebase: {
+    apiKey: '',
+    authDomain: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: '',
+  },
 };
