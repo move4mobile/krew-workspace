@@ -1,5 +1,22 @@
-<div class="w-screen h-[10rem] bg-red-500/[0.12]"></div>
-<div class="w-screen h-[10rem] bg-green-500/[0.12]"></div>
-<div class="w-screen h-[10rem] bg-brand-01"></div>
-<div class="w-screen h-[10rem] bg-brand-01/50"></div>
-<div class="w-screen h-[10rem] bg-brand-01/[0.12]"></div>
+<div class="h-screen overflow-hidden relative">
+  <div
+    class="z-10 absolute rounded-full w-[100vw] h-[100vw] -translate-x-2/4 -translate-y-2/4 bg-brand-01 blur-md opacity-30"
+  ></div>
+  <div
+    class="z-10 absolute rounded-full w-[25vw] h-[25vw] right-[10vh] top-[35vh] bg-brand-01 blur-md opacity-30"
+  ></div>
+  <div
+    class="z-10 absolute rounded-full w-[100vw] h-[100vw] right-0 bottom-0 translate-y-3/4 bg-brand-01 blur-md opacity-30"
+  ></div>
+
+  <div class="relative flex h-full pointer-events-none justify-center items-center z-20">
+    <div
+      class="bg-white bg-opacity-10 p-8 backdrop-filter backdrop-blur-sm rounded-[24px] w-9/12 border border-white/10"
+    >
+      <form class="text-slate-400">
+        <h1 class="font-display text-4xl text-slate-200">Sign in</h1>
+        <p class="mt-6">Sign in to access your account and information</p>
+      </form>
+    </div>
+  </div>
+</div>

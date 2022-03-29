@@ -1,5 +1,6 @@
 const { createGlobPatternsForDependencies } = require('@nrwl/angular/tailwind');
 const { join } = require('path');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 const withOpacity =
   varName =>
@@ -20,12 +21,14 @@ module.exports = {
 
         'brand-02:': 'var(--brand-02)',
 
-        white: 'var(--white)',
-
         'gray-light:': 'var(--gray-light)',
         'gray-lightest:': 'var(--gray-lightest)',
 
         'gray-block-bg': 'var(--gray-block-bg)',
+      },
+      fontFamily: {
+        display: ['SF Pro Display', ...defaultTheme.fontFamily.sans],
+        body: ['SF Pro Text', ...defaultTheme.fontFamily.sans],
       },
     },
   },
