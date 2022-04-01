@@ -13,7 +13,7 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
   // src: './src',
   dist: '../../dist/apps/krew-website',
   public: './public', // A folder of static files Astro will copy to the root. Useful for favicons, images, and other files that don’t need processing.
-  renderers: [],
+  integrations: [],
   vite: {
     plugins: [],
     builds: {
