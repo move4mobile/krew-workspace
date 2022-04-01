@@ -1,3 +1,5 @@
 ## Krew App based on Angular and Tailwind
 
-Using NGRX for state management
+Using [@ngrx/component-store](https://ngrx.io/guide/component-store) for state management.
+
+Try out: With facade

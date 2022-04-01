@@ -1,19 +1,14 @@
-/**
- * @param {string} varName
- * @returns method used in tailwind config for creating custom colors with opacity
- */
+const { createGlobPatternsForDependencies } = require('@nrwl/angular/tailwind');
+const { join } = require('path');
+
 const withOpacity =
   varName =>
   ({ opacityValue }) =>
     `rgba(var(${varName}), ${opacityValue || 1})`;
 
 module.exports = {
-  mode: 'jit',
-  purge: {
-    enabled: true,
-    content: ['apps/krew-ui-angular/**/*.{html,ts}', 'libs/krew-angular/**/*.{html,ts}'],
-  },
-  darkMode: 'media',
+  content: [join(__dirname, 'src/**/!(*.stories|*.spec).{ts,html}'), ...createGlobPatternsForDependencies(__dirname)],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -33,9 +28,6 @@ module.exports = {
         'gray-block-bg': 'var(--gray-block-bg)',
       },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 };
