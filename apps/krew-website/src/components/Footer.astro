@@ -18,4 +18,4 @@
   </div>
 </footer>
 
-<script src={Astro.resolve("../scripts/script.js")}></script>
+<script type="module" src={(await import("../scripts/script.js?url")).default}></script>
