@@ -26,7 +26,10 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "proxy": "node tools/proxy/proxy.js"
+    "proxy": "node tools/proxy/proxy.js",
+    "lint-all": "nx run-many --target lint --all --parallel 3",
+    "test-all": "nx run-many --target test --all --parallel 3",
+    "build-all": "nx run-many --target build --all --parallel 3"
   },
   "private": true,
   "dependencies": {
