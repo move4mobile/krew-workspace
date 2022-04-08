@@ -101,7 +101,7 @@
     "@semantic-release/npm": "^9.0.1",
     "@semantic-release/release-notes-generator": "^10.0.3",
     "@testing-library/react": "13.0.0",
-    "@testing-library/svelte": "^3.0.3",
+    "@testing-library/svelte": "^3.1.1",
     "@tsconfig/svelte": "^3.0.0",
     "@types/cache-manager": "^3.4.3",
     "@types/dotenv": "^8.2.0",
