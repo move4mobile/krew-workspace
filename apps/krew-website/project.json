@@ -4,38 +4,13 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "cwd": "apps/krew-website",
-        "commands": [
-          {
-            "command": "npx rimraf ../../dist/apps/krew-website"
-          },
-          {
-            "command": "npx astro build"
-          }
-        ]
-      },
-      "configurations": {
-        "production": {
-          "dev": false
-        },
-        "development": {
-          "dev": true
-        }
-      },
-      "defaultConfiguration": "production"
+      "outputs": ["dist/apps/krew-website"],
+      "executor": "@nxtensions/astro:build",
+      "options": {}
     },
     "serve": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "cwd": "apps/krew-website",
-        "commands": [
-          {
-            "command": "npx astro dev"
-          }
-        ]
-      }
+      "executor": "@nxtensions/astro:dev",
+      "options": {}
     },
     "lint": {
       "executor": "@nrwl/workspace:run-commands",
