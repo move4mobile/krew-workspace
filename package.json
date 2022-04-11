@@ -135,7 +135,7 @@
     "husky": "^6.0.0",
     "jest": "27.5.1",
     "jest-preset-angular": "11.1.1",
-    "nx": "13.10.0",
+    "nx": "13.10.1",
     "postcss": "^8.4.7",
     "prettier": "2.6.2",
     "rimraf": "^3.0.2",
