@@ -12,9 +12,13 @@ updates:
     labels:
       - 'dependencies'
     ignore:
+      - dependency-name: 'nx'
+        # For nx package, ignore all new major version > 14
+        versions: ['>14.x']
+
       - dependency-name: '@nrwl/*'
-        # For @nrwl packages, ignore all new major version > 13
-        versions: ['>13.x']
+        # For @nrwl packages, ignore all new major version > 14
+        versions: ['>14.x']
 
       - dependency-name: '@angular/*'
         # For @angular packages, ignore all new major version > 13
