@@ -58,7 +58,7 @@
     "luxon": "^2.3.2",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "react-is": "18.0.0",
+    "react-is": "18.1.0",
     "react-router-dom": "6.3.0",
     "react-test-renderer": "18.0.0",
     "reflect-metadata": "^0.1.13",
