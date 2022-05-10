@@ -60,7 +60,7 @@
     "react-dom": "18.1.0",
     "react-is": "18.1.0",
     "react-router-dom": "6.3.0",
-    "react-test-renderer": "18.0.0",
+    "react-test-renderer": "18.1.0",
     "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "0.13.9",
     "rxjs": "^7.5.4",
