@@ -132,7 +132,7 @@
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.5.0",
     "eslint-plugin-svelte3": "^4.0.0",
-    "husky": "^6.0.0",
+    "husky": "^8.0.1",
     "jest": "27.5.1",
     "jest-preset-angular": "11.1.2",
     "nx": "14.1.4",
