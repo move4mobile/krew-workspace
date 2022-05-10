@@ -118,7 +118,7 @@
     "@typescript-eslint/eslint-plugin": "5.23.0",
     "@typescript-eslint/parser": "5.18.0",
     "astro": "^0.26.1",
-    "autoprefixer": "^10.4.2",
+    "autoprefixer": "^10.4.7",
     "babel-jest": "28.1.0",
     "cors-anywhere": "^0.4.4",
     "cypress": "^8.7.0",
