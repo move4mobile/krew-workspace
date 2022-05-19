@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'krew-angular-feature-shell',
-  preset: '../../../jest.preset.js',
+  displayName: 'shared-environments',
+
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -14,10 +14,11 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../coverage/libs/krew-angular/feature-shell',
+  coverageDirectory: '../../../coverage/libs/shared/environments',
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',
     'jest-preset-angular/build/serializers/html-comment',
   ],
+  preset: '../../../jest.preset.ts',
 };

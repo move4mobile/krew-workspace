@@ -91,7 +91,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/krew-ui-angular"],
       "options": {
-        "jestConfig": "apps/krew-ui-angular/jest.config.js",
+        "jestConfig": "apps/krew-ui-angular/jest.config.ts",
         "passWithNoTests": true
       }
     }
