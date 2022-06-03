@@ -1,5 +1,4 @@
 {
-  "root": "apps/krew-website",
   "sourceRoot": "apps/krew-website/src",
   "projectType": "application",
   "targets": {

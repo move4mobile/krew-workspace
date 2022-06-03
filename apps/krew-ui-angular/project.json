@@ -1,6 +1,5 @@
 {
   "projectType": "application",
-  "root": "apps/krew-ui-angular",
   "sourceRoot": "apps/krew-ui-angular/src",
   "prefix": "krew",
   "targets": {

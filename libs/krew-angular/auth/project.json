@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/krew-angular/auth",
   "sourceRoot": "libs/krew-angular/auth/src",
   "prefix": "krew",
   "targets": {
