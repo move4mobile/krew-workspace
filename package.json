@@ -119,7 +119,7 @@
     "@typescript-eslint/parser": "5.18.0",
     "astro": "^0.26.1",
     "autoprefixer": "^10.4.7",
-    "babel-jest": "28.1.0",
+    "babel-jest": "28.1.1",
     "cors-anywhere": "^0.4.4",
     "cypress": "^8.7.0",
     "cz-conventional-changelog": "^3.3.0",
