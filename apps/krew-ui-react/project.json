@@ -1,5 +1,4 @@
 {
-  "root": "apps/krew-ui-react",
   "sourceRoot": "apps/krew-ui-react/src",
   "projectType": "application",
   "targets": {

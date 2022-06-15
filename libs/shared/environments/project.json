@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/shared/environments",
   "sourceRoot": "libs/shared/environments/src",
   "prefix": "krew",
   "targets": {

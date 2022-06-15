@@ -1,5 +1,4 @@
 {
-  "root": "apps/krew-ui-svelte",
   "sourceRoot": "apps/krew-ui-svelte/src",
   "projectType": "application",
   "targets": {
