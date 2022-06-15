@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   displayName: 'krew-ui-react',
 
   transform: {
@@ -7,5 +7,5 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/apps/krew-ui-react',
-  preset: '../../jest.preset.ts',
+  preset: '../../jest.preset.js',
 };

@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/krew-angular/feature-shell",
   "sourceRoot": "libs/krew-angular/feature-shell/src",
   "prefix": "krew",
   "targets": {
