@@ -38,7 +38,7 @@ export const ENVIRONMENT = new InjectionToken<unknown>('environment');
           children: authRoutes,
         },
       ],
-      { initialNavigation: 'enabled' }
+      { initialNavigation: 'enabledBlocking' }
     ),
     AuthModule,
   ],
