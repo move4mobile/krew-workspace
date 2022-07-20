@@ -5,12 +5,10 @@
   export let name: string;
 
   export let url = '';
-
 </script>
 
 <main>
-  <h1>Welcome to {name}!</h1>
-
+  <h1>Welcome {name}!</h1>
   <Router {url}>
     <nav>
       <Link to="/">Home</Link>

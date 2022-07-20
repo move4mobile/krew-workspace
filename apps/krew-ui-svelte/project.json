@@ -2,19 +2,23 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/krew-ui-svelte/src",
   "projectType": "application",
+  "tags": [],
+  "implicitDependencies": [
+    "shared-assets"
+  ],
   "targets": {
     "build": {
-      "executor": "@nxext/svelte:build",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nxext/vite:build",
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
+        "frameworkConfigFile": "@nxext/svelte/plugins/vite",
         "outputPath": "dist/apps/krew-ui-svelte",
-        "entryFile": "apps/krew-ui-svelte/src/main.ts",
-        "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
-        "svelteConfig": "apps/krew-ui-svelte/svelte.config.cjs",
         "assets": [
           {
             "glob": "/*",
-            "input": "apps/krew-ui-svelte/public/**",
+            "input": "./public/**",
             "output": "./"
           },
           {
@@ -22,58 +26,45 @@
             "input": "libs/shared/assets/src/assets",
             "output": "assets"
           }
-        ]
+        ],
+        "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json"
       },
       "configurations": {
         "production": {
-          "dev": false,
           "fileReplacements": [
             {
               "replace": "libs/shared/environments/src/lib/environment.ts",
               "with": "libs/shared/environments/src/lib/environment.prod.ts"
             }
           ]
-        },
-        "development": {
-          "dev": true
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "serve": {
-      "executor": "@nxext/svelte:build",
-      "configurations": {
-        "production": {
-          "browserTarget": "krew-ui-svelte:build:production"
-        },
-        "development": {
-          "browserTarget": "krew-ui-svelte:build:development"
-        }
-      },
+      "executor": "@nxext/vite:dev",
       "options": {
-        "port": 4403,
+        "frameworkConfigFile": "@nxext/svelte/plugins/vite",
         "outputPath": "dist/apps/krew-ui-svelte",
-        "entryFile": "apps/krew-ui-svelte/src/main.ts",
-        "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json",
-        "svelteConfig": "apps/krew-ui-svelte/svelte.config.cjs",
         "assets": [
           {
             "glob": "/*",
-            "input": "apps/krew-ui-svelte/public/**",
+            "input": "./public/**",
             "output": "./"
           }
         ],
-        "watch": true,
-        "serve": true
-      },
-      "defaultConfiguration": "development"
+        "tsConfig": "apps/krew-ui-svelte/tsconfig.app.json"
+      }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/krew-ui-svelte/**/*.{ts,svelte,spec.ts}"]
-      },
-      "outputs": ["{options.outputFile}"]
+        "lintFilePatterns": [
+          "apps/krew-ui-svelte/**/*.{ts,svelte,spec.ts}"
+        ]
+      }
     },
     "check": {
       "executor": "@nrwl/workspace:run-commands",
@@ -82,7 +73,5 @@
         "cwd": "apps/krew-ui-svelte"
       }
     }
-  },
-  "tags": [],
-  "implicitDependencies": ["shared-assets"]
+  }
 }
