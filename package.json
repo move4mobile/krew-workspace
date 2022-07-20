@@ -115,7 +115,7 @@
     "@types/react": "18.0.8",
     "@types/react-dom": "18.0.3",
     "@types/react-router-dom": "5.3.3",
-    "@typescript-eslint/eslint-plugin": "5.28.0",
+    "@typescript-eslint/eslint-plugin": "5.30.7",
     "@typescript-eslint/parser": "5.18.0",
     "@astrojs/tailwind": "^0.2.1",
     "astro": "^1.0.0-beta.73",
