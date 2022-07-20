@@ -7,7 +7,7 @@ module.exports = {
     {
       files: ['*.ts', '*.js', '*.svelte'],
       parserOptions: {
-        project: ['apps/krew-ui-svelte-2/tsconfig.*?.json'],
+        project: ['apps/krew-ui-svelte/tsconfig.*?.json'],
       },
       rules: {},
     },
