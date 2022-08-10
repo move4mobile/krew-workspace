@@ -143,7 +143,7 @@
     "prettier": "2.7.1",
     "rimraf": "^3.0.2",
     "rollup-plugin-local-resolve": "^1.0.7",
-    "sass": "^1.54.3",
+    "sass": "^1.54.4",
     "svelte": "^3.49.0",
     "svelte-check": "^2.8.0",
     "svelte-jester": "^2.3.2",
