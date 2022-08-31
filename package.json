@@ -126,7 +126,7 @@
     "cors-anywhere": "^0.4.4",
     "cypress": "^8.7.0",
     "cz-conventional-changelog": "^3.3.0",
-    "dotenv": "16.0.1",
+    "dotenv": "16.0.2",
     "eslint": "8.22.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
