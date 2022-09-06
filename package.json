@@ -144,7 +144,7 @@
     "rimraf": "^3.0.2",
     "rollup-plugin-local-resolve": "^1.0.7",
     "sass": "^1.54.8",
-    "svelte": "^3.49.0",
+    "svelte": "^3.50.0",
     "svelte-check": "^2.9.0",
     "svelte-jester": "^2.3.2",
     "svelte-preprocess": "^4.10.7",
