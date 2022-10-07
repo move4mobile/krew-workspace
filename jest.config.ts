@@ -6,5 +6,6 @@ export default {
     '<rootDir>/libs/shared/assets',
     '<rootDir>/libs/shared/environments',
     '<rootDir>/libs/api-client',
+    '<rootDir>/apps/api-gateway',
   ],
 };
