@@ -3,15 +3,11 @@
   "sourceRoot": "apps/krew-ui-svelte/src",
   "projectType": "application",
   "tags": [],
-  "implicitDependencies": [
-    "shared-assets"
-  ],
+  "implicitDependencies": ["shared-assets"],
   "targets": {
     "build": {
       "executor": "@nxext/vite:build",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "frameworkConfigFile": "@nxext/svelte/plugins/vite",
         "outputPath": "dist/apps/krew-ui-svelte",
@@ -57,17 +53,13 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/krew-ui-svelte/**/*.{ts,svelte,spec.ts}"
-        ]
+        "lintFilePatterns": ["apps/krew-ui-svelte/**/*.{ts,svelte,spec.ts}"]
       }
     },
     "check": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "svelte-check",
         "cwd": "apps/krew-ui-svelte"
