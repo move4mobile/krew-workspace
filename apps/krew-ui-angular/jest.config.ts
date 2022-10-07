@@ -1,6 +1,7 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'krew-ui-angular',
-  preset: '../../jest.preset.js',
+
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -18,4 +19,5 @@ module.exports = {
     'jest-preset-angular/build/serializers/ng-snapshot',
     'jest-preset-angular/build/serializers/html-comment',
   ],
+  preset: '../../jest.preset.js',
 };

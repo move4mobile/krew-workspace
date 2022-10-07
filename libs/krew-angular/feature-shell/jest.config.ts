@@ -1,6 +1,7 @@
-module.exports = {
-  displayName: 'shared-environments',
-  preset: '../../../jest.preset.js',
+/* eslint-disable */
+export default {
+  displayName: 'krew-angular-feature-shell',
+
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -14,10 +15,11 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../coverage/libs/shared/environments',
+  coverageDirectory: '../../../coverage/libs/krew-angular/feature-shell',
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',
     'jest-preset-angular/build/serializers/html-comment',
   ],
+  preset: '../../../jest.preset.js',
 };

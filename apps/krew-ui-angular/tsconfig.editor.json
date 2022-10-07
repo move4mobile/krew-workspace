@@ -6,5 +6,6 @@
   },
   "angularCompilerOptions": {
     "strictTemplates": true
-  }
+  },
+  "exclude": ["jest.config.ts"]
 }

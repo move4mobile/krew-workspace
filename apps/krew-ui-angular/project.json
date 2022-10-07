@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/krew-ui-angular",
   "sourceRoot": "apps/krew-ui-angular/src",
   "prefix": "krew",
   "targets": {
@@ -91,7 +91,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/krew-ui-angular"],
       "options": {
-        "jestConfig": "apps/krew-ui-angular/jest.config.js",
+        "jestConfig": "apps/krew-ui-angular/jest.config.ts",
         "passWithNoTests": true
       }
     }

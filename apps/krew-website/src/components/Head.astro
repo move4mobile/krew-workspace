@@ -23,4 +23,7 @@ const { title, description, permalink, canonical } = Astro.props;
 
 <link rel="canonical" href="{canonical}">
 
-<link rel="stylesheet" type="text/css" href={Astro.resolve("../styles/global.css")}>
+<style is:global>
+  @import "../styles/global.css";
+</style>
+

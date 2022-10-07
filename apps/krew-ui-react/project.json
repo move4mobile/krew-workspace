@@ -1,10 +1,10 @@
 {
-  "root": "apps/krew-ui-react",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/krew-ui-react/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/web:webpack",
+      "executor": "@nrwl/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/krew-ui-react",
@@ -47,11 +47,18 @@
               "maximumError": "5mb"
             }
           ]
+        },
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
         }
-      }
+      },
+      "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nrwl/web:dev-server",
+      "executor": "@nrwl/webpack:dev-server",
       "options": {
         "buildTarget": "krew-ui-react:build",
         "port": 4402
@@ -59,8 +66,12 @@
       "configurations": {
         "production": {
           "buildTarget": "krew-ui-react:build:production"
+        },
+        "development": {
+          "buildTarget": "krew-ui-react:build:development"
         }
-      }
+      },
+      "defaultConfiguration": "development"
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
@@ -73,7 +84,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/krew-ui-react"],
       "options": {
-        "jestConfig": "apps/krew-ui-react/jest.config.js",
+        "jestConfig": "apps/krew-ui-react/jest.config.ts",
         "passWithNoTests": true
       }
     }

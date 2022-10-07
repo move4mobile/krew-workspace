@@ -23,9 +23,6 @@
       }
     }
   },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
   "defaultProject": "krew-ui-angular",
   "generators": {
     "@nrwl/angular": {
@@ -46,7 +43,6 @@
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
-      "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest",
       "strict": true
@@ -68,5 +64,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "$schema": "./node_modules/nx/schemas/nx-schema.json"
 }
