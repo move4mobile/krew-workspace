@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default {
   displayName: 'krew-angular-feature-shell',
 
