@@ -158,6 +158,10 @@
   "overrides": {
     "@nxext/svelte": {
       "vite": "^3.0.0"
+    },
+    "ts-jest": {
+      "jest": "$jest",
+      "babel-jest": "$babel-jest"
     }
   },
   "config": {
