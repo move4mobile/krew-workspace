@@ -1,13 +1,12 @@
-import { Module } from '@nestjs/common';
 import { HttpModule } from '@nestjs/axios';
+import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { AuthController } from './controllers/auth.controller';
-import { NewsController } from './controllers/news.controller';
-import { DataService, GatewaySettingsService, KrewApiService } from './core/services';
 import { FirebaseAuthStrategy } from './core/strategies/firebase-auth.strategy';
+import { AuthController, NewsController } from './controllers';
 import { configuration } from './core/config/configuration';
 import { validationSchema } from './core/config/validation';
+import { AuthService, DataService, GatewaySettingsService, KrewApiService } from './core/services';
 
 @Module({
   imports: [
@@ -19,6 +18,6 @@ import { validationSchema } from './core/config/validation';
     }),
   ],
   controllers: [AuthController, NewsController],
-  providers: [FirebaseAuthStrategy, DataService, GatewaySettingsService, KrewApiService],
+  providers: [FirebaseAuthStrategy, AuthService, DataService, GatewaySettingsService, KrewApiService],
 })
 export class AppModule {}
