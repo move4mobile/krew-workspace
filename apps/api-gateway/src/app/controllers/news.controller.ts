@@ -1,12 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
-import { NewsService } from '../core/services';
+import { KrewApiService } from '../core/services';
 
 @Controller('news')
 export class NewsController {
-  constructor(private readonly newsService: NewsService) {}
+  constructor(private readonly krewApiService: KrewApiService) {}
 
   @Get('')
   async getAll() {
-    return this.newsService.all();
+    return this.krewApiService.getNews();
   }
 }

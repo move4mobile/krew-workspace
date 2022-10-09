@@ -4,7 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 
 import { AuthController } from './controllers/auth.controller';
 import { NewsController } from './controllers/news.controller';
-import { DataService, GatewaySettingsService, NewsService } from './core/services';
+import { DataService, GatewaySettingsService, KrewApiService } from './core/services';
 import { FirebaseAuthStrategy } from './core/strategies/firebase-auth.strategy';
 import { configuration } from './core/config/configuration';
 import { validationSchema } from './core/config/validation';
@@ -19,6 +19,6 @@ import { validationSchema } from './core/config/validation';
     }),
   ],
   controllers: [AuthController, NewsController],
-  providers: [FirebaseAuthStrategy, DataService, GatewaySettingsService, NewsService],
+  providers: [FirebaseAuthStrategy, DataService, GatewaySettingsService, KrewApiService],
 })
 export class AppModule {}
