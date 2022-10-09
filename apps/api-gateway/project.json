@@ -54,6 +54,23 @@
         "jestConfig": "apps/api-gateway/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "dockerize": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker build -f ./apps/api-gateway/server/Dockerfile . -t krew-api-gateway"
+      },
+      "parallel": false
+    },
+    "docker-push": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "if [ {args.projectId} = \"undefined\" ]; then echo \"provide project arg\"; else docker tag krew-api-gateway gcr.io/{args.projectId}/api-gateway; fi ",
+          "if [ {args.projectId} = \"undefined\" ]; then echo \"provide project arg\"; else docker push gcr.io/{args.projectId}/api-gateway; fi "
+        ]
+      },
+      "parallel": false
     }
   },
   "tags": []

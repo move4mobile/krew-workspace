@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { GatewaySettingsService } from '.';
 import { ConfigService } from '@nestjs/config';
-import { createKrewClient, IKrewClient } from '@krew/api-client';
+import { createKrewClient, IKrewClient, NewsItem } from '@krew/api-client';
 
 @Injectable()
 export class KrewApiService {
@@ -14,7 +14,7 @@ export class KrewApiService {
     this.krewClient = createKrewClient({ sandbox: false, storageMode: 'MEMORY' });
   }
 
-  async getNews() {
+  async getNews(): Promise<NewsItem[]> {
     this.krewClient.news().setAccessToken(await this.getApiKey());
 
     return this.krewClient.news().all();
