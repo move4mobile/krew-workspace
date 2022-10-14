@@ -62,7 +62,7 @@
     "react-router-dom": "6.4.2",
     "react-test-renderer": "18.2.0",
     "reflect-metadata": "^0.1.13",
-    "regenerator-runtime": "0.13.9",
+    "regenerator-runtime": "0.13.10",
     "rxjs": "~7.5.0",
     "svelte-routing": "^1.6.0",
     "tslib": "^2.4.0",
