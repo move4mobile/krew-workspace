@@ -1,11 +1,12 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'krew-ui-react',
 
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',
-    '^.+\\.[tj]sx?$': 'babel-jest',
+    '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nrwl/react/babel'] }],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/apps/krew-ui-react',
-  preset: '../../jest.preset.ts',
+  preset: '../../jest.preset.js',
 };

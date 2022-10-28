@@ -10,5 +10,6 @@
     "krew-website": "apps/krew-website",
     "shared-assets": "libs/shared/assets",
     "shared-environments": "libs/shared/environments"
-  }
+  },
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }
