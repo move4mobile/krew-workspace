@@ -114,7 +114,7 @@
     "@types/jest": "28.1.8",
     "@types/luxon": "^3.0.1",
     "@types/node": "18.11.7",
-    "@types/react": "18.0.23",
+    "@types/react": "18.0.24",
     "@types/react-dom": "18.0.6",
     "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "5.39.0",
