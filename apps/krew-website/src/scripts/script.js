@@ -45,7 +45,6 @@ const scrollToTop = (startTime, currentTime, duration, windowScrollY) => {
 back2Top.addEventListener('click', (e) => {
   e.preventDefault();
   const htmlEl = document.querySelector('html');
-  htmlEl.style.scrollBehavior = 'smooth';
   if (getComputedStyle(htmlEl).scrollBehavior) {
     window.scroll({ top: 0, left: 0 });
   } else {
