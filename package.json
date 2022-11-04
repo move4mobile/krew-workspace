@@ -76,7 +76,7 @@
     "@angular/cli": "~14.2.0",
     "@angular/compiler-cli": "14.2.5",
     "@angular/language-service": "14.2.5",
-    "@astrojs/tailwind": "^2.1.1",
+    "@astrojs/tailwind": "^2.1.2",
     "@babel/core": "7.19.6",
     "@babel/preset-env": "7.19.4",
     "@babel/preset-react": "7.18.6",
