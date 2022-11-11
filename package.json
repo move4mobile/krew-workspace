@@ -158,6 +158,9 @@
   "overrides": {
     "@nxext/svelte": {
       "vite": "^3.0.0"
+    },
+    "@nxext/vite": {
+      "@nrwl/workspace": "$@nrwl/workspace"
     }
   },
   "config": {
