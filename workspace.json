@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "api-client": "libs/api-client",
+    "api-gateway": "apps/api-gateway",
     "krew-angular-auth": "libs/krew-angular/auth",
     "krew-angular-feature-shell": "libs/krew-angular/feature-shell",
     "krew-ui-angular": "apps/krew-ui-angular",

@@ -31,6 +31,10 @@ export abstract class BaseService {
     }
   }
 
+  public setAccessToken(accessToken: string) {
+    this.#accessToken = accessToken;
+  }
+
   // NOTE: we can replace this with 'fetch' or `axios`?
   protected request<T>(Model: any, endpoint: string, options?: RequestInit): Promise<T> {
     const url = this.#basePath + endpoint;
@@ -110,6 +114,9 @@ export abstract class BaseService {
   }
 
   protected getAccessToken(): string | null {
+    if (this.#storagemode === 'MEMORY') {
+      return this.#accessToken;
+    }
     return localStorage.getItem(ACCESS_TOKEN_KEY);
   }
 
