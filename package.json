@@ -63,7 +63,7 @@
     "react-test-renderer": "18.2.0",
     "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "0.13.11",
-    "rxjs": "~7.5.0",
+    "rxjs": "~7.6.0",
     "svelte-routing": "^1.6.0",
     "tslib": "^2.4.1",
     "zone.js": "0.11.8"
