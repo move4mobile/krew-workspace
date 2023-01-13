@@ -118,7 +118,7 @@
     "@types/react-dom": "18.0.10",
     "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "5.48.1",
-    "@typescript-eslint/parser": "5.46.1",
+    "@typescript-eslint/parser": "5.48.1",
     "astro": "^1.9.2",
     "autoprefixer": "10.4.13",
     "babel-jest": "^28.1.3",
