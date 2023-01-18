@@ -142,7 +142,7 @@
     "nx": "14.8.3",
     "postcss": "8.4.20",
     "prettier": "2.8.1",
-    "rimraf": "^3.0.2",
+    "rimraf": "^4.1.1",
     "rollup-plugin-local-resolve": "^1.0.7",
     "sass": "^1.57.1",
     "svelte": "^3.55.0",
