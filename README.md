@@ -30,7 +30,7 @@ cd krew-workspace
 npm install
 ```
 
-Advised to use Node version 14 (or higher).
+Advised to use Node version 18 (or higher).
 
 - Run application locally on your computer
 
