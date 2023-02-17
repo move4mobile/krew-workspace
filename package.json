@@ -71,7 +71,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "14.2.9",
     "@angular-eslint/eslint-plugin": "15.2.0",
-    "@angular-eslint/eslint-plugin-template": "15.2.0",
+    "@angular-eslint/eslint-plugin-template": "15.2.1",
     "@angular-eslint/template-parser": "15.2.0",
     "@angular/cli": "~14.2.0",
     "@angular/compiler-cli": "14.2.5",
