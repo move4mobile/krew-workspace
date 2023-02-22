@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [18]
         app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react', 'krew-website']
     steps:
       - name: Checkout code
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [18]
         app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react', 'krew-website']
     env:
       PREVIEW_ID: ${{ matrix.app }}-PR-${{github.event.number}}
@@ -121,7 +121,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [18]
         app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react', 'krew-website']
     environment:
       name: Test
@@ -163,7 +163,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [18]
     environment:
       name: Production
     steps:
@@ -222,7 +222,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [18]
         app: ['krew-ui-angular', 'krew-ui-svelte', 'krew-ui-react', 'krew-website']
     environment:
       name: Production
