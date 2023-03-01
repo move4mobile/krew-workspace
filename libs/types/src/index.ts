@@ -1,1 +1,2 @@
-export * from './lib/types';
+// Export generated
+export * from './generated/model/models';
