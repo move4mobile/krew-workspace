@@ -13,6 +13,6 @@ import { CreateWorklogLockParameters } from './createWorklogLockParameters';
 
 
 export interface BatchCreateWorklogLockParameters { 
-    ?: Array<CreateWorklogLockParameters>;
+    invalid?: Array<CreateWorklogLockParameters>;
 }
 

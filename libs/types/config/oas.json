@@ -10260,7 +10260,7 @@
             },
             "BatchCreateWorklogLockParameters": {
                 "properties": {
-                    "": {
+                    "invalid": {
                         "type": "array",
                         "items": {
                             "$ref": "#\/components\/schemas\/CreateWorklogLockParameters"
