@@ -105,7 +105,7 @@
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^10.0.2",
     "@semantic-release/release-notes-generator": "^10.0.3",
-    "@sveltejs/vite-plugin-svelte": "^1.4.0",
+    "@sveltejs/vite-plugin-svelte": "^2.0.4",
     "@testing-library/react": "14.0.0",
     "@testing-library/svelte": "^3.2.2",
     "@tsconfig/svelte": "^3.0.0",
