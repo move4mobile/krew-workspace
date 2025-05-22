@@ -18,7 +18,8 @@
       "@krew/api-client": ["libs/api-client/src/index.ts"],
       "@krew/environments": ["libs/shared/environments/src/index.ts"],
       "@krew/krew-angular/auth": ["libs/krew-angular/auth/src/index.ts"],
-      "@krew/krew-angular/feature-shell": ["libs/krew-angular/feature-shell/src/index.ts"]
+      "@krew/krew-angular/feature-shell": ["libs/krew-angular/feature-shell/src/index.ts"],
+      "@move/types": ["libs/types/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

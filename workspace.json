@@ -9,7 +9,8 @@
     "krew-ui-svelte": "apps/krew-ui-svelte",
     "krew-website": "apps/krew-website",
     "shared-assets": "libs/shared/assets",
-    "shared-environments": "libs/shared/environments"
+    "shared-environments": "libs/shared/environments",
+    "types": "libs/types"
   },
   "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }
